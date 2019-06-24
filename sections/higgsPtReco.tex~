@@ -1,0 +1,13 @@
+Several layers of MVAs are used in the reconstruction of the Higgs momentum spectrum. The first layer is a boosted decision-tree algorithm designed to select which jets are most likely to be the b-jets that came from the top decay. These jets are reconstructed by the detector a large fraction of the time
+
+\subsection{Truth Level Reconstruction}
+\label{sec:truthLevelReco}
+
+\subsection{b-jet Identification}
+\label{sec:bjetID}
+
+\subsection{Higgs Reconstruction}
+\label{sec:higgsID}
+
+\subsection{$p_T$ Prediction}
+\label{sec:ptReco}
