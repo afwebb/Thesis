@@ -1,0 +1,291 @@
+%-------------------------------------------------------------------------------
+% This file provides a skeleton ATLAS note.
+% \pdfinclusioncopyfonts=1
+% This command may be needed in order to get \ell in PDF plots to appear. Found in
+% https://tex.stackexchange.com/questions/322010/pdflatex-glyph-undefined-symbols-disappear-from-included-pdf
+%-------------------------------------------------------------------------------
+% Specify where ATLAS LaTeX style files can be found.
+\newcommand*{\ATLASLATEXPATH}{latex/}
+% Use this variant if the files are in a central location, e.g. $HOME/texmf.
+% \newcommand*{\ATLASLATEXPATH}{}
+%-------------------------------------------------------------------------------
+\documentclass[NOTE, atlasdraft=true, texlive=2016, UKenglish]{\ATLASLATEXPATH atlasdoc}
+\usepackage{float}
+\usepackage{euler}\usepackage{pgf}
+\usepackage{subcaption}
+\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{pdflscape}
+% The language of the document must be set: usually UKenglish or USenglish.
+% british and american also work!
+% Commonly used options:
+%  atlasdraft=true|false This document is an ATLAS draft.
+%  texlive=YYYY          Specify TeX Live version (2016 is default).
+%  coverpage             Create ATLAS draft cover page for collaboration circulation.
+%                        See atlas-draft-cover.tex for a list of variables that should be defined.
+%  cernpreprint          Create front page for a CERN preprint.
+%                        See atlas-preprint-cover.tex for a list of variables that should be defined.
+%  NOTE                  The document is an ATLAS note (draft).
+%  PAPER                 The document is an ATLAS paper (draft).
+%  CONF                  The document is a CONF note (draft).
+%  PUB                   The document is a PUB note (draft).
+%  BOOK                  The document is of book form, like an LOI or TDR (draft)
+%  txfonts=true|false    Use txfonts rather than the default newtx
+%  paper=a4|letter       Set paper size to A4 (default) or letter.
+
+%-------------------------------------------------------------------------------
+% Extra packages:
+\usepackage{\ATLASLATEXPATH atlaspackage}
+% Commonly used options:
+%  biblatex=true|false   Use biblatex (default) or bibtex for the bibliography.
+%  backend=bibtex        Use the bibtex backend rather than biber.
+%  subfigure|subfig|subcaption  to use one of these packages for figures in figures.
+%  minimal               Minimal set of packages.
+%  default               Standard set of packages.
+%  full                  Full set of packages.
+%-------------------------------------------------------------------------------
+% Style file with biblatex options for ATLAS documents.
+\usepackage{\ATLASLATEXPATH atlasbiblatex}
+
+% Package for creating list of authors and contributors to the analysis.
+\usepackage{\ATLASLATEXPATH atlascontribute}
+
+% Useful macros
+\usepackage{\ATLASLATEXPATH atlasphysics}
+% See doc/atlas_physics.pdf for a list of the defined symbols.
+% Default options are:
+%   true:  journal, misc, particle, unit, xref
+%   false: BSM, heppparticle, hepprocess, hion, jetetmiss, math, process, other, texmf
+% See the package for details on the options.
+
+% Files with references for use with biblatex.
+% Note that biber gives an error if it finds empty bib files.
+\addbibresource{higgsDiffNote.bib}
+\addbibresource{bib/ATLAS.bib}
+\addbibresource{bib/CMS.bib}
+\addbibresource{bib/ConfNotes.bib}
+\addbibresource{bib/PubNotes.bib}
+
+% Paths for figures - do not forget the / at the end of the directory name.
+\graphicspath{{logos/}{figures/}}
+
+% Add you own definitions here (file wz_heavy_flavor-defs.sty).
+\usepackage{higgsDiffNote-defs}
+
+%-------------------------------------------------------------------------------
+% Generic document information
+%-------------------------------------------------------------------------------
+
+% Title, abstract and document 
+\input{higgsDiffNote-metadata}
+% Author and title for the PDF file
+\hypersetup{pdftitle={ATLAS document},pdfauthor={The ATLAS Collaboration}}
+
+%-------------------------------------------------------------------------------
+% Content
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+% List of contributors - print here or after the Bibliography.
+%\PrintAtlasContribute{0.30}
+\clearpage
+
+%-------------------------------------------------------------------------------
+\part{Introduction}
+
+\section{Introduction}
+\label{sec:intro}
+%-------------------------------------------------------------------------------
+
+Several theories of physics Beyond the Standard Model (BSM) predict a Higgs momentum spectrum that differs from the SM, without significantly altering the rate of $t\bar{t}H$ production. These include a CP-odd Higgs Boson, and six-dimensional operators. 
+
+The major challenge faced by each of the various $t\bar{t}H-ML$ channels in reconstructing the Higgs Boson momentum is the presence of multiple source of $E_T^{miss}$. For both channels considered, the final state includes at least two neutrinos, one originating from the Higgs decay, another from the top quarks. This means there is inherently insufficient information to fully reconstruct the Higgs. Therefore, multiple machine learning algorithms, including both boosted decision trees (BDT) created in XGBoost \ref{xgboost} and deep neural networks (dNN) created using PyTorch are employed to first identify the decay products of the Higgs and then, based on the kinematics of those decay products, predict the transverse momentum of the Higgs.
+
+%-------------------------------------------------------------------------------
+\part{Theoretical Motivation}
+\label{sec:theory}
+%-------------------------------------------------------------------------------
+
+\section{The Standard Model and the Higgs Boson}
+\label{sec:sm}
+%------------------------------------------------------------------------------
+
+\section{Limitations of the Standard Model}
+\label{sec:smProblems}
+%------------------------------------------------------------------------------
+
+\section{$t\bar{t}H$ Production}
+\label{sec:tth_theory}
+%------------------------------------------------------------------------------
+
+\section{Dimension-six Operators}
+\label{sec:smProblems}
+%------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\part{The LHC and the ATLAS Detector}
+\label{part:lhcAtlas}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+
+\section{The LHC}
+\label{sec:lhc}
+%------------------------------------------------------------------------------
+
+\section{The ATLAS Detector}
+\label{sec:atlas}
+%------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\part{Search for Dimension-Six Operators}
+\label{sec:evt_selection}
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+
+The study uses a sample of proton-proton collision data collected by the ATLAS detector from 2015 through 2018 at an energy of $\sqrt{s} = 13$ TeV, which represents an integrated luminosity of 140 $fb^{-1}$. 
+
+Several different generators were used to produce Monte Carlo simulations of the signal and background processes. For all samples, the response of the ATLAS detector is simulated using Geant4. The diboson samples are simulated using Sherpa 2.2.1 \cite{sherpa}. Specific information about the Monte Carlo samples being used can be found in table 1 of \cite{ttH_paper} .
+
+
+%-------------------------------------------------------------------------------                                     
+
+%-------------------------------------------------------------------------------                                                                
+\section{Data and Monte Carlo Samples}
+\label{sec:dataMC}
+%-------------------------------------------------------------------------------   
+
+\section{Object Reconstruction}
+\label{sec:objReco}
+%------------------------------------------------------------------------------- 
+
+%------------------------------------------------------------------------------- 
+
+\section{Higgs Momentum Reconstruction}
+\label{sec:mva}
+
+The first layer is a boosted decision-tree algorithm designed to select which jets are most likely to be the b-jets that came from the top decay. These jets are reconstructed by the detector a large fraction of the time
+
+\subsection{b-jet Identification}
+
+\subsection{Higgs Reconstruction}
+
+\subsection{$p_T$ Prediction}
+
+
+%---------------------------------------------------------------------
+
+\section{Signal Region Definitions}
+\label{sec:signal_region}
+
+
+
+%-------------------------------------------------------------------------------                                                                
+\section{Fitting Procedure}
+\label{sec:fit}
+%-------------------------------------------------------------------------------                            
+
+
+
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\section{Systematic Uncertainties}
+\label{sec:sys}
+%-------------------------------------------------------------------------------
+
+The systematic uncertainties that are considered are summarized in table \ref{tab:systematics}. These are implemented in the fit either as a normalization factors or as a shape variation or both in the signal and background estimations. The numerical impact of each of these uncertainties is outlined in section \ref{sec:results}.
+
+\begin{table}[h]
+\centering
+\caption{Sources of systematic uncertainty considered in the analysis.
+Some of the systematic uncertainties are split into several components, as indicated by the number in the rightmost column.}
+\begin{tabular}{lr}
+\hline\hline
+Systematic uncertainty & Components  	      \\
+\hline
+\hline
+Luminosity	& 1		      \\
+Pileup reweighting 	& 1		      \\
+\textbf {Physics Objects}     	&		      \\
+\ \ Electron                               	& 6		      \\
+\ \ Muon	& 15		      \\
+\ \ Jet energy scale and resolution  	& 28                  \\
+\ \ Jet vertex fraction  	& 1		      \\
+\ \ Jet flavor tagging   	& 131		      \\
+\ \ $E^{miss}_T$  	& 3		      \\
+\hline
+Total (Experimental)        & 186		     \\
+\hline
+\hline
+\textbf {Background Modeling}          	&		      \\
+\ \ Cross section                 	& 24		      \\
+\ \ Renormalization and factorization scales 	& 10		      \\
+\ \ Parton shower and hadronization model       	& 2		      \\
+\ \ Shower tune				& 4		      \\
+\hline
+Total (Signal and background modeling)       & 40		     \\
+\hline\hline
+Total (Overall)                             & 226	      \\
+\hline\hline
+\end{tabular}
+\label{tab:SystSummary}
+\end{table}
+
+The uncertainty in the combined 2015+2016 integrated luminosity is derived from a calibration of the luminosity scale using x-y beam-separation scans performed in August 2015 and May 2016 \cite{lumi}.
+
+The experimental uncertainties are related to the reconstruction and identification of light leptons and
+ and b-tagging of jets, and to the reconstruction of $E^{miss}_T$. The sources which contribute to the uncertainty in the jet energy scale \cite{jes} are decomposed into uncorrelated components and treated as independent sources in the analysis. 
+
+The uncertainties in the b-tagging efficiencies measured in dedicated calibration analyses \cite{btag_cal} are also decomposed into uncorrelated components. The large number of components for b-tagging is due to the calibration of the distribution of the BDT discriminant.  
+
+The systematic uncertainties associated with the signal and background processes are accounted for by varying the cross-section of each process within its uncertainty.
+
+                                                                
+\section{Results}
+\label{sec:results}
+%-------------------------------------------------------------------------------    
+
+
+
+
+
+%------------------------------------------------------------------------------
+
+\part{Conclusion}
+\label{part:conclusion}
+
+
+
+%-------------------------------------------------------------------------------
+% If you use biblatex and either biber or bibtex to process the bibliography
+% just say \printbibliography here
+\printbibliography
+% If you want to use the traditional BibTeX you need to use the syntax below.
+%\bibliographystyle{bib/bst/atlasBibStyleWithTitle}
+%\bibliography{wz_heavy_flavor,bib,ATLAS,bib/CMS,bib/ConfNotes,bib/PubNotes}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% Print the list of contributors to the analysis
+% The argument gives the fraction of the text width used for the names
+%-------------------------------------------------------------------------------
+\clearpage
+\PrintAtlasContribute{0.30}
+
+
+%-------------------------------------------------------------------------------
+\clearpage
+\appendix
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}
+%-------------------------------------------------------------------------------
+
+\section{}
+
+\end{document}
