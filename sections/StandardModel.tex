@@ -1,1 +1,194 @@
-The Standard Model (SM) is a quantum field theory describing the 
+
+The Standard Model of particle physics (SM) is a Quantum Field Theory (QFT) describing the known fundamental particles and their interactions. It accounts for three of the four known fundamental force - electromagnetism, the weak nuclear force, and the strong nuclear force, but not gravity. Further, the SM describes a mechanism for combining the weak and electromagnetic forces into a singular interaction, known as the electroweak force. It is a non-Abelian gauge theory, invariant under the Lie Group $SU(3)_C\bigotimes SU(2)_L\bigotimes U(1)_Y$, where $C$ refers to color charge, $L$, the helicity of the particle, and $Y$, the hypercharge.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{The Forces and Particles of the Standard Model}
+\label{sec:forcesParticles}
+
+The SM particles, summarized in figure \ref{fig:SM_summary}, can be classified into two general categories based on their spin: fermions, and bosons. 
+
+\begin{figure}[!htbp]
+\centering
+   \includegraphics[width=0.75\linewidth]{figures/theory/SM_summary.eps}
+\caption{A summary of the particles of the Standard Model, including their mass, charge and spin, with the fermions listed on the left, and the bosons on the right. \cite{}}
+\label{fig:SM_summary}
+\end{figure}
+
+Fermions are particles with $\frac{1}{2}$-integer spin, which according to the spin-statistics theorem, causes them to comply with the Pauli-exclusion principle \cite{}. They can be separated into two groups, leptons and quarks, each of which consist of three generations of particles with increasing mass.
+
+Leptons are fermions interact via the electroweak force, but not the strong force. The three generation of leptons consist of the electron and electron neutrino, the muon and muon neutrino, the tau and tau neutrino. The quarks, which do interact via the strong force - which is to say they have color charge - in addition to the electroweak force. The three generations include the up and down quarks, the strange and charm quarks, and the top and bottom quarks. Each of these generations form left-handed doublets invariant under $SU(2)$ transformations. For the leptons these doublets are:
+
+\begin{equation}
+  \label{eq:lepDoublets}
+  \begin{pmatrix}
+    e^{-} \\
+    \nu_e \\
+  \end{pmatrix}_L,\:  
+  \begin{pmatrix}                                                                                                                                   \mu^{-} \\
+    \nu_\mu \\     
+  \end{pmatrix}_L,\: 
+  \begin{pmatrix}                                                                                                                             
+    \tau^{-} \\
+    \nu_\tau \\                                                    
+  \end{pmatrix}_L
+\end{equation}
+
+And for the quarks:
+
+\begin{equation}        
+  \label{eq:quarkDoublets}
+  \begin{pmatrix}                                                                                                                               
+    u \\                                                                                                                                  
+    d \\                                                                                                                                  
+  \end{pmatrix}_L,\:                                                                                                                           
+  \begin{pmatrix}                                                                                         
+    s \\                                         
+    c \\                                                                                                                             
+  \end{pmatrix}_L,\:                                                                                                                           
+  \begin{pmatrix}     
+    t \\                                                                                                                            
+    b \\                                                                                                                            
+  \end{pmatrix}_L                
+\end{equation}
+
+For both leptons and quarks, the heavier generations can decay into the lighter generation of particles, while the first generation does not decay. Hence, ordinary matter generally consists of this first generation of fermions - electrons, up quarks, and down quarks. Each of these fermions has a corresponding anti-particle, which has an equal mass as its partner but oppsite charge. The fermions acquire their mass via the Higgs Mechanism, except for the neutrinos, whose mass has been experimentally confirmed but is not accounted for in the SM. 
+
+Bosons, by contrast, have integer spin, and are therefore unconstrained by the Pauli-exclusion principle. The SM includes two kinds of bosons: Gauge bosons, which are spin-1 particles that mediate the interactions between the fermions, and a single scalar, i.e. spin-0, particle - the Higgs Boson. Of the gauge bosons, the $W^+$, $W^-$ and $Z$ bosons - which are the mass eigenstates of the electroweak bosons - mediate the weak interaction, while the photon mediates the electric force, and the gluon mediates the strong force. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{The Higgs Mechanism}
+\label{sec:higgsMech}
+
+A key feature of the SM is the gauge invariance of its Lagrangian. However, any terms added to the Lagrangian giving mass to the the gauge bosons would violate the underlying symmetry of the theory. This presents a clear problem with the theory: The experimental observation that the W and Z bosons have mass seems to contradict the basic structure of the SM. 
+
+Rather than abandoning gauge invariance, an alternative way for particles to acquire mass beyond adding a simple mass term to the Lagrangian was theorized by Higgs, Englert and Brout in 1964 \cite{}. This procedure for introducing masses for the gauge bosons while preserving local gauge invariance, known as the Higgs mechanism, was incorporated into the electroweak theory by Weinberg in 1967 \cite{}.  
+
+\subsubsection{The Higgs Field}
+\label{sec:higgsField}
+
+The Higgs mechanism introduces a complex scalar $SU(2)$ doublet, $\Phi$, with the form:
+
+\begin{equation}
+  \label{eq:phiDoublet}
+  \Phi = 
+  \begin{pmatrix}                                                                                                           
+    \phi^+ \\                                                                                                               
+    \phi^0 \\                                                                                                                            
+  \end{pmatrix}_L                                                                                                                    
+\end{equation}
+
+This field introduces a scalar potential to the Lagrangian of the form:
+
+\begin{equation}
+  \label{eq:higgsV}
+  V(\Phi) = \mu^2|\Phi^\dagger\Phi| + \lambda (|\Phi^\dagger \Phi|)^2
+\end{equation}
+
+Where $\mu$ and $\lambda$ are free parameters of the new field. This represents the most general potential allowed while preversing $SU(2)_L$ invariance and renormalizability. In the case that $\mu^2 < 0$, this potential takes the form shown in figure \ref{fig:higgspotential}.
+
+\begin{figure}[!htbp]
+\centering
+   \includegraphics[width=0.75\linewidth]{figures/theory/higgspotential.eps}
+\caption{The value of the Higgs potential, $V(\Phi)$ as a function of $\Phi$, for the case that $\mu^2 < 0$ \cite{}.}
+\label{fig:higgspotential}
+\end{figure}
+
+The significant feature of this potential is that its minimum does not occur for a value of $\Phi = 0$. Instead, it is minimized when $|\Phi^\dagger \Phi| = -\mu^2/\lambda$. This means that in its ground state, the Higgs field takes on a non-zero value - referred to as a vacuum expectation value (VEV). So while the Higgs potential is globally symmetric, about the minimum this symmetry is broken. Since the minimum is determined only by $\Phi^\dagger \Phi$, there is some ambiguity in the particular definition of the VEV, but it is generally represented as 
+
+\begin{equation}
+  \label{eq:VEV}
+  \left\langle\Phi\right\rangle = \frac{1}{\sqrt{2}}
+  \begin{pmatrix}                                                                                                                               
+    0 \\                                                                                                                                   
+    v \\                                                                                                                                   
+  \end{pmatrix}                                                                                                                       
+\end{equation}
+
+The full value of $\Phi$ can be written as 
+
+\begin{equation}                                                                                                                                
+  \label{eq:HandV}                                                                                                                                  \left\langle\Phi\right\rangle = \frac{1}{\sqrt{2}}                                                                     
+  \begin{pmatrix}                                                                                                                               
+    0 \\                                                                                                                   
+    v + H/\sqrt{2}\\                                               
+  \end{pmatrix}                                                                                                                        
+\end{equation}
+
+with $v$ being the value of the VEV, and $H$ being the real value of the scalar field. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsubsection{Electroweak Symmetry Breaking}
+\label{sec:EWKbreaking}
+
+The Electroweak (EWK) interaction is described in the SM by a $SU(2)_L\bigotimes U(1)_Y$ gauge theory. This theory predicts three $SU(2)_L$ gauge boson, $W^1_\mu$, $W^2_\mu$, $W^3_\mu$, and a single $U(1)_Y$ gauge boson, $B_\mu$. The couplings of these bosons to the Higgs field show up in the kinetic terms of the scalar field $\Phi$ in the Lagrangian:
+
+\begin{equation}
+  \label{eq:Lphi}
+  (D_\mu\Phi)^\dagger(D^\mu\Phi) = |(\partial_\mu - \frac{ig}{2}W^a_\mu\sigma^a - \frac{ig'}{2}B_\mu Y)\phi|^2
+\end{equation}
+
+Here $D_\mu$ represents the covariant derivative required to preserve gauge invariance, $g$ and $g'$ represent coupling constant of the gauge bosons, $\sigma^a$ denotes the Pauli matrices of $SU(2)$, and $Y$ represents the hypercharge of $U(1)$. The terms in this interaction which contribute to the masses of the gauge bosons can be written as:
+
+\begin{equation}
+  \label{eq:LVEV}
+  \frac{1}{2}(0,v)(\frac{g}{2}W^a_\mu\sigma^a - \frac{g'}{2}B_\mu)^2
+  \begin{pmatrix}                                                                                                                               
+    0 \\                                                                                                                                        
+    v \\                                                                                                                                        
+  \end{pmatrix}
+\end{equation}
+
+Expanding these terms into the mass eigenstates of the electroweak interaction yields four physical gauge bosons, two charged and two neutral, which are linear combinations of the fields $W^1_\mu$, $W^2_\mu$, $W^3_\mu$, and $B_\mu$:
+
+\begin{equation}
+\begin{gathered}
+  \label{eq:EWKfields}
+  W^\pm_\mu = \frac{1}{\sqrt{2}}(W^1_\mu \pm i W^2_\mu) \\
+  Z^\mu = \frac{1}{\sqrt(g^2+g'^2)}(-g'B_\mu + gW^3_\mu) \\
+  A^\mu = \frac{1}{\sqrt(g^2+g'^2)}(gB_\mu + g'W^3_\mu) \\
+\end{gathered}
+\end{equation}
+
+And the masses of these fields are given by:
+
+\begin{equation}
+\begin{gathered}
+  \label{eq:EWKmasses}
+  M^2_W = \frac{1}{4}g^2v^2 \\
+  M^2_Z = \frac{1}{4}(g^2+g'^2)v^2 \\
+  M^2_A = 0 \\
+\end{gathered}
+\end{equation}
+
+This produces exactly the particles we observe - three massive gauge bosons and a single massless photon. The massless photon represents the portion of the gauge symmetry, a single $U(1)$ of the electromagnetic force, that remains unbroken by the VEV.
+
+Interactions with the Higgs field also lead to the generation of the fermion masses, which in the Lagrangian take the form:
+
+\begin{equation}
+  \label{eq:Lfermion}
+  -\lambda_\psi (\bar{\psi}_L \phi \psi_R + \bar{\psi}_R \phi^\dagger \psi_L)
+\end{equation}
+
+After symmetry breaking has occured and $\phi$ has taken on the value of the VEV as written in equation \ref{eq:VEV}, the mass terms or the fermions become $\lambda_\psi v$. Written this way, the fermion masses are proportional to their Yukawa coupling to the VEV, $\lambda_\psi$. 
+
+Based on the equation \ref{eq:HandV}, an additional mass term, $\mu^2H^2$ arises from the potential $V(\Phi)$. This term can be understood as anexcitation of the Higgs field, a scalar boson with mass $M_H = \mu$. This is the Higgs boson, which comes about as a natural prediction of electroweak symmetry breaking. 
+
+The fermion's Yakawa coupling to the VEV take the same form as the fermion's coupling to the Higgs boson - $\lambda_\psi$. Therefore, the strength of a fermion's interaction with the Higgs is directly proportional to its mass. We now have a model that predicts a Higgs boson with mass $M_H = \mu$, which interacts with the fermions with coupling strength $\lambda_\psi$. Because $\mu$ and $\lambda_\psi$ are free parameters of the theory, the mass of the Higgs boson and its interactions with the fermions must be measured experimentally. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Limitations of the Standard Model}
+\label{sec:hierarchy}
+
+While the SM has great predictive power, there are still several experimental observation that the SM fails to explain. For example, the SM predicts neutrinos to be massless, despite experimental observation to the contrary.   
+
+\begin{figure}[!htbp]
+\centering
+   \includegraphics[width=0.5\linewidth]{figures/theory/hierarchyDiagram.eps}
+\caption{Above diagram is the leading order correction to the Higgs mass via a top quark loop, and below is the stop squark loop, coming from a \
+supersymmetric extension of the SM, that provides a potential cancellation of the top diagram \cite{}.}
+\label{fig:hierarchyDiagram}
+\end{figure}
+
+

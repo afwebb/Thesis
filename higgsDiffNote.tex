@@ -12,10 +12,16 @@
 \documentclass[NOTE, atlasdraft=true, texlive=2016, UKenglish]{\ATLASLATEXPATH atlasdoc}
 \usepackage{float}
 \usepackage{euler}\usepackage{pgf}
-\usepackage{subcaption}
-\usepackage{natbib}
+%\usepackage{subcaption}
+%\usepackage{natbib}
 \usepackage{geometry}
 \usepackage{pdflscape}
+\usepackage{setspace}
+\setstretch{2}
+\setlength{\parindent}{1cm}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
 % The language of the document must be set: usually UKenglish or USenglish.
 % british and american also work!
 % Commonly used options:
@@ -81,6 +87,8 @@
 % Author and title for the PDF file
 \hypersetup{pdftitle={ATLAS document},pdfauthor={The ATLAS Collaboration}}
 
+%\renewcommand{\baselinestretch}{2}
+
 %-------------------------------------------------------------------------------
 % Content
 %-------------------------------------------------------------------------------
@@ -88,7 +96,9 @@
 
 \maketitle
 
+\begin{singlespace}
 \tableofcontents
+\end{singlespace}
 
 % List of contributors - print here or after the Bibliography.
 %\PrintAtlasContribute{0.30}
@@ -106,10 +116,7 @@
 \input{sections/introduction}
 
 %-------------------------------------------------------------------------------
-
-%-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
-
+%------------------------------------------------------------------------------- 
 \part{Theoretical Motivation}
 \label{part:theory}
 
@@ -121,20 +128,8 @@
 
 %------------------------------------------------------------------------------
 
-\section{Limitations of the Standard Model}
-\label{sec:smProblems}
-\input{sections/SMLimitations}
-
-%------------------------------------------------------------------------------
-
-\section{$t\bar{t}H$ Production}
-\label{sec:tth_theory}
-\input{sections/ttHtheory}
-
-%------------------------------------------------------------------------------
-
-\section{Dimension-six Operators}
-\label{sec:smProblems}
+\section{Effective Field Theory in $t\bar{t}H$ Production}
+\label{sec:eft}
 \input{sections/dimSixOperators}
 
 %------------------------------------------------------------------------------
@@ -149,13 +144,13 @@
 
 \section{The LHC}
 \label{sec:lhc}
-\input{sections/TheLHC}
+\input{sections/LHC}
 
 %------------------------------------------------------------------------------
 
 \section{The ATLAS Detector}
 \label{sec:atlas}
-\input{sections/atlasDetector}
+\input{sections/ATLAS}
 
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
@@ -191,6 +186,11 @@
 
 %-------------------------------------------------------------------------------
 
+\section{Background Rejection MVA}
+\label{sec:sigBkg}
+\input{sections/sigBkgMVA}
+
+%------------------------------------------------------------------------------- 
 \section{Systematic Uncertainties}
 \label{sec:sys}
 \input{sections/systematics}

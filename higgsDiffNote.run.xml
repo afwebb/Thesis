@@ -44,10 +44,10 @@
   <internal package="biblatex" priority="9" active="1">
     <generic>latex</generic>
     <provides type="dynamic">
-      <file>wz_heavy_flavor.bcf</file>
+      <file>higgsDiffNote.bcf</file>
     </provides>
     <requires type="dynamic">
-      <file>wz_heavy_flavor.bbl</file>
+      <file>higgsDiffNote.bbl</file>
     </requires>
     <requires type="static">
       <file>blx-dm.def</file>
@@ -67,21 +67,22 @@
     <generic>biber</generic>
     <cmdline>
       <binary>biber</binary>
-      <infile>wz_heavy_flavor</infile>
+      <infile>higgsDiffNote</infile>
     </cmdline>
     <input>
-      <file>wz_heavy_flavor.bcf</file>
+      <file>higgsDiffNote.bcf</file>
     </input>
     <output>
-      <file>wz_heavy_flavor.bbl</file>
+      <file>higgsDiffNote.bbl</file>
     </output>
     <provides type="dynamic">
-      <file>wz_heavy_flavor.bbl</file>
+      <file>higgsDiffNote.bbl</file>
     </provides>
     <requires type="dynamic">
-      <file>wz_heavy_flavor.bcf</file>
+      <file>higgsDiffNote.bcf</file>
     </requires>
     <requires type="editable">
+      <file>higgsDiffNote.bib</file>
       <file>bib/ATLAS.bib</file>
       <file>bib/CMS.bib</file>
       <file>bib/ConfNotes.bib</file>
