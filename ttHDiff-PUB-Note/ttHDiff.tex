@@ -1,0 +1,201 @@
+%-------------------------------------------------------------------------------
+% This file provides a skeleton ATLAS note.
+% \pdfinclusioncopyfonts=1
+% This command may be needed in order to get \ell in PDF plots to appear. Found in
+% https://tex.stackexchange.com/questions/322010/pdflatex-glyph-undefined-symbols-disappear-from-included-pdf
+%-------------------------------------------------------------------------------
+% Specify where ATLAS LaTeX style files can be found.
+\newcommand*{\ATLASLATEXPATH}{latex/}
+% Use this variant if the files are in a central location, e.g. $HOME/texmf.
+% \newcommand*{\ATLASLATEXPATH}{}
+%-------------------------------------------------------------------------------
+\documentclass[NOTE, atlasdraft=true, texlive=2016, UKenglish]{\ATLASLATEXPATH atlasdoc}
+\usepackage{float}
+\usepackage{euler}\usepackage{pgf}
+%\usepackage{subcaption}
+%\usepackage{natbib}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\usepackage{setspace}
+%\setstretch{2}
+%\setlength{\parindent}{1cm}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
+% The language of the document must be set: usually UKenglish or USenglish.
+% british and american also work!
+% Commonly used options:
+%  atlasdraft=true|false This document is an ATLAS draft.
+%  texlive=YYYY          Specify TeX Live version (2016 is default).
+%  coverpage             Create ATLAS draft cover page for collaboration circulation.
+%                        See atlas-draft-cover.tex for a list of variables that should be defined.
+%  cernpreprint          Create front page for a CERN preprint.
+%                        See atlas-preprint-cover.tex for a list of variables that should be defined.
+%  NOTE                  The document is an ATLAS note (draft).
+%  PAPER                 The document is an ATLAS paper (draft).
+%  CONF                  The document is a CONF note (draft).
+%  PUB                   The document is a PUB note (draft).
+%  BOOK                  The document is of book form, like an LOI or TDR (draft)
+%  txfonts=true|false    Use txfonts rather than the default newtx
+%  paper=a4|letter       Set paper size to A4 (default) or letter.
+
+%-------------------------------------------------------------------------------
+% Extra packages:
+%\usepackage{\ATLASLATEXPATH atlaspackage}
+\usepackage[subfigure]{\ATLASLATEXPATH atlaspackage} 
+% Commonly used options:
+%  biblatex=true|false   Use biblatex (default) or bibtex for the bibliography.
+%  backend=bibtex        Use the bibtex backend rather than biber.
+%  subfigure|subfig|subcaption  to use one of these packages for figures in figures.
+%  minimal               Minimal set of packages.
+%  default               Standard set of packages.
+%  full                  Full set of packages.
+%-------------------------------------------------------------------------------
+% Style file with biblatex options for ATLAS documents.
+\usepackage{\ATLASLATEXPATH atlasbiblatex}
+
+% Package for creating list of authors and contributors to the analysis.
+\usepackage{\ATLASLATEXPATH atlascontribute}
+
+% Useful macros
+\usepackage{\ATLASLATEXPATH atlasphysics}
+% See doc/atlas_physics.pdf for a list of the defined symbols.
+% Default options are:
+%   true:  journal, misc, particle, unit, xref
+%   false: BSM, heppparticle, hepprocess, hion, jetetmiss, math, process, other, texmf
+% See the package for details on the options.
+
+% Files with references for use with biblatex.
+% Note that biber gives an error if it finds empty bib files.
+\addbibresource{ttHDiff.bib}
+\addbibresource{bib/ATLAS.bib}
+\addbibresource{bib/CMS.bib}
+\addbibresource{bib/ConfNotes.bib}
+\addbibresource{bib/PubNotes.bib}
+
+% Paths for figures - do not forget the / at the end of the directory name.
+\graphicspath{{logos/}{figures/}}
+
+% Add you own definitions here (file wz_heavy_flavor-defs.sty).
+\usepackage{ttHDiff-defs}
+
+%-------------------------------------------------------------------------------
+% Generic document information
+%-------------------------------------------------------------------------------
+
+% Title, abstract and document 
+\input{ttHDiff-metadata}
+% Author and title for the PDF file
+\hypersetup{pdftitle={ATLAS document},pdfauthor={The ATLAS Collaboration}}
+
+%\renewcommand{\baselinestretch}{2}
+
+%-------------------------------------------------------------------------------
+% Content
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\maketitle
+
+\begin{singlespace}
+\tableofcontents
+\end{singlespace}
+
+% List of contributors - print here or after the Bibliography.
+%\PrintAtlasContribute{0.30}
+\clearpage
+
+%------------------------------------------------------------------------------
+\section{Changes and outstanding items}
+\label{sec:changes}
+%------------------------------------------------------------------------------
+
+\subsection{Changelog}
+
+This is version 1
+
+\clearpage
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+\input{sections/intro}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\section{The ATLAS Detector}
+\label{sec:ATLAS}
+\input{sections/ATLAS}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\section{Data and Monte Carlo Samples}
+\label{sec:dataMC}
+\input{sections/DataMC}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------   
+\section{Object Reconstruction}
+\label{sec:objReco}
+\input{sections/objectReconstruction}
+%------------------------------------------------------------------------------- 
+
+%------------------------------------------------------------------------------- 
+\section{Higgs Momentum Reconstruction}
+\label{sec:mva}
+\input{sections/higgsPtReco}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\section{Signal Region Definitions}
+\label{sec:signal_region}
+\input{sections/regions}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\section{Systematic Uncertainties}
+\label{sec:sys}
+\input{sections/systematics}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+%------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+\part{Conclusion}
+\label{part:conclusion}
+
+As search for the effects of dimension-six operators on $t\bar{t}H$ production is performed. An effective field theory approached is used to parameratize the effects of high energy physics on the Higgs momentum spectrum. The momentum spectrum is reconstructed using various MVA techniques, and the limits on dimension-six operators are limited to X. 
+
+
+%-------------------------------------------------------------------------------
+% If you use biblatex and either biber or bibtex to process the bibliography
+% just say \printbibliography here
+\printbibliography
+% If you want to use the traditional BibTeX you need to use the syntax below.
+%\bibliographystyle{bib/bst/atlasBibStyleWithTitle}
+%\bibliography{wz_heavy_flavor,bib,ATLAS,bib/CMS,bib/ConfNotes,bib/PubNotes}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+% Print the list of contributors to the analysis
+% The argument gives the fraction of the text width used for the names
+%-------------------------------------------------------------------------------
+\clearpage
+\PrintAtlasContribute{0.30}
+
+
+%-------------------------------------------------------------------------------
+\clearpage
+\appendix
+\part*{Appendices}
+\addcontentsline{toc}{part}{Appendices}
+%-------------------------------------------------------------------------------
+
+\section{}
+
+\end{document}
