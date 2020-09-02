@@ -1,15 +1,119 @@
 Reconstructing the momentum of the Higgs boson is a particular challenge for channels with leptons in the final state: Because all channels include at least two neutrinos in the final state, the Higgs can never be fully reconstructed. However, the momentum spectrum can be well predicted by a neural network when provided with the four-vectors of the Higgs Boson decay products, as shown in section \ref{sec:truthLevelReco}. With this in mind, a sophisticated approach involving several layers of MVAs is used to reconstruction the Higgs momentum. 
 
-The first layer is a boosted decision-tree (BDT) algorithm designed to select which jets are most likely to be the b-jets that came from the top decay. The kinematics of these jets are fed into the second layer, also a BDT, which is designed to identify the decay products of the Higgs Boson itself. The kinematics of these particles are then fed into a deep neural-network, which predicts the momentum of the Higgs.
+The first layer is a Neural Network designed to select which jets are most likely to be the b-jets that came from the top decay. The kinematics of these jets are fed into the second layer, also a BDT, which is designed to identify the decay products of the Higgs Boson itself. The kinematics of these particles are then fed into a deep neural-network, which predicts the momentum of the Higgs.
 
 \subsection{Truth Level Reconstruction}
 \label{sec:truthLevelReco}
 
+Reconstructed physics objects are matched to truth 
+
 \subsection{b-jet Identification}
 \label{sec:bjetID}
+
+\begin{figure}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/HT_jets.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/HT_lep.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Mj0j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Mj0j1l0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Mj0j1l0l1met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Mj0j1l1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml0j0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml0j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml1j0.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml1j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ptj0j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ptj0j1l0l1met.pdf}}
+\end{figure}
+
+\begin{figure}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dPhij0met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dPhij1met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_j0_j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_j0j1_l0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_j0j1_l1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_l0_j0.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_l0_j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_l1_j0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_l1_j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_DL1r_0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_DL1r_1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_Eta_0.pdf}}
+\end{figure}
+
+\begin{figure}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_Eta_1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_Pt_0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_Pt_1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/match.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/nJets_OR.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/nJets_OR_DL1r_60.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/nJets_OR_DL1r_85.pdf}}
+    \caption{Input features for {top2lSS} training}
+    \label{fig:features_{top2lSS}}
+\end{figure}
+
+\begin{figure}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/HT_jets.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/HT_lep.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Mj0j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ml0j0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ml0j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ml1j0.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ml1j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ml2j0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ml2j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Mtj0j1l0l1l2met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ptj0j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ptj0j1l0l1l2met.pdf}}
+\end{figure}
+
+\begin{figure}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dPhij0met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dPhij1met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_j0_j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_j0_l0l1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_j0_l0l2.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_j1_l0l1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_j1_l0l2.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l0_j0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l0_j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l1_j0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l1_j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l2_j0.pdf}}
+\end{figure}
+
+\begin{figure}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l2_j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dRj0l0j1l1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dRj0l0j1l2.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dRj0l1j1l0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dRj0l2j1l0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_DL1r_0.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_DL1r_1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_Eta_0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_Eta_1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_Pt_0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_Pt_1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/match.pdf}}
+\end{figure}
+
+\begin{figure}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/nJets_OR.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/nJets_OR_DL1r_60.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/nJets_OR_DL1r_85.pdf}}
+    \caption{Input features for {top3l} training}
+    \label{fig:features_{top3l}}
+\end{figure}
 
 \subsection{Higgs Reconstruction}
 \label{sec:higgsID}
 
 \subsection{$p_T$ Prediction}
 \label{sec:ptReco}
+
+
+\subsection{3l Decay Mode}
+\label{sec:decay3l}
+
