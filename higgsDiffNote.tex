@@ -41,7 +41,8 @@
 
 %-------------------------------------------------------------------------------
 % Extra packages:
-\usepackage{\ATLASLATEXPATH atlaspackage}
+%\usepackage{\ATLASLATEXPATH atlaspackage}
+\usepackage[subfigure]{\ATLASLATEXPATH atlaspackage}
 % Commonly used options:
 %  biblatex=true|false   Use biblatex (default) or bibtex for the bibliography.
 %  backend=bibtex        Use the bibtex backend rather than biber.
@@ -232,7 +233,11 @@ As search for the effects of dimension-six operators on $t\bar{t}H$ production i
 \part*{Appendices}
 \addcontentsline{toc}{part}{Appendices}
 %-------------------------------------------------------------------------------
-
+\section{Machine Learning Models}                                                                                  
+\label{apx:MVA}                                                                                        
+\input{sections/AppendixMVA}                                                                                    
+\input{sections/sigBkgMVA}  
 \section{}
+%-------------------------------------------------------------------------------
 
 \end{document}

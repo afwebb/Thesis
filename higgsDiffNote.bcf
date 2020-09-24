@@ -2124,9 +2124,20 @@
     <bcf:datasource type="file" datatype="bibtex">bib/PubNotes.bib</bcf:datasource>
   </bcf:bibdata>
   <bcf:section number="0">
-    <bcf:citekey order="18">lumi</bcf:citekey>
-    <bcf:citekey order="19">jes</bcf:citekey>
-    <bcf:citekey order="20">btag_cal</bcf:citekey>
+    <bcf:citekey order="18">Ball:2014uwa</bcf:citekey>
+    <bcf:citekey order="19">ct10</bcf:citekey>
+    <bcf:citekey order="20">powhegtt</bcf:citekey>
+    <bcf:citekey order="21">powhegstp</bcf:citekey>
+    <bcf:citekey order="22">ATLAS-CONF-2016-024</bcf:citekey>
+    <bcf:citekey order="23">PERF-2014-05</bcf:citekey>
+    <bcf:citekey order="24">ttH_paper</bcf:citekey>
+    <bcf:citekey order="25">ATL-PHYS-PUB-2015-015</bcf:citekey>
+    <bcf:citekey order="26">ATLAS-CONF-2015-029</bcf:citekey>
+    <bcf:citekey order="27">PERF-2014-03</bcf:citekey>
+    <bcf:citekey order="28">ATL-PHYS-PUB-2015-027</bcf:citekey>
+    <bcf:citekey order="29">lumi</bcf:citekey>
+    <bcf:citekey order="30">jes</bcf:citekey>
+    <bcf:citekey order="31">btag_cal</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="none/global/" type="entry" sortscheme="none" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>
