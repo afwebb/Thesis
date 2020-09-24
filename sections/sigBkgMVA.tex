@@ -1,4 +1,4 @@
-Various multi-variate analysis techniques (MVAs) are used in order to distinguish signal from background. In particular, BDTs produced with XGBoost are used. Separate MVAs are produced for each of the analysis channels being considered: 2lSS, 3l semi-leptonic, and 3l fully leptonic. Further, because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. 
+Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic, and 3l fully leptonic. In particular, Neural Networks produced with Tensorflow are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Further, because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{2lSS}

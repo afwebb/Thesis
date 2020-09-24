@@ -5,6 +5,8 @@ Events are divided into two channels based on the number of leptons in the final
 \subsection{Pre-MVA Event Selection}
 \label{subsec:preMVA}
 
+A preselection is applied to define orthogonal analysis channels based on the number of leptons in each event.
+
 \subsubsection{$2lSS$ Channel}
 
 \subsubsection{$3l$ Channel}
@@ -14,17 +16,37 @@ Events are divided into two channels based on the number of leptons in the final
 \subsection{Event MVA}
 \label{subsec:sigBkgMVA}
 
-\subsubsection{$2lSS$ Channel}
+Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic, and 3l fully leptonic. In particular, Neural Networks produced with Tensorflow are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Further, because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions.
 
-\subsubsection{Semi-leptonic $3l$ Channel}
+\subsubsection{2lSS - High $p_T$}
+\label{sec:2lHigh}
 
-\subsubsection{Fully Leptonic $3l$ Channel}
+\subsubsection{2lSS - Low $p_T$}
+\label{sec:2lLow}
+
+\subsubsection{3l Semi-Leptonic - High $p_T$}
+\label{sec:3lSHigh}
+
+\subsubsection{3l Semi-Leptonic - Low $p_T$}
+\label{sec:3lSLow}
+
+\subsubsection{3l Fully Leptonic - High $p_T$}
+\label{sec:3lFHigh}
+
+\subsubsection{3l Fully Leptonic - Low $p_T$}
+\label{sec:3lFLow}
 
 %------------------------------------------------------------------------------------------
 
 \subsection{Signal Region Definitions}
 \label{subsec:sigRegions}
 
+Once pre-selection has been applied, channels are further refined based on the MVAs described above. The output of the model described in section \ref{sec:decay3l} is used to separate the three channel into two - Semi-leptonic and Fully-leptonic - based on the predicted decay mode of the Higgs boson. 
+
+For each event, depending on the channel as well as the predicted $p_T$ of the Higgs derived from the algorithm described in section \ref{sec:ptReco}, a cut on the appropriate background rejection algorithm is applied. The specific selection used, and the event yield in each channel after this selection has been applied, is summarized below.
+
 \subsubsection{$2lSS$}
 
-\subsubsection{$3l$}
+\subsubsection{$3l - Semi-leptonic$}
+
+\subsubsection{$3l - Fully-leptonic$}
