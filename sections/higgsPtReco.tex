@@ -7,25 +7,44 @@ The first layer is a Neural Network designed to select which jets are most likel
 
 Machine Learning algorithms are trained to identify the decay products of the Higgs Boson using MC simulations of $t\bar{t}H$ events. Reconstructed physics objects are matched to truth level particles, in order to identify the parents of these reconstructed objects. 
 
+%------------------------------------------------------------------------ 
 \subsection{b-jet Identification}
 \label{sec:bjetID}
+%------------------------------------------------------------------------ 
 
-In both the 3l and 2lSS channels, one or b-tagged jet is required. Therefore, for events which have exactly one, or more than two, b-tagged jets, deciding which combination of jets correspond to the top decay
+Including the kinematics of the b-jets that originate from the top decay is found to improve the identification of the Higgs decay products, and improve the accuracey with which the Higgs momentum can be reconstructed. Because these b-jets are reconstructed by the detector with high efficiency (just over 90\% of the time), and can be identified relatively consistently, the first step in reconstructing the Higgs is selecting the b-jets from the top decay.
 
+Exactly two b-jets are expected in the final state of $t\bar{t}H-ML$ events. However, in both the 3l and 2lSS channels, only one or more b-tagged jets are required (where the 70\% DL1r b-tag working point is used). Therefore, for events which have exactly one, or more than two, b-tagged jets, deciding which combination of jets correspond to the top decay is non-trivial. Further, events with 1 b-tagged jet represent just over half of all $t\bar{t}H-ML$ events. Of those, both b-jets are reconstructed by the detector ~70\% of the time. Therefore, rather than adjusting the selection to require exactly 2 b-tagged jets, and losing more than half of the signal events, a neural network is used to predict which pair of jets is most likely to correspond to truth b-jets.
+
+The kinematics of each possible pairing of jets are used to train the network, where the pairing that includes both truth b-jets is assigned a label of 1, and all other pairings a label of 0. Further details concerning the models, including the specific input variables, hyperparameters, and performance metrics, can be found in \ref{apx:MVA}
+
+For each event, all pairings of jets are fed into the model, and the pair of jets with the highest output score are taken to be b-jets in successive steps of the analysis. This procedure is found to identify the correct pairing of jets for 73\% of 2lSS signal events, and 78\% of 3l signal events. 
+
+%------------------------------------------------------------------------ 
+
+%------------------------------------------------------------------------
 \subsection{Higgs Reconstruction}
 \label{sec:higgsID}
+%------------------------------------------------------------------------ 
 
 Techniques similar to the b-jet identification algorithms are employed to select the decay products of the Higgs. 
 
+%------------------------------------------------------------------------ 
+
+%------------------------------------------------------------------------ 
 \subsection{$p_T$ Prediction}
 \label{sec:ptReco}
+%------------------------------------------------------------------------ 
 
 Once the most probable decay products have been identified, their kinematics are used to reconstruct the momentum spectrum of the Higgs Boson. 
 
+%------------------------------------------------------------------------ 
 \subsection{3l Decay Mode}
 \label{sec:decay3l}
+%------------------------------------------------------------------------ 
 
 In the 3l channel, there are two possible ways for the Higgs to decay, both involving intermediate W boson pairs: Either both W bosons decay leptonically, in which case the reconstructed decay consists of two leptons (referred as the fully-leptonic 3l channel), or one W decays leptonically and the other hadronically, giving two jets and one lepton in the final state (referred to as the semi-leptonic 3l channel). In order to accurately reconstruct the Higgs, it is necessary to identify which of these decays took place for each 3l event.
 
+%------------------------------------------------------------------------ 
 
 
