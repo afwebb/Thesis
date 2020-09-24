@@ -18,23 +18,18 @@ A preselection is applied to define orthogonal analysis channels based on the nu
 
 Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic, and 3l fully leptonic. In particular, Neural Networks produced with Tensorflow are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Further, because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions.
 
-\subsubsection{2lSS - High $p_T$}
-\label{sec:2lHigh}
+Output distributions of each MVA are shown in figure \ref{fig:sigBkgScore}. Detailed explanations of each of the models can be found in section \ref{apx:MVA}.
 
-\subsubsection{2lSS - Low $p_T$}
-\label{sec:2lLow}
-
-\subsubsection{3l Semi-Leptonic - High $p_T$}
-\label{sec:3lSHigh}
-
-\subsubsection{3l Semi-Leptonic - Low $p_T$}
-\label{sec:3lSLow}
-
-\subsubsection{3l Fully Leptonic - High $p_T$}
-\label{sec:3lFHigh}
-
-\subsubsection{3l Fully Leptonic - Low $p_T$}
-\label{sec:3lFLow}
+\begin{figure}
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_2lHigh.png}}%
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_3lSHigh.png}}%
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_3lFHigh.png}}\\
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_2lLow.png}}%
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_3lSLow.png}}%
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_3lFLow.png}}
+  \label{fig:sigBkgScore}
+  \caption{scores}
+\end{figure}
 
 %------------------------------------------------------------------------------------------
 

@@ -12,6 +12,7 @@ The following section provides details regarding the various machine learning mo
 For the 2lSS channel, the following input features as used for training:
 
 \begin{table}[h!]
+  \begin{center}
   \begin{tabular}{ccc}
     $M(j_0j_1)$ & $M(j_0j_1l_0l_1E_T^{miss})$ & $M(l_0j_0)$ \\
     $M(l_0j_1)$ & $M(l_1j_0)$ & $M(l_1j_1)$ \\
@@ -24,13 +25,13 @@ For the 2lSS channel, the following input features as used for training:
     Lepton  $p_T$ 0 & Lepton  $p_T$ 1 & $E_T^{miss}$ \\
     nJets & nJets OR DL1r 60 & nJets OR DL1r 85\\
   \end{tabular}
+  \end{center}
   \caption{Input features used in the 2lSS b-jet identification algorithm}
   \label{tab:top2lSSfeatures}   
 \end{table}
 
 \begin{figure}
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/HT_jets.pdf}}%
-    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/HT_lep.pdf}}%
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml0j1.pdf}}%
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml1j0.pdf}}\\
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml1j1.pdf}}%
