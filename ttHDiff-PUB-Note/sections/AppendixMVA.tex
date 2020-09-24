@@ -1,11 +1,11 @@
 
 The following section provides details regarding the various machine learning models used in the analysis. The Keras neural network framework, with Tensorflow as the backend, is used to create each model, and the number of hidden layers and nodes are determined using grid search optimization. For each model, a LeakyReLU activation function is used, along with a learning rate of 0.01, and the Adam optimization algorithm. For the classification algorithms (b-jet matching, Higgs reconstruction, and background separation) binary-cross entropy is used as the loss function. 
 
-\subsection{Higgs Reconstruction Algorithms}
+\subsection{b-jet Identification Algorithms}
 \label{subsec:higgsRecoMVA}
 
 %---------------------------------------------------------------------- 
-\subsubsection{b-jet MVA - 2lSS Channel}
+\subsubsection{2lSS Channel}
 \label{subsec:top2lSS}
 %---------------------------------------------------------------------- 
                                                                                                                      
@@ -50,7 +50,7 @@ Based on the results of grid search evaluation, the optimal architecture is foun
 \end{figure}
 
 %----------------------------------------------------------------------
-\subsubsection{b-jet MVA - 3l Channel}
+\subsubsection{3l Channel}
 \label{subsec:top3l}
 %---------------------------------------------------------------------- 
 
@@ -65,8 +65,11 @@ Based on the results of grid search evaluation, the optimal architecture is foun
 
 %----------------------------------------------------------------------
 
+\subsection{Higgs Reconstruction Algorithms}
+\label{subsec:higgsRecoMVA}
+
 %----------------------------------------------------------------------                                                    
-\subsubsection{Higgs Reconstruction MVA - 2lSS Channel}
+\subsubsection{2lSS Channel}
 \label{subsec:higgs2lSS}
 %----------------------------------------------------------------------  
 
@@ -75,7 +78,7 @@ Based on the results of grid search evaluation, the optimal architecture is foun
 %----------------------------------------------------------------------
 
 %----------------------------------------------------------------------                                                   
-\subsubsection{Higgs Reconstruction MVA - 3l Semi-leptonic Channel}
+\subsubsection{3l Semi-leptonic Channel}
 \label{subsec:higgs3lS}
 %----------------------------------------------------------------------  
 
@@ -84,7 +87,7 @@ Based on the results of grid search evaluation, the optimal architecture is foun
 %----------------------------------------------------------------------
 
 %----------------------------------------------------------------------                                                    
-\subsubsection{Higgs Reconstruction MVA - 3l Fully-leptonic Channel}                                  
+\subsubsection{3l Fully-leptonic Channel}                                  
 \label{subsec:higgs3lF}                                                                                                   
 %----------------------------------------------------------------------
 
@@ -96,7 +99,7 @@ Based on the results of grid search evaluation, the optimal architecture is foun
 \label{subsec:ptMVA}
 
 %----------------------------------------------------------------------                                                  
-\subsection{2lSS Channel}                                                                          
+\subsubsection{2lSS Channel}                                                                          
 \label{subsec:pt2lSS}                                                                                           
 %----------------------------------------------------------------------                                                     
 
@@ -105,7 +108,7 @@ Based on the results of grid search evaluation, the optimal architecture is foun
 %----------------------------------------------------------------------
  
 %----------------------------------------------------------------------                                                  
-\subsection{ 3l Semi-leptonic Channel}                                                                            
+\subsubsection{ 3l Semi-leptonic Channel}                                                                            
 \label{subsec:pt3lS}                                                                                                    
 %----------------------------------------------------------------------                                                      
 
@@ -114,7 +117,7 @@ Based on the results of grid search evaluation, the optimal architecture is foun
 %----------------------------------------------------------------------
  
 %----------------------------------------------------------------------                                                
-\subsection{ 3l Fully-leptonic Channel}                                                                            
+\subsubsection{ 3l Fully-leptonic Channel}                                                                            
 \label{subsec:pt3lF}                                                                                                    
 %----------------------------------------------------------------------
 
