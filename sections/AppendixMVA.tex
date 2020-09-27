@@ -6,62 +6,16 @@ The following section provides details regarding the various machine learning mo
 
 %---------------------------------------------------------------------- 
 \subsubsection{2lSS Channel}
-\label{subsec:top2lSS}
+\label{subsec:Apptop2lSS}
 %---------------------------------------------------------------------- 
                                                                                                                      
 For the 2lSS channel, the following input features as used for training:
-
-\begin{table}[h!]
-  \begin{center}
-  \begin{tabular}{ccc}
-    $M(j_0j_1)$ & $M(j_0j_1l_0l_1E_T^{miss})$ & $M(l_0j_0)$ \\
-    $M(l_0j_1)$ & $M(l_1j_0)$ & $M(l_1j_1)$ \\
-    $p_T(j_0j_1l_0l_1E_T^{miss})$ & $\Delta\phi(j_0)(E_T^{miss})$ & $\Delta\phi(j_1)(E_T^{miss})$ \\
-    $\Delta R(j_0)(j_1)$ & $\Delta R(j_0l_0)(j_1l_1)$ & $\Delta R(j_0l_1)(j_1l_0)$ \\
-    $\Delta R(l_0)(j_0)$ & $\Delta R(l_0)(j_1)$ & $\Delta R(l_1)(j_0)$ \\
-    $\Delta R(l_1)(j_1)$ & jet DL1r 0 & jet DL1r 1 \\
-    jet  $\eta$ 0 & jet  $\eta$ 1 & jet  $p_T$ 0 \\
-    jet  $p_T$ 1 & jet rankDL1r 0 & jet rankDL1r 1 \\
-    Lepton  $p_T$ 0 & Lepton  $p_T$ 1 & $E_T^{miss}$ \\
-    nJets & nJets OR DL1r 60 & nJets OR DL1r 85\\
-  \end{tabular}
-  \end{center}
-  \caption{Input features used in the 2lSS b-jet identification algorithm}
-  \label{tab:top2lSSfeatures}   
-\end{table}
-
-\begin{figure}
-    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/HT_jets.pdf}}%
-    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml0j1.pdf}}%
-    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml1j0.pdf}}\\
-    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml1j1.pdf}}%
-    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ptj0j1.pdf}}%
-    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ptj0j1l0l1met.pdf}}\\
-    \caption{Input features for top2lSS training}
-    \label{fig:features_top2lSS}
-\end{figure}
-
-Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. A learning rate of 0.01 is used, and leakyReLU is used as an activation function. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top2lSSresults}.
-
-\begin{figure}
-  \includegraphics[width=0.48\linewidth]{topMatching/top2lSS/keras_score.png}%
-  \includegraphics[width=0.48\linewidth]{topMatching/top2lSS/keras_roc.png}
-  \caption{(left) the output score of the NN for correct and incorrect combinations of jets. (right) the ROC curve...}
-\end{figure}
 
 %----------------------------------------------------------------------
 \subsubsection{3l Channel}
 \label{subsec:top3l}
 %---------------------------------------------------------------------- 
 
-Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top3lresults}.
-
-\begin{figure}
-  \includegraphics[width=0.48\linewidth]{topMatching/top3l/keras_score.png}%                                        
-  \includegraphics[width=0.48\linewidth]{topMatching/top3l/keras_roc.png}
-  \label{fig:top3lresults}
-  \caption{tmp}
-\end{figure}
 
 %----------------------------------------------------------------------
 

@@ -1,11 +1,15 @@
-Reconstructing the momentum of the Higgs boson is a particular challenge for channels with leptons in the final state: Because all channels include at least two neutrinos in the final state, the Higgs can never be fully reconstructed. However, the momentum spectrum can be well predicted by a neural network when provided with the four-vectors of the Higgs Boson decay products, as shown in section \ref{sec:truthLevelReco}. With this in mind, a sophisticated approach involving several layers of MVAs is used to reconstruction the Higgs momentum. 
+Reconstructing the momentum of the Higgs boson is a particular challenge for channels with leptons in the final state: Because all channels include at least two neutrinos in the final state, the Higgs can never be fully reconstructed. However, the momentum spectrum can be well predicted by a neural network when provided with the four-vectors of the Higgs Boson decay products, as shown in section \ref{sec:truthLevelReco}. With this in mind, several layers of MVAs are used to reconstruction the Higgs momentum. 
 
 The first layer is a Neural Network designed to select which jets are most likely to be the b-jets that came from the top decay. The kinematics of these jets are fed into the second layer, also a BDT, which is designed to identify the decay products of the Higgs Boson itself. The kinematics of these particles are then fed into a deep neural-network, which predicts the momentum of the Higgs.
 
-\subsection{Truth Level Reconstruction}
+The following section provides details regarding the various machine learning models used in the analysis. The Keras neural network framework, with Tensorflow as the backend, is used to create each model, and the number of hidden layers and nodes are determined using grid search optimization. For each model, a LeakyReLU activation function is used, along with a learning rate of 0.01, and the Adam optimization algorithm. For the classification algorithms (b-jet matching, Higgs reconstruction, and background separation) binary-cross entropy is used as the loss function.
+
+\subsection{Decay Candidate Reconstruction}
 \label{sec:truthLevelReco}
 
-Machine Learning algorithms are trained to identify the decay products of the Higgs Boson using MC simulations of $t\bar{t}H$ events. Reconstructed physics objects are matched to truth level particles, in order to identify the parents of these reconstructed objects. 
+Machine Learning algorithms are trained to identify the decay products of the Higgs Boson using MC simulations of $t\bar{t}H$ events. These include light leptons and jets. Reconstructed physics objects are matched to truth level particles, in order to identify the parents of these reconstructed objects. The kinematics of the decay product candidates as well as event level variables are used as inputs. 
+
+Leptons considered as possible Higgs and top decay candidates are required to pass the selection described in section \ref{subsec:lepSelection}. For jets, however, it is found that a large fraction that originate from either the top decay or the Higgs decay fall outside the selection described in section \ref{subsec:jetSelection}. Specifically, jets from the Higgs decay tend to be soft, with 37\% having $p_T$ $<$ 25 GeV. Therefore jets with $p_T$ $<$ 10 GeV are considered as possible candidates in the models described below. The spectrum is found to be well modeled even down to this low $p_T$ threshold, as shown in section \ref{subsec:preMVA}. As they are expected to originate from the primary vertex, jets are also required to pass a JVT cut.
 
 %------------------------------------------------------------------------ 
 \subsection{b-jet Identification}
@@ -16,9 +20,117 @@ Including the kinematics of the b-jets that originate from the top decay is foun
 
 Exactly two b-jets are expected in the final state of $t\bar{t}H-ML$ events. However, in both the 3l and 2lSS channels, only one or more b-tagged jets are required (where the 70\% DL1r b-tag working point is used). Therefore, for events which have exactly one, or more than two, b-tagged jets, deciding which combination of jets correspond to the top decay is non-trivial. Further, events with 1 b-tagged jet represent just over half of all $t\bar{t}H-ML$ events. Of those, both b-jets are reconstructed by the detector ~70\% of the time. Therefore, rather than adjusting the selection to require exactly 2 b-tagged jets, and losing more than half of the signal events, a neural network is used to predict which pair of jets is most likely to correspond to truth b-jets.
 
-The kinematics of each possible pairing of jets are used to train the network, where the pairing that includes both truth b-jets is assigned a label of 1, and all other pairings a label of 0. Further details concerning the models, including the specific input variables, hyperparameters, and performance metrics, can be found in \ref{apx:MVA}
+The kinematics of each possible pairing of jets are used to train the network, where the pairing that includes both truth b-jets is assigned a label of 1, and all other pairings a label of 0. The 
 
-For each event, all pairings of jets are fed into the model, and the pair of jets with the highest output score are taken to be b-jets in successive steps of the analysis. This procedure is found to identify the correct pairing of jets for 73\% of 2lSS signal events, and 78\% of 3l signal events. 
+
+
+Further details concerning the models, including the specific input variables, hyperparameters, and performance metrics, can be found in \ref{apx:MVA}
+
+For each event, all pairings of jets are fed into the model, and the pair of jets with the highest output score are taken to be b-jets in successive steps of the analysis. 
+
+%----------------------------------------------------------------------                                                  
+\subsubsection{2lSS Channel}
+\label{subsec:top2lSS}
+%----------------------------------------------------------------------                                                  
+
+For the 2lSS channel, the input features shown in table \ref{tab:top2lSSfeatures} are used for training. 
+
+\begin{table}[h!]
+  \begin{center}
+  \begin{tabular}{ccc}
+    $M(j_0j_1)$ & $M(j_0j_1l_0l_1E_T^{miss})$ & $M(l_0j_0)$ \\
+    $M(l_0j_1)$ & $M(l_1j_0)$ & $M(l_1j_1)$ \\
+    $p_T(j_0j_1l_0l_1E_T^{miss})$ & $\Delta\phi(j_0)(E_T^{miss})$ & $\Delta\phi(j_1)(E_T^{miss})$ \\
+    $\Delta R(j_0)(j_1)$ & $\Delta R(j_0l_0)(j_1l_1)$ & $\Delta R(j_0l_1)(j_1l_0)$ \\
+    $\Delta R(l_0)(j_0)$ & $\Delta R(l_0)(j_1)$ & $\Delta R(l_1)(j_0)$ \\
+    $\Delta R(l_1)(j_1)$ & jet DL1r WP 0 & jet DL1r WP 1 \\
+    jet  $\eta$ 0 & jet  $\eta$ 1 & jet  $p_T$ 0 \\
+    jet  $p_T$ 1 &  \\
+    Lepton  $p_T$ 0 & Lepton  $p_T$ 1 & $E_T^{miss}$ \\
+    nJets & nJets OR DL1r 60 & nJets OR DL1r 85\\
+  \end{tabular}
+  \end{center}
+  \caption{Input features used in the 2lSS b-jet identification algorithm}
+  \label{tab:top2lSSfeatures}
+\end{table}
+
+\begin{figure}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_DL1r_0.pdf}}%                 
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_Pt_0.pdf}}%                    
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_j0_j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml1j1.pdf}}%                    
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_l0_j0.pdf}}%                    
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ptj0j1l0l1met.pdf}}\\
+    \caption{Input features for top2lSS training}
+    \label{fig:features_top2lSS}                                                                                        
+\end{figure}
+
+Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. A learning rate of 0.01 is used, and LeakyReLU is used as an activation function. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top2lSSresults}.
+
+\begin{figure}
+  \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top2lSS/keras_score.png}}%  
+  \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top2lSS/keras_roc.png}}
+  \caption{(left) the output score of the NN for correct and incorrect combinations of jets. (right) the ROC curve...}
+\end{figure}
+
+%----------------------------------------------------------------------                                                  
+\subsubsection{3l Channel}
+\label{subsec:top3l}
+%----------------------------------------------------------------------                                                     
+ 
+Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top3lresults}.
+
+\begin{figure}                                                                                                           
+   \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top3l/keras_score.png}}%   
+   \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top3l/keras_roc.png}}                             
+   \label{fig:top3lresults}                                                                                               
+   \caption{tmp}
+\end{figure}
+
+This procedure is found to identify the correct pairing of jets for 73\% of 2lSS signal events, and 79\% of 3l signal events, for test sets of data separate from the dataset used to train the model. 
+
+For point of comparison, a \"naive\" approach to identify b-jets is used as well: The two jets which pass the highest DL1r b-tag working point are assumed to be the b-jets from the top decay. In the case that multiple jets meet the same b-tag working point, the jet with higher $p_T$ is used. This method identifies the correct jet pair 65\% of the time for the 2lSS channel and 68\% of the time in the 3l channel.  
+
+The accuracy of the 
+
+\begin{table}[h]
+\centering
+\caption{Accuracey of the NN in identifying b-jets from tops.}
+
+\begin{tabular}{l|c|c}
+\hline
+%2lSS Channel
+\hline\hline
+& NN & Naive \\
+\hline
+1 b-jet & & \\
+2 b-jets & & \\
+$>=$3 b-jets & & \\
+\hline
+Overall & 78.8\% & 70.2\% \\
+\hline\hline
+\end{tabular}
+
+\begin{tabular}{l|c|c}
+\hline
+%3l Channel
+\hline\hline
+& NN & Naive \\
+\hline
+1 b-jet & & \\
+1 b-jet & & \\
+2 b-jets & & \\                                                                                                            
+$>=$3 b-jets & & \\ 
+\hline
+Overall & 78.8\% & 70.2\% \\
+\hline\hline
+\end{tabular}
+
+\label{tab:topMatchAcc}
+\end{table}
+
+
+
 
 %------------------------------------------------------------------------ 
 
