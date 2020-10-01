@@ -29,59 +29,59 @@ Once the network is trained, all possible pairings of jets are fed into the mode
 \label{subsec:top2lSS}
 %----------------------------------------------------------------------                                                  
 
-For the 2lSS channel, the input features shown in table \ref{tab:top2lSSfeatures} are used for training. 
+For the 2lSS channel, the input features shown in table \ref{tab:top2lSSfeatures} are used for training. Here $j_0$ and $j_1$ are the two jet candidates, while $l_0$ and $l_1$ are the two leptons in the event, ordered by $p_T$. jet DL1r is an integer corresponding to the calibrated b-tagging working points reached by each jet, where 5 represents the tightest working point and 1 represents the loosest. The variables nJets DL1r 60\% and nJets DL1r 85\% represent the number of jets in the event passing the 60\% and 85\% b-tag working points, respectively.
 
 \begin{table}[h!]
   \begin{center}
   \begin{tabular}{ccc}
-    $M(j_0j_1)$ & $M(j_0j_1l_0l_1E_T^{miss})$ & $M(l_0j_0)$ \\
-    $M(l_0j_1)$ & $M(l_1j_0)$ & $M(l_1j_1)$ \\
-    $p_T(j_0j_1l_0l_1E_T^{miss})$ & $\Delta\phi(j_0)(E_T^{miss})$ & $\Delta\phi(j_1)(E_T^{miss})$ \\
-    $\Delta R(j_0)(j_1)$ & $\Delta R(j_0l_0)(j_1l_1)$ & $\Delta R(j_0l_1)(j_1l_0)$ \\
-    $\Delta R(l_0)(j_0)$ & $\Delta R(l_0)(j_1)$ & $\Delta R(l_1)(j_0)$ \\
-    $\Delta R(l_1)(j_1)$ & jet DL1r WP 0 & jet DL1r WP 1 \\
-    jet  $\eta$ 0 & jet  $\eta$ 1 & jet  $p_T$ 0 \\
-    jet  $p_T$ 1 & Lepton  $p_T$ 0 & Lepton  $p_T$ 1 \\
-    nJets & nJets OR DL1r 60 & nJets OR DL1r 85\\
-    $E_T^{miss}$ & &\\
+    jet  $p_T$ 0 & jet  $p_T$ 1 & Lepton  $p_T$ 0 \\
+    Lepton  $p_T$ 1 & jet  $\eta$ 0 & jet  $\eta$ 1 \\
+    $\Delta R(j_0)(j_1)$ & $M(j_0j_1)$ & $\Delta R(l_0)(j_0)$ \\
+    $\Delta R(l_0)(j_1)$ & $\Delta R(l_1)(j_0)$ & $\Delta R(l_1)(j_1)$ \\
+    $M(l_0j_0)$ & $M(l_0j_1)$ & $M(l_1j_0)$ \\
+    $M(l_1j_1)$ & jet DL1r 0 & jet DL1r 1 \\
+    nJets OR DL1r 85 & nJets OR DL1r 60 & $\Delta R(j_0l_0)(j_1l_1)$ \\
+    $\Delta R(j_0l_1)(j_1l_0)$ &  $p_T(j_0j_1l_0l_1E_T^{miss})$ & $M(j_0j_1l_0l_1E_T^{miss})$ \\
+    $\Delta\phi(j_0)(E_T^{miss})$ & $\Delta\phi(j_1)(E_T^{miss})$ & HT jets \\
+    nJets & $E_T^{miss}$ & \\
   \end{tabular}
   \end{center}
   \caption{Input features used in the 2lSS b-jet identification algorithm}
-  \label{tab:top2lSSfeatures}
+  \label{tab:top2lSSfeatures}                                                                                               
 \end{table}
 
 The difference between the distributions for a few of these features for the \"correct\" (i.e. both jets are truth b-jets), and \"incorrect\" combinations are shown in figure \ref{fig:features_top2lSS}.
 
-\begin{figure}
+\begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_DL1r_0.pdf}}%                 
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_Pt_0.pdf}}%                    
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_j0_j1.pdf}}\\
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ml1j1.pdf}}%                    
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/dR_l0_j0.pdf}}%                    
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/Ptj0j1l0l1met.pdf}}\\
-    \caption{Input features for top2lSS training}
+    \caption{Input features for top2lSS training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events.}
     \label{fig:features_top2lSS}                                                                                        
 \end{figure}
 
 The modeling of these inputs is validated against data, with figure \ref{fig:model_top2lSS} showing good general agreement between data and MC. Plots for the complete list of features can found in section \ref{apx:MVA}.
 
-\begin{figure}
+\begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/jet_DL1r_0.png}}%                  
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/jet_Pt_0.png}}%                
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/dR_j0_j1.png}}\\
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/Ml1j1.png}}%                      
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/dR_l0_j0.png}}%                   
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/Ptj0j1l0l1met.png}}\\
-    \caption{Modeling of input features for top2lSS training}
+    \caption{Data/MC comparisons of input features for top2lSS training for 80 $fb^{-1}$ of data.}
     \label{fig:model_top2lSS}
 \end{figure}
 
-Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top2lSSresults}. The model is found to identify the correct pairing of jets for 73\% of 2lSS signal events on test data.
+Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. Approximately 6 million entries are used to train the model. No regularizer or dropout is added to the network, as overfitting is found to not be an issue. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top2lSSresults}. The model is found to identify the correct pairing of jets for 73\% of 2lSS signal events on test data.
 
-\begin{figure}
+\begin{figure}[h!]
   \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top2lSS/keras_score.png}}%  
   \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top2lSS/keras_roc.png}}
-  \caption{(left) the output score of the NN for correct and incorrect combinations of jets. (right) the ROC curve...}
+  \caption{(a) the output score of the NN for correct and incorrect combinations of jets. (a) the ROC curve of the output, showing background rejection as a function of signal efficiency}
 \end{figure}
 
 For point of comparison, a \"naive\" approach to identify b-jets is used as well: The two jets which pass the highest DL1r b-tag working point are assumed to be the b-jets from the top decay. In the case that multiple jets meet the same b-tag working point, the jet with higher $p_T$ is used. This method identifies the correct jet pair 65\% of the time. 
@@ -90,17 +90,17 @@ The accuracey of the model for different values of n-bjets, compared to this nai
 
 \begin{table}[h]
   \centering
-  \caption{Accuracey of the NN in identifying b-jets from tops in 2lSS events.}
+  \caption{Accuracey of the NN in identifying b-jets from tops in 2lSS events for, compared to the accuracey of taking the two highest b-tagged jets.}
   \begin{tabular}{l|c|c}
     \hline\hline
-    & NN & Naive \\
+    b-jet Selection & Neural Network & Naive \\
     \hline
-    1 b-jet & & \\
-    2 b-jets & & \\
-    $>=$3 b-jets & & \\
+    1 b-jet & 54.6\% & 42.1\% \\
+    2 b-jets & 87.6\% & 87.1\% \\
+    $>=$3 b-jets & 61.7\% & 53.3\% \\
     \hline
-    Overall & 78.8\% & 65.2\% \\                                                                                  
-    \hline\hline                                                                                                         
+    Overall & 72.9\% \% & 65.2\% \\                                                                                  
+    \hline                                                                                                 
   \end{tabular}
   \label{tab:topMatchAcc2lSS}                                                                                           
 \end{table}
@@ -110,7 +110,56 @@ The accuracey of the model for different values of n-bjets, compared to this nai
 \label{subsec:top3l}
 %----------------------------------------------------------------------                                                     
  
-Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top3lresults}.
+The input features used in the 3l channel are listed in table \ref{tab:top3lfeatures}, with the same naming convention as the 2lSS channel.
+
+\begin{table}[h!]
+  \begin{center}
+  \begin{tabular}{ccc}
+    jet  $p_T$ 0 & jet  $p_T$ 1 & jet  $\eta$ 0 \\
+    jet  $\eta$ 1 & Lepton  $p_T$ 0 & Lepton  $p_T$ 1 \\
+    Lepton  $p_T$ 2 & $\Delta R(j_0)(j_1)$ & $M(j_0j_1)$ \\
+    $\Delta R(l_0)(j_0)$ & $\Delta R(l_1)(j_0)$ & $\Delta R(l_2)(j_0)$ \\
+    $\Delta R(l_0)(j_1)$ & $\Delta R(l_1)(j_1)$ & $\Delta R(l_2)(j_1)$ \\
+    $M(l_0j_0)$ & $M(l_1j_0)$ & $M(l_2j_0)$ \\
+    $M(l_0j_1)$ & $M(l_1j_1)$ & $M(l_2j_1)$ \\
+    $\Delta R(j_0l_0)(j_1l_1)$ & $\Delta R(j_0l_0)(j_1l_2)$ & $\Delta R(j_0l_1)(j_1l_0)$ \\
+    $\Delta R(j_0l_2)(j_1l_0)$ & jet DL1r 0 & jet DL1r 1 \\
+     $p_T(j_0j_1l_0l_1l_2E_T^{miss})$ & $M(tj_0j_1l_0l_1l_2E_T^{miss})$ & $\Delta\phi(j_0)(E_T^{miss})$ \\
+    $\Delta\phi(j_1)(E_T^{miss})$ & HT Lepton & HT jets \\
+    nJets & $E_T^{miss}$ & nJets OR DL1r 85 \\
+    nJets OR DL1r 60 & & \\
+  \end{tabular}
+  \end{center}
+  \caption{Input features}
+  \label{tab:top3lfeatures}
+\end{table}
+
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_DL1r_0.pdf}}%                       
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_Pt_0.pdf}}%                       
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_j0_j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ml1j1.pdf}}%                     
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l0_j0.pdf}}%                          
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ptj0j1l0l1l2met.pdf}}\\
+    \caption{Input features for top3l training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events.}
+    \label{fig:features_top3l}
+\end{figure}
+
+The modeling of these inputs is validated against data, with figure \ref{fig:model_top3l} showing good general agreement between data and MC. Plots for the complete list of features can found in section \ref{apx:MVA}.
+
+\begin{figure}[h!]                                                                                                         
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/jet_DL1r_0.png}}%                  
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/jet_Pt_0.png}}%                     
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/dR_j0_j1.png}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/Ml1j1.png}}%                   
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j0.png}}%              
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/Ptj0j1l0l1l2met.png}}\\
+    \caption{Data/MC comparisons of input features for top3l training for 80 $fb^{-1}$ of data.}
+    \label{fig:model_top3l}
+\end{figure}
+
+Based on the results of grid search evaluation, the optimal architecture is found to include 4 hidden layers with 60 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top3lresults}.
 
 \begin{figure}                                                                                                           
    \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top3l/keras_score.png}}%   
@@ -119,50 +168,25 @@ Based on the results of grid search evaluation, the optimal architecture is foun
    \caption{tmp}
 \end{figure}
 
-This procedure is found to identify the correct pairing of jets for 73\% of 2lSS signal events, and 79\% of 3l signal events, for test sets of data separate from the dataset used to train the model. 
-
-For point of comparison, a \"naive\" approach to identify b-jets is used as well: The two jets which pass the highest DL1r b-tag working point are assumed to be the b-jets from the top decay. In the case that multiple jets meet the same b-tag working point, the jet with higher $p_T$ is used. This method identifies the correct jet pair 65\% of the time for the 2lSS channel and 68\% of the time in the 3l channel.  
-
-The accuracy of the 
+This procedure is found to identify the correct pairing of jets for nearly 80\% of 3l signal events. The accuracy of the 
 
 \begin{table}[h]
 \centering
 \caption{Accuracey of the NN in identifying b-jets from tops.}
 
 \begin{tabular}{l|c|c}
-\hline
-%2lSS Channel
 \hline\hline
 & NN & Naive \\
 \hline
-1 b-jet & & \\
-2 b-jets & & \\
-$>=$3 b-jets & & \\
+1 b-jet    & 69.0\% & 48.9\% \\
+2 b-jets   & 89.6\% & 88.3\% \\
+$>=$3 b-jets 55.7\% & 52.3\% & \\
 \hline
-Overall & 78.8\% & 70.2\% \\
+Overall & 79.8\% & 70.2\% \\
 \hline\hline
 \end{tabular}
-
-\begin{tabular}{l|c|c}
-\hline
-%3l Channel
-\hline\hline
-& NN & Naive \\
-\hline
-1 b-jet & & \\
-1 b-jet & & \\
-2 b-jets & & \\                                                                                                            
-$>=$3 b-jets & & \\ 
-\hline
-Overall & 78.8\% & 70.2\% \\
-\hline\hline
-\end{tabular}
-
-\label{tab:topMatchAcc}
+\label{tab:topMatchAcc3l}
 \end{table}
-
-
-
 
 %------------------------------------------------------------------------ 
 
@@ -171,7 +195,40 @@ Overall & 78.8\% & 70.2\% \\
 \label{sec:higgsID}
 %------------------------------------------------------------------------ 
 
-Techniques similar to the b-jet identification algorithms are employed to select the decay products of the Higgs. 
+Techniques similar to the b-jet identification algorithms are employed to select the decay products of the Higgs: kinematics of all possible combinations of reconstructed objects are fed into a neural network to determine which of those is most mostly to be the decay products of the Higgs.
+
+Again separate models are used for the 2lSS and 3l channels, while the 3l channel has now been split into two: $t\bar{t}H$ events with three leptons in the final state include both intances where the Higgs decays into a lepton (and a neutrino) and a pair of jets, and instances where the Higgs decays to two leptons.
+
+3l events are therefore categorized as either semi-leptonic or fully-leptonic. In the semi-leptonic case the reconstructed decay products consist of two jets and a single leptons. For the fully-leptonic case, the decay products include 2 of the three leptons associated with the event. For training the models, events are separated into these two categories using truth level information. A separate MVA, described in section \ref{sec:decay3l}, is used to make this distinction at reco level and determine which model to use.
+
+For all channels, the models described in section \ref{sec:bjetID} are used to identify b-jet candidates, whose kinematics are used to identify the Higgs decay products. These jets are not considered as possible candidates for the Higgs decay, justified by the fact that these models are found to misidentify jets from the Higgs decay as jets from the top decay less than 1\% of the time.
+
+%------------------------------------------------------------------------
+\subsubsection{2lSS Channel}
+\label{subsec:higgs2lSS}
+%------------------------------------------------------------------------
+
+For the 2lSS channel, the Higgs decay products include one light lepton and two jets. 
+
+The b-jet matching algorithm
+
+%------------------------------------------------------------------------ 
+
+%------------------------------------------------------------------------                                                  
+\subsubsection{3l Semi-leptonic Channel}
+\label{subsec:higgs3lS}
+%------------------------------------------------------------------------  
+
+For 3l $t\bar{t}H$ where the Higgs decay semi-leptonically, the decay products include one of the three leptons and two jets. In this case, the other two leptons originated from the decay of the tops, meaning the opposite-sign (OS) lepton cannot have come the Higgs. This leave only the two same-sign (SS) leptons as possible Higgs decay products. 
+
+%------------------------------------------------------------------------ 
+
+%------------------------------------------------------------------------                                              
+\subsubsection{3l Fully-leptonic Channel}
+\label{subsec:higgs3lF}
+%------------------------------------------------------------------------  
+
+In the fully-leptonic 3l case, the goal is identify which two of the three leptons originated from the Higgs decay. Since one of these two must be the OS lepton, this problem is reduced to determining which of the two SS leptons originated from the Higgs.
 
 %------------------------------------------------------------------------ 
 
@@ -181,6 +238,29 @@ Techniques similar to the b-jet identification algorithms are employed to select
 %------------------------------------------------------------------------ 
 
 Once the most probable decay products have been identified, their kinematics are used to reconstruct the momentum spectrum of the Higgs Boson. 
+
+%------------------------------------------------------------------------                                                  
+\subsubsection{2lSS Channel}
+\label{subsec:pt2lSS}                                                                                                      
+%------------------------------------------------------------------------                                                    
+
+
+                                                                                                                            
+%------------------------------------------------------------------------                                                   
+
+%------------------------------------------------------------------------                                                   
+\subsubsection{3l Semi-leptonic Channel}
+\label{subsec:pt3lS}
+%------------------------------------------------------------------------                                                   
+
+
+
+%------------------------------------------------------------------------
+
+%------------------------------------------------------------------------
+\subsubsection{3l Fully-leptonic Channel}
+\label{subsec:pt3lF}
+%------------------------------------------------------------------------ 
 
 %------------------------------------------------------------------------ 
 \subsection{3l Decay Mode}
