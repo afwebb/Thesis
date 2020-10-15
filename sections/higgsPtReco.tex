@@ -2,7 +2,7 @@ Reconstructing the momentum of the Higgs boson is a particular challenge for cha
 
 The first layer is a model designed to select which jets are most likely to be the b-jets that came from the top decay, detailed in section \ref{sec:bjetID}. As described in section \ref{sec:higgsID},the kinematics of these jets are fed into the second layer, which is designed to identify the decay products of the Higgs Boson itself. The kinematics of these particles are then fed into yet another neural-network, which predicts the momentum of the Higgs (\ref{sec:ptReco}). MVAs are also used in the analysis to determine the decay of the Higgs boson in the 3l channel (\ref{sec:decay3l}). 
 
-For all of these models, the Keras neural network framework, with Tensorflow as the backend, is used, and the number of hidden layers and nodes are determined using grid search optimization. Each neural network uses the LeakyReLU activation function, a learning rate of 0.01, and the Adam optimization algorithm, as alternatives are found to either decrease or have no impact on performance. For the classification algorithms (b-jet matching, Higgs reconstruction, and 3l decay identification) binary-cross entropy is used as the loss function, while the $p_T$ reconstruction algorithm uses MSE. 
+For all of these models, the Keras neural network framework, with Tensorflow as the backend, is used, and the number of hidden layers and nodes are determined using grid search optimization. Each neural network uses the LeakyReLU activation function, a learning rate of 0.01, and the Adam optimization algorithm, as alternatives are found to either decrease or have no impact on performance. Batch normalization is applied after each layer. For the classification algorithms (b-jet matching, Higgs reconstruction, and 3l decay identification) binary-cross entropy is used as the loss function, while the $p_T$ reconstruction algorithm uses MSE. 
 
 The specific inputs features used for each model are arrived at through a process of trial and error - features considered potentially useful are tried, and those that are found to increase performance are included. While each model includes a relatively large number of features, some using upwards of 30, this inclusive approach is found to maximize the performance of each model while decreasing the variance compared to a reduced number of inputs. Each input feature is validated by comparing MC simulations to 80 $fb^{-1}$ of data, as shown in the sections below.
 
@@ -10,6 +10,8 @@ The specific inputs features used for each model are arrived at through a proces
 \label{sec:truthLevelReco}
 
 Machine Learning algorithms are trained to identify the decay products of the Higgs Boson using MC simulations of $t\bar{t}H$ events. These include light leptons and jets. Reconstructed physics objects are matched to truth level particles, in order to identify the parents of these reconstructed objects. The kinematics of the decay product candidates as well as event level variables are used as inputs. 
+
+%The decay candidates of interest include b-jets from top decay, light jets and light leptons from the Higgs decay. Matching reconstruction level particles to truth level particles finds that the b-jets from tops are reconstructed at a rate close to 90\%. The leptons from the Higgs decay are nearly always reconstructed, while the light jets have a reconstruction rate of around 70\%. In the case that the Higgs decays to one lepton and two jets, both jets are reconstructed around 45\% of the time. However, the non-reconstructed jets are found to generally be fairly soft
 
 Leptons considered as possible Higgs and top decay candidates are required to pass the selection described in section \ref{subsec:lepSelection}. For jets, however, it is found that a large fraction that originate from either the top decay or the Higgs decay fall outside the selection described in section \ref{subsec:jetSelection}. Specifically, jets from the Higgs decay tend to be soft, with 37\% having $p_T$ $<$ 25 GeV. Therefore jets with $p_T$ $<$ 10 GeV are considered as possible candidates in the models described below. The spectrum is found to be well modeled even down to this low $p_T$ threshold, as shown in section \ref{subsec:preMVA}. As they are expected to originate from the primary vertex, jets are also required to pass a JVT cut.
 
@@ -20,7 +22,9 @@ Leptons considered as possible Higgs and top decay candidates are required to pa
 
 Including the kinematics of the b-jets that originate from the top decay is found to improve the identification of the Higgs decay products, and improve the accuracey with which the Higgs momentum can be reconstructed. Because these b-jets are reconstructed by the detector with high efficiency (just over 90\% of the time), and can be identified relatively consistently, the first step in reconstructing the Higgs is selecting the b-jets from the top decay.
 
-Exactly two b-jets are expected in the final state of $t\bar{t}H-ML$ events. However, in both the 3l and 2lSS channels, only one or more b-tagged jets are required (where the 70\% DL1r b-tag working point is used). Therefore, for events which have exactly one, or more than two, b-tagged jets, deciding which combination of jets correspond to the top decay is non-trivial. Further, events with 1 b-tagged jet represent just over half of all $t\bar{t}H-ML$ events. Of those, both b-jets are reconstructed by the detector ~70\% of the time. Therefore, rather than adjusting the selection to require exactly 2 b-tagged jets, and losing more than half of the signal events, a neural network is used to predict which pair of jets is most likely to correspond to truth b-jets.
+Exactly two b-jets are expected in the final state of $t\bar{t}H-ML$ events. However, in both the 3l and 2lSS channels, only one or more b-tagged jets are required (where the 70\% DL1r b-tag working point is used). Therefore, for events which have exactly one, or more than two, b-tagged jets, deciding which combination of jets correspond to the top decay is non-trivial. Further, events with 1 b-tagged jet represent just over half of all $t\bar{t}H-ML$ events. Of those, both b-jets are reconstructed by the detector ~75\% of the time. Therefore, rather than adjusting the selection to require exactly 2 b-tagged jets, and losing more than half of the signal events, a neural network is used to predict which pair of jets is most likely to correspond to truth b-jets.
+
+Events where either b-j
 
 Once the network is trained, all possible pairings of jets are fed into the model, and the pair of jets with the highest output score are taken to be b-jets in successive steps of the analysis. 
 
@@ -50,7 +54,9 @@ For the 2lSS channel, the input features shown in table \ref{tab:top2lSSfeatures
   \label{tab:top2lSSfeatures}                                                                                               
 \end{table}
 
-The difference between the distributions for a few of these features for the \"correct\" (i.e. both jets are truth b-jets), and \"incorrect\" combinations are shown in figure \ref{fig:features_top2lSS}.
+As there are far more incorrect combinations than correct ones, by a factor of more than 20:1, the training set is resampled to reduce the fraction of incorrect combinations. A random sample of 5 million incorrect entries are used for training, along with close 1 million correct entries. 10\% of the dataset is set aside for testing, leaving around 5 million datapoints for training. 
+
+The difference between the distributions for a few of these features for the \"correct\" (i.e. both jets are truth b-jets), and \"incorrect\" combinations are shown in figure \ref{fig:features_top2lSS}. The correct and incorrect contributions are scaled to the same integral, so as to better demonstrate the differences in the distributions.
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_DL1r_0.pdf}}%                 
@@ -76,11 +82,12 @@ The modeling of these inputs is validated against data, with figure \ref{fig:mod
     \label{fig:model_top2lSS}
 \end{figure}
 
-Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. Approximately 6 million entries are used to train the model. No regularizer or dropout is added to the network, as overfitting is found to not be an issue. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top2lSSresults}. The model is found to identify the correct pairing of jets for 73\% of 2lSS signal events on test data.
+Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. No regularizer or dropout is added to the network, as overfitting is found to not be an issue. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top2lSSresults}. The model is found to identify the correct pairing of jets for 73\% of 2lSS signal events on test data.
 
 \begin{figure}[h!]
   \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top2lSS/keras_score.png}}%  
   \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top2lSS/keras_roc.png}}
+  \label{fig:top2lSSresults}
   \caption{(a) the output score of the NN for correct and incorrect combinations of jets. (a) the ROC curve of the output, showing background rejection as a function of signal efficiency}
 \end{figure}
 
@@ -95,11 +102,11 @@ The accuracey of the model for different values of n-bjets, compared to this nai
     \hline\hline
     b-jet Selection & Neural Network & Naive \\
     \hline
-    1 b-jet & 54.6\% & 42.1\% \\
-    2 b-jets & 87.6\% & 87.1\% \\
+    1 b-jet & 58.6\% & 42.1\% \\
+    2 b-jets & 88.4\% & 87.1\% \\
     $>=$3 b-jets & 61.7\% & 53.3\% \\
     \hline
-    Overall & 72.9\% \% & 65.2\% \\                                                                                  
+    Overall & 73.9\% \% & 67.2\% \\                                                                                  
     \hline                                                                                                 
   \end{tabular}
   \label{tab:topMatchAcc2lSS}                                                                                           
@@ -134,6 +141,7 @@ The input features used in the 3l channel are listed in table \ref{tab:top3lfeat
   \label{tab:top3lfeatures}
 \end{table}
 
+A few of these features are shown in figure \ref{fig:features_top3l}, comaring the distributions for correct and incorrect combinations of jets.
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/jet_DL1r_0.pdf}}%                       
@@ -159,7 +167,7 @@ The modeling of these inputs is validated against data, with figure \ref{fig:mod
     \label{fig:model_top3l}
 \end{figure}
 
-Based on the results of grid search evaluation, the optimal architecture is found to include 4 hidden layers with 60 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top3lresults}.
+Again, the dataset is downsized to reduce the ratio of correct and incorrect combination from 20:1, to 5:1. Around 7 million events are used for training, with 10\% set aside for testing. Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 60 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top3lresults}.
 
 \begin{figure}                                                                                                           
    \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top3l/keras_score.png}}%   
@@ -168,19 +176,18 @@ Based on the results of grid search evaluation, the optimal architecture is foun
    \caption{tmp}
 \end{figure}
 
-This procedure is found to identify the correct pairing of jets for nearly 80\% of 3l signal events. The accuracy of the 
+This procedure is found to identify the correct pairing of jets for nearly 80\% of 3l signal events. The accuracy of the model is summarized in table \ref{tab:topMatchAcc3l}.
 
 \begin{table}[h]
 \centering
-\caption{Accuracey of the NN in identifying b-jets from tops.}
-
+\caption{Accuracey of the NN in identifying b-jets from tops, compared to the naive method of taking the highest b-tagged jets.}
 \begin{tabular}{l|c|c}
 \hline\hline
 & NN & Naive \\
 \hline
 1 b-jet    & 69.0\% & 48.9\% \\
 2 b-jets   & 89.6\% & 88.3\% \\
-$>=$3 b-jets 55.7\% & 52.3\% & \\
+$>=$3 b-jets & 55.7\% & 52.3\% \\
 \hline
 Overall & 79.8\% & 70.2\% \\
 \hline\hline
@@ -208,9 +215,42 @@ For all channels, the models described in section \ref{sec:bjetID} are used to i
 \label{subsec:higgs2lSS}
 %------------------------------------------------------------------------
 
-For the 2lSS channel, the Higgs decay products include one light lepton and two jets. 
+For the 2lSS channel, the Higgs decay products include one light lepton and two jets. The neural network is trained on the kienmatics of different combinations of leptons and jets, as well as the b-jets identified in section \ref{sec:bjetID}, with the specific input features listed in table \ref{tab:higgsTop2lSSfeatures}.
 
-The b-jet matching algorithm
+\include{sections/tables/tabNames_higgsTop2lSS.tex}
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/Mj0j1lH.pdf}}%                 
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/MlHj0.pdf}}%                  
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/dR_j0_j1.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/dR_j0j1_lH.pdf}}%                
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/dR_lT_t0.pdf}}%         
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/jet_Pt_0.pdf}}\\
+    \caption{Input features for higgs2lSS training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events.}
+    \label{fig:features_higgs2lSS}
+\end{figure}
+
+The modeling of these inputs is validated against data, with figure \ref{fig:model_top2lSS} showing good general agreement between data and MC. Plots for the complete list of features can found in section \ref{apx:MVA}.
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/Mj0j1lH.png}}%        
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/MlHj0.png}}%            
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_j0_j1.png}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_j0j1_lH.png}}%                  
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_lT_t0.png}}%            
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/jet_Pt_0.png}}\\
+    \caption{Data/MC comparisons of input features for higgs2lSS training for 80 $fb^{-1}$ of data.}
+    \label{fig:model_higgs2lSS}
+\end{figure}
+
+The neural network identifies the correct combination 55\% of the time. It identifies the correct lepton 85\% of the time, and selects the correct lepton and at least one of the correct jets 81\% of the time. 
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgsTop2lSS/keras_score.png}}%
+  \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgsTop2lSS/keras_roc.png}}
+  \label{fig:higgs2lSSresults}
+  \caption{(a) the output score of the NN for correct and incorrect combinations of jets. (a) the ROC curve of the output, showing background rejection as a function of signal efficiency}
+\end{figure} 
 
 %------------------------------------------------------------------------ 
 
@@ -221,6 +261,39 @@ The b-jet matching algorithm
 
 For 3l $t\bar{t}H$ where the Higgs decay semi-leptonically, the decay products include one of the three leptons and two jets. In this case, the other two leptons originated from the decay of the tops, meaning the opposite-sign (OS) lepton cannot have come the Higgs. This leave only the two same-sign (SS) leptons as possible Higgs decay products. 
 
+\include{sections/tables/tabNames_higgsTop3lS.tex}
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lS/features/Mj0j1lH.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lS/features/Mj0j1t0.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lS/features/jet_Pt_0.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lS/features/dR_j0j1_lH.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lS/features/dR_j0_j1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lS/features/dPhi_j0j1lH_met.pdf}}\\
+    \caption{Input features for higgs3lS training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events.}
+    \label{fig:features_higgs3lS}
+\end{figure}
+
+The modeling of these inputs is validated against data, with figure \ref{fig:model_higgs3lS} showing good general agreement between data and MC. Plots for the complete list of features can found in section \ref{apx:MVA}.
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/Mj0j1lH.png}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/Mj0j1t0.png}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/jet_Pt_0.png}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/dR_j0j1_lH.png}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/dR_j0_j1.png}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/dPhi_j0j1lH_met.png}}\\
+    \caption{Data/MC comparisons of input features for higgs3lS training for 80 $fb^{-1}$ of data.}
+    \label{fig:model_higgs3lS}
+\end{figure} 
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgs3lS/keras_score.png}}%
+  \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgs3lS/keras_roc.png}}
+  \label{fig:higgs3lSresults}
+  \caption{(a) the output score of the NN for correct and incorrect combinations of jets. (a) the ROC curve of the output, showing background rejection as a function of signal efficiency}
+\end{figure} 
+
 %------------------------------------------------------------------------ 
 
 %------------------------------------------------------------------------                                              
@@ -228,7 +301,40 @@ For 3l $t\bar{t}H$ where the Higgs decay semi-leptonically, the decay products i
 \label{subsec:higgs3lF}
 %------------------------------------------------------------------------  
 
-In the fully-leptonic 3l case, the goal is identify which two of the three leptons originated from the Higgs decay. Since one of these two must be the OS lepton, this problem is reduced to determining which of the two SS leptons originated from the Higgs.
+In the fully-leptonic 3l case, the goal is identify which two of the three leptons originated from the Higgs decay. Since one of these two must be the OS lepton, this problem is reduced to determining which of the two SS leptons originated from the Higgs. The kinematics of both possibilities are used for training, one where the SS lepton from the Higgs is correctly labeled, and one where it is not.
+
+\include{sections/tables/tabNames_higgsTop3lF.tex}
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lF/features/MlH0lH1.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lF/features/MlH1lT.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lF/features/dR_lH0lH1_t0.pdf}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lF/features/dR_lH0lH1_lT.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lF/features/dPhi_lH1_met.pdf}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop3lF/features/dR_lH0_lT.pdf}}\\
+    \caption{Input features for higgs3lF training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events.}
+    \label{fig:features_higgs3lF}
+\end{figure}
+
+The modeling of these inputs is validated against data, with figure \ref{fig:model_higgs3lF} showing good general agreement between data and MC. Plots for the complete list of features can found in section \ref{apx:MVA}.
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/MlH0lH1.png}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/MlH1lT.png}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0lH1_t0.png}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0lH1_lT.png}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/dPhi_lH1_met.png}}%
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0_lT.png}}\\
+    \caption{Data/MC comparisons of input features for higgs3lF training for 80 $fb^{-1}$ of data.}
+    \label{fig:model_higgs3lF}
+\end{figure} 
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgsTop3lF/keras_score.png}}%
+  \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgsTop3lF/keras_roc.png}}
+  \label{fig:higgs3lFresults}
+  \caption{(a) the output score of the NN for correct and incorrect combinations of jets. (a) the ROC curve of the output, showing background rejection as a function of signal efficiency}
+\end{figure} 
 
 %------------------------------------------------------------------------ 
 
@@ -268,6 +374,8 @@ Once the most probable decay products have been identified, their kinematics are
 %------------------------------------------------------------------------ 
 
 In the 3l channel, there are two possible ways for the Higgs to decay, both involving intermediate W boson pairs: Either both W bosons decay leptonically, in which case the reconstructed decay consists of two leptons (referred as the fully-leptonic 3l channel), or one W decays leptonically and the other hadronically, giving two jets and one lepton in the final state (referred to as the semi-leptonic 3l channel). In order to accurately reconstruct the Higgs, it is necessary to identify which of these decays took place for each 3l event.
+
+The kinematics of each event, along with the output scores of the Higgs and top reconstruction algorithms, are used to distinguish these two possible decay modes.
 
 %------------------------------------------------------------------------ 
 
