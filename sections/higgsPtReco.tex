@@ -13,7 +13,7 @@ Machine Learning algorithms are trained to identify the decay products of the Hi
 
 %The decay candidates of interest include b-jets from top decay, light jets and light leptons from the Higgs decay. Matching reconstruction level particles to truth level particles finds that the b-jets from tops are reconstructed at a rate close to 90\%. The leptons from the Higgs decay are nearly always reconstructed, while the light jets have a reconstruction rate of around 70\%. In the case that the Higgs decays to one lepton and two jets, both jets are reconstructed around 45\% of the time. However, the non-reconstructed jets are found to generally be fairly soft
 
-Leptons considered as possible Higgs and top decay candidates are required to pass the selection described in section \ref{subsec:lepSelection}. For jets, however, it is found that a large fraction that originate from either the top decay or the Higgs decay fall outside the selection described in section \ref{subsec:jetSelection}. Specifically, jets from the Higgs decay tend to be soft, with 37\% having $p_T$ $<$ 25 GeV. Therefore jets with $p_T$ $<$ 10 GeV are considered as possible candidates in the models described below. The spectrum is found to be well modeled even down to this low $p_T$ threshold, as shown in section \ref{subsec:preMVA}. As they are expected to originate from the primary vertex, jets are also required to pass a JVT cut.
+Leptons considered as possible Higgs and top decay candidates are required to pass the selection described in section \ref{subsec:lepSelection}. For jets, however, it is found that a large fraction that originate from either the top decay or the Higgs decay fall outside the selection described in section \ref{subsec:jetSelection}. Specifically, jets from the Higgs decay tend to be soft, with 37\% having $p_T$ $<$ 25 GeV. Therefore jets with $p_T$ $<$ 15 GeV are considered as possible candidates in the models described below. The spectrum is found to be well modeled even down to this low $p_T$ threshold, as shown in section \ref{subsec:preMVA}. As they are expected to originate from the primary vertex, jets are also required to pass a JVT cut.
 
 %------------------------------------------------------------------------ 
 \subsection{b-jet Identification}
@@ -23,8 +23,6 @@ Leptons considered as possible Higgs and top decay candidates are required to pa
 Including the kinematics of the b-jets that originate from the top decay is found to improve the identification of the Higgs decay products, and improve the accuracey with which the Higgs momentum can be reconstructed. Because these b-jets are reconstructed by the detector with high efficiency (just over 90\% of the time), and can be identified relatively consistently, the first step in reconstructing the Higgs is selecting the b-jets from the top decay.
 
 Exactly two b-jets are expected in the final state of $t\bar{t}H-ML$ events. However, in both the 3l and 2lSS channels, only one or more b-tagged jets are required (where the 70\% DL1r b-tag working point is used). Therefore, for events which have exactly one, or more than two, b-tagged jets, deciding which combination of jets correspond to the top decay is non-trivial. Further, events with 1 b-tagged jet represent just over half of all $t\bar{t}H-ML$ events. Of those, both b-jets are reconstructed by the detector ~75\% of the time. Therefore, rather than adjusting the selection to require exactly 2 b-tagged jets, and losing more than half of the signal events, a neural network is used to predict which pair of jets is most likely to correspond to truth b-jets.
-
-Events where either b-j
 
 Once the network is trained, all possible pairings of jets are fed into the model, and the pair of jets with the highest output score are taken to be b-jets in successive steps of the analysis. 
 
@@ -343,20 +341,35 @@ The modeling of these inputs is validated against data, with figure \ref{fig:mod
 \label{sec:ptReco}
 %------------------------------------------------------------------------ 
 
-Once the most probable decay products have been identified, their kinematics are used to reconstruct the momentum spectrum of the Higgs Boson. 
+Once the most probable decay products have been identified, their kinematics are used as inputs to a regression model which attempts to predict the momentum of the Higgs Boson. Once again, a DNN is used. Input variables representing the b-jets and leptons not from the Higgs decay are included as well, as these are found to improve performance. The truth $p_T$ of the Higgs, as predicted by MC, are used as labels.
+
+Separate models are built for each channel - 2lSS, 3l Semi-leptonic and 3l Fully-leptonic.
+
+As a two-bin fit is targeted for the final result, some metrics evaluating the performance of the models aim to show how well it distinguished between ''high $p_T$'' and ''low $p_T$'' events. A cutoff point of 150 GeV is used to define these two categories.
 
 %------------------------------------------------------------------------                                                  
 \subsubsection{2lSS Channel}
 \label{subsec:pt2lSS}                                                                                                      
 %------------------------------------------------------------------------                                                    
 
+The input variables listed in table \ref{tab:pt2lSSfeatures} are used to predict the Higgs $p_T$ in the 2lSS channel. Here $j_0$ and $j_1$ are the two jets identified as Higgs decay products. The lepton identified as originating from the Higgs is labeled $l_H$, while the other lepton is labeled $l_T$, as it most have come from the decay of one of the top quarks. The Higgs Reco Score and b-jet Reco Score are the outputs of the Higgs reconstruction algorithm, and the b-jet identification algorithm, respectively.
+
 \include{sections/tables/tabNames_pt2lSS.tex}
+
+The optimal neural network architecture for this channel is found to consist of 5 hidden layers with 40 nodes each. The inputdata set includes 1.2 million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs. 
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_test_pt_scatter.png}}%
-    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_score.png}}\\
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_test_norm2Dhist.png}}\\
     \caption{}
     \label{fig:pt2lSSresults}
+\end{figure}
+
+\begin{figure}[h!]                                                                                                    
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_score.png}}%              
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_roc.png}}\\
+    \caption{}
+    \label{fig:pt2lSSroc}
 \end{figure}
                                                                                                                             
 %------------------------------------------------------------------------                                                   
@@ -368,6 +381,22 @@ Once the most probable decay products have been identified, their kinematics are
 
 \include{sections/tables/tabNames_pt3lS.tex}
 
+The optimal neural network architecture for this channel is found to consist of 5 hidden layers with 40 nodes each. The inputdata set includes 1.2 million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs.
+                                                                                                                             
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_test_pt_scatter.png}}%                      
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_test_norm2Dhist.png}}\\                     
+    \caption{}
+    \label{fig:pt3lSresults}
+\end{figure}
+
+\begin{figure}[h!]                                                                                                           
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_score.png}}%                                
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_roc.png}}\\
+    \caption{}
+    \label{fig:pt3lSroc}
+\end{figure}
+
 %------------------------------------------------------------------------
 
 %------------------------------------------------------------------------
@@ -376,6 +405,22 @@ Once the most probable decay products have been identified, their kinematics are
 %------------------------------------------------------------------------ 
 
 \include{sections/tables/tabNames_pt3lF.tex}
+
+The optimal neural network architecture for this channel is found to consist of 5 hidden layers with 40 nodes each. The inputdata set includes 1.2 million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs.
+                                                                                                                             
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_test_pt_scatter.png}}%                      
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_test_norm2Dhist.png}}\\                     
+    \caption{}
+    \label{fig:pt3lFresults}
+\end{figure}
+
+\begin{figure}[h!]                                                                                                           
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_score.png}}%                                
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_roc.png}}\\
+    \caption{}
+    \label{fig:pt3lFroc}
+\end{figure}
 
 %------------------------------------------------------------------------ 
 \subsection{3l Decay Mode}
