@@ -5,11 +5,46 @@ Events are divided into two channels based on the number of leptons in the final
 \subsection{Pre-MVA Event Selection}
 \label{subsec:preMVA}
 
-A preselection is applied to define orthogonal analysis channels based on the number of leptons in each event.
+A preselection is applied to define orthogonal analysis channels based on the number of leptons in each event. For the 2lSS channel, the following presection is used:
 
-\subsubsection{$2lSS$ Channel}
+\begin{itemize}
+  \item Two very tight, same-charge, light leptons with $p_T > 20$ GeV
+  \item $>=$4 reconstructed jets, $>=$1 b-tagged jets
+  \item No reconstructed tau candidates
+\end{itemize}
 
-\subsubsection{$3l$ Channel}
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_0.png}}%                        
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_1.png}}%                     
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/Mll01}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nJets.png}}%                       
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nbJets.png}}%                
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/MET.png}}\\
+    \caption{}                           
+    \label{fig:presel2lSS}
+\end{figure}
+
+For the 3l channel, the following selection is applied:
+
+\begin{itemize}
+  \item Three light leptons with total charge $\pm 1$
+  \item Same charge leptons are required to be very tight, with $p_T > 20$ GeV
+  \item Opposite charge lepton must be loose, with $p_T > 10$ GeV
+  \item $>=$2 reconstructed jets, $>=$1 b-tagged jets                                                                        
+  \item No reconstructed tau candidates
+  \item $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all opposite-charge, same-flavor lepton pairs
+\end{itemize}
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_0.png}}%                             
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_1.png}}%                      
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/Mll01}}\\                             
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nJets.png}}%                          
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nbJets.png}}%                          
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/MET.png}}\\                         
+    \caption{}
+    \label{fig:presel3l}                                                                                          
+\end{figure}
 
 %------------------------------------------------------------------------------------------
 

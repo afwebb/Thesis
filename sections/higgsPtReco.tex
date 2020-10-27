@@ -93,7 +93,7 @@ For point of comparison, a \"naive\" approach to identify b-jets is used as well
 
 The accuracey of the model for different values of n-bjets, compared to this naive approach, is shown in table \ref{tab:topMatchAcc2lSS}.
 
-\begin{table}[h]
+\begin{table}[h!]
   \centering
   \caption{Accuracey of the NN in identifying b-jets from tops in 2lSS events for, compared to the accuracey of taking the two highest b-tagged jets.}
   \begin{tabular}{l|c|c}
@@ -167,7 +167,7 @@ The modeling of these inputs is validated against data, with figure \ref{fig:mod
 
 Again, the dataset is downsized to reduce the ratio of correct and incorrect combination from 20:1, to 5:1. Around 7 million events are used for training, with 10\% set aside for testing. Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 60 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in figure \ref{fig:top3lresults}.
 
-\begin{figure}                                                                                                           
+\begin{figure}[h!]                                                                                                           
    \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top3l/keras_score.png}}%   
    \subfigure[]{\includegraphics[width=0.48\linewidth]{topMatching/top3l/keras_roc.png}}                             
    \label{fig:top3lresults}                                                                                               
@@ -176,7 +176,7 @@ Again, the dataset is downsized to reduce the ratio of correct and incorrect com
 
 This procedure is found to identify the correct pairing of jets for nearly 80\% of 3l signal events. The accuracy of the model is summarized in table \ref{tab:topMatchAcc3l}.
 
-\begin{table}[h]
+\begin{table}[h!]
 \centering
 \caption{Accuracey of the NN in identifying b-jets from tops, compared to the naive method of taking the highest b-tagged jets.}
 \begin{tabular}{l|c|c}
@@ -285,6 +285,8 @@ The modeling of these inputs is validated against data, with figure \ref{fig:mod
     \label{fig:model_higgs3lS}
 \end{figure} 
 
+The neural network identifies the correct combination 65\% of the time. It identifies the correct lepton 85\% of the time, an\d selects the correct lepton and at least one of the correct jets 83\% of the time.
+
 \begin{figure}[h!]
   \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgs3lS/keras_score.png}}%
   \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgs3lS/keras_roc.png}}
@@ -326,6 +328,8 @@ The modeling of these inputs is validated against data, with figure \ref{fig:mod
     \caption{Data/MC comparisons of input features for higgs3lF training for 80 $fb^{-1}$ of data.}
     \label{fig:model_higgs3lF}
 \end{figure} 
+
+The correct lepton is identified 80\% of the time.
 
 \begin{figure}[h!]
   \subfigure[]{\includegraphics[width=0.48\linewidth]{higgsMatching/higgsTop3lF/keras_score.png}}%
@@ -381,7 +385,7 @@ The optimal neural network architecture for this channel is found to consist of 
 
 \include{sections/tables/tabNames_pt3lS.tex}
 
-The optimal neural network architecture for this channel is found to consist of 5 hidden layers with 40 nodes each. The inputdata set includes 1.2 million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs.
+The optimal neural network architecture for this channel is found to consist of 5 hidden layers with 40 nodes each. The inputdata set includes one million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs.
                                                                                                                              
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_test_pt_scatter.png}}%                      
@@ -406,7 +410,9 @@ The optimal neural network architecture for this channel is found to consist of 
 
 \include{sections/tables/tabNames_pt3lF.tex}
 
-The optimal neural network architecture for this channel is found to consist of 5 hidden layers with 40 nodes each. The inputdata set includes 1.2 million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs.
+The optimal neural network architecture for this channel is found to consist of 5 hidden layers with 40 nodes each. The inputdata set includes 400,000 events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs.
+
+The predicted transverse momentum, as a function of the truth $p_T$, is shown in figure \ref{pt3lFresults}.
                                                                                                                              
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_test_pt_scatter.png}}%                      
@@ -414,6 +420,8 @@ The optimal neural network architecture for this channel is found to consist of 
     \caption{}
     \label{fig:pt3lFresults}
 \end{figure}
+
+When split into high and low $p_T$, based on a cutoff of 150 GeV, the 
 
 \begin{figure}[h!]                                                                                                           
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_score.png}}%                                
@@ -429,7 +437,18 @@ The optimal neural network architecture for this channel is found to consist of 
 
 In the 3l channel, there are two possible ways for the Higgs to decay, both involving intermediate W boson pairs: Either both W bosons decay leptonically, in which case the reconstructed decay consists of two leptons (referred as the fully-leptonic 3l channel), or one W decays leptonically and the other hadronically, giving two jets and one lepton in the final state (referred to as the semi-leptonic 3l channel). In order to accurately reconstruct the Higgs, it is necessary to identify which of these decays took place for each 3l event.
 
-The kinematics of each event, along with the output scores of the Higgs and top reconstruction algorithms, are used to distinguish these two possible decay modes.
+The kinematics of each event, along with the output scores of the Higgs and top reconstruction algorithms, are used to distinguish these two possible decay modes. The particular inputs used are listed in table \ref{tab:decay3lfeatures}.
+
+\include{sections/tables/tabNames_pt2lSS.tex}
+
+A neural network with 5 hidden layers, each with 50 nodes, is trained to distinguish these two decay modes. The output of the model is summarized in figure \ref{fig:decayResults}.
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.48\linewidth]{decay3l/keras_score.png}}%                                 
+    \subfigure[]{\includegraphics[width=.48\linewidth]{decay3l/keras_roc.png}}\\
+    \caption{}
+    \label{fig:decayResults}
+\end{figure}
 
 %------------------------------------------------------------------------ 
 
