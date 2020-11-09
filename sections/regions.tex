@@ -51,11 +51,36 @@ For the 3l channel, the following selection is applied:
 \subsection{Event MVA}
 \label{subsec:sigBkgMVA}
 
-Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic, and 3l fully leptonic. In particular, Neural Networks produced with Tensorflow are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Further, because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions.
+Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic (3lS), and 3l fully leptonic (3lF). In particular, Boosted Decision Tree (BDT) algorithms are produced with XGBoost \cite{xgboost} are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Events are weighted in the BDT training by the weight of each Monte Carlo event. 
 
-\include{sections/tables/tabNames_sigBkg2lSS.tex}
+Because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. A cutoff of 150 GeV is used. This gives a total of 6 background rejection MVAs - explicitly, 2lSS high $p_T$ , 2lSS low $p_T$, 3lS high $p_T$ , 3lS low $p_T$, 3lF high $p_T$, and 3lF low $p_T$.
 
-\include{sections/tables/tabNames_sigBkg3l.tex}
+The following features are used in both the high and low $p_T$ 2lSS BDTs:
+
+\include{sections/tables/tabNames_sigBkg2lSS}
+
+While for each of the 3l BDTs, the features listed below are used for training:
+
+\include{sections/tables/tabNames_sigBkg3l}
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/HT.png}}%                            
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/MLepMet.png}}%                       
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/Mll01.png}}%         
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/binHiggsPt_2lSS.png}}\\
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/dR_l0_l1.png}}%                    
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/dilep_type.png}}%           
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/higgsRecoScore.png}}%          
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Eta_0.png}}\\
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Eta_1.png}}%              
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Phi_0.png}}%                    
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Phi_1.png}}%                 
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Pt_0.png}}\\
+  \caption{}
+  \label{}
+\end{figure}
+
+The BDTs are produced with a maximum tree depth of 6, using AUC as the target loss function. 
 
 \begin{figure}[h!]
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_score.png}}%
