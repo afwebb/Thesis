@@ -53,7 +53,7 @@ For the 3l channel, the following selection is applied:
 
 Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic (3lS), and 3l fully leptonic (3lF). In particular, Boosted Decision Tree (BDT) algorithms are produced with XGBoost \cite{xgboost} are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Events are weighted in the BDT training by the weight of each Monte Carlo event. 
 
-Because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. A cutoff of 150 GeV is used. This gives a total of 6 background rejection MVAs - explicitly, 2lSS high $p_T$ , 2lSS low $p_T$, 3lS high $p_T$ , 3lS low $p_T$, 3lF high $p_T$, and 3lF low $p_T$.
+Because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. This is found to provide better significance than attempting to build an inclusive model, as demonstrated in appendix \ref{subsec:sigBkgApx}. A cutoff of 150 GeV is used. This gives a total of 6 background rejection MVAs - explicitly, 2lSS high $p_T$ , 2lSS low $p_T$, 3lS high $p_T$ , 3lS low $p_T$, 3lF high $p_T$, and 3lF low $p_T$.
 
 The following features are used in both the high and low $p_T$ 2lSS BDTs:
 
