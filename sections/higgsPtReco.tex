@@ -13,7 +13,7 @@ Machine Learning algorithms are trained to identify the decay products of the Hi
 
 %The decay candidates of interest include b-jets from top decay, light jets and light leptons from the Higgs decay. Matching reconstruction level particles to truth level particles finds that the b-jets from tops are reconstructed at a rate close to 90\%. The leptons from the Higgs decay are nearly always reconstructed, while the light jets have a reconstruction rate of around 70\%. In the case that the Higgs decays to one lepton and two jets, both jets are reconstructed around 45\% of the time. However, the non-reconstructed jets are found to generally be fairly soft
 
-Leptons considered as possible Higgs and top decay candidates are required to pass the selection described in section \ref{subsec:lepSelection}. For jets, however, it is found that a large fraction that originate from either the top decay or the Higgs decay fall outside the selection described in section \ref{subsec:jetSelection}. Specifically, jets from the Higgs decay tend to be soft, with 37\% having $p_T$ $<$ 25 GeV. Therefore jets with $p_T$ $<$ 15 GeV are considered as possible candidates in the models described below. The spectrum is found to be well modeled even down to this low $p_T$ threshold, as shown in section \ref{subsec:preMVA}. As they are expected to originate from the primary vertex, jets are also required to pass a JVT cut.
+Leptons considered as possible Higgs and top decay candidates are required to pass the selection described in section \ref{subsec:lepSelection}. For jets, however, it is found that a large fraction that originate from either the top decay or the Higgs decay fall outside the selection described in section \ref{subsec:jetSelection}. Specifically, jets from the Higgs decay tend to be soft, with 32\% having $p_T$ $<$ 25 GeV. Therefore jets with $p_T$ $<$ 15 GeV are considered as possible candidates in the models described below. By contrast, less than 5\% of the jets originating from the Higgs fall below this $p_T$. The jets are found to be well modeled even down to this low $p_T$ threshold, as shown in section \ref{subsec:preMVA}. The impact of using different $p_T$ selection for the jet candidates is considered in detail in section \ref{subsec:ptCutApt}. As they are expected to originate from the primary vertex, jets are also required to pass a JVT cut.
 
 %------------------------------------------------------------------------ 
 \subsection{b-jet Identification}
@@ -345,11 +345,11 @@ The correct lepton is identified 80\% of the time.
 \label{sec:ptReco}
 %------------------------------------------------------------------------ 
 
-Once the most probable decay products have been identified, their kinematics are used as inputs to a regression model which attempts to predict the momentum of the Higgs Boson. Once again, a DNN is used. Input variables representing the b-jets and leptons not from the Higgs decay are included as well, as these are found to improve performance. The truth $p_T$ of the Higgs, as predicted by MC, are used as labels.
-
-Separate models are built for each channel - 2lSS, 3l Semi-leptonic and 3l Fully-leptonic.
+Once the most probable decay products have been identified, their kinematics are used as inputs to a regression model which attempts to predict the momentum of the Higgs Boson. Once again, a DNN is used. Input variables representing the b-jets and leptons not from the Higgs decay are included as well, as these are found to improve performance. The truth $p_T$ of the Higgs, as predicted by MC, are used as labels. Separate models are built for each channel - 2lSS, 3l Semi-leptonic and 3l Fully-leptonic.
 
 As a two-bin fit is targeted for the final result, some metrics evaluating the performance of the models aim to show how well it distinguished between ''high $p_T$'' and ''low $p_T$'' events. A cutoff point of 150 GeV is used to define these two categories.
+
+Because the analysis uses a two bin fit of the Higgs $p_T$, the momentum reconstruction could be treated as a binary classification problem, rather than a regression problem. This approach is explored in detail in section \ref{subsec:binPtApx}, and is found not to provide any significant increase in sensitivity. The regression approach is used because it provides more flexibility for future analyses, as it is independent of the cutoff between high and low $p_T$, as well as the number of bins. Further, a regression allows the output of the neural network to be more clearly understood, as it can be directly compared to a physics observable.
 
 %------------------------------------------------------------------------                                                  
 \subsubsection{2lSS Channel}
@@ -368,6 +368,8 @@ The optimal neural network architecture for this channel is found to consist of 
     \caption{}
     \label{fig:pt2lSSresults}
 \end{figure}
+
+As the analysis strategy targets a two $p_T$ bin fit, the problem ultimately reduces to a binary classification problem.
 
 \begin{figure}[h!]                                                                                                    
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_score.png}}%              
@@ -439,7 +441,7 @@ In the 3l channel, there are two possible ways for the Higgs to decay, both invo
 
 The kinematics of each event, along with the output scores of the Higgs and top reconstruction algorithms, are used to distinguish these two possible decay modes. The particular inputs used are listed in table \ref{tab:decay3lfeatures}.
 
-\include{sections/tables/tabNames_pt2lSS.tex}
+\include{sections/tables/tabNames_decay3l.tex}
 
 A neural network with 5 hidden layers, each with 50 nodes, is trained to distinguish these two decay modes. The output of the model is summarized in figure \ref{fig:decayResults}.
 

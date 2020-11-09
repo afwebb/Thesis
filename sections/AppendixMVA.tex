@@ -1,94 +1,75 @@
 
-The following section provides details regarding the various machine learning models used in the analysis. The Keras neural network framework, with Tensorflow as the backend, is used to create each model, and the number of hidden layers and nodes are determined using grid search optimization. For each model, a LeakyReLU activation function is used, along with a learning rate of 0.01, and the Adam optimization algorithm. For the classification algorithms (b-jet matching, Higgs reconstruction, and background separation) binary-cross entropy is used as the loss function. 
-
-\subsection{b-jet Identification Algorithms}
-\label{subsec:topRecoApx}
+The following section provides details regarding various studies performed in support of this analysis, exploring alternate decisions and strategies. 
 
 %---------------------------------------------------------------------- 
-\subsubsection{2lSS Channel}
-\label{subsec:Apptop2lSS}
+\subsection{Alternate b-jet Identification Algorithm}
+\label{subsec:topRecoApx}
+%---------------------------------------------------------------------- 
+
+The nominal analysis reconstructs the b-jets by considering different combinations of jets, and asking a neural network to determine whether each combination consists of b-jets from top quark decays. An alternate approach would be to give the neural network about all of the jets in an event at once, and train it to select which two are most likely to be the b-jets from top decay. It was hypothesized that this could perform better than considering each combination independently, as the neural network could consider the event as a whole. While this is not found to be the case, these studies are documented here as a point of interest and comparison.
+
+For these studies, the kinematics of the 10 highest $p_T$ jets in each event are used for training. This includes the vast majority of truth b-jets. Specifically the $p_T$, $\eta$, $\phi$, $E$, and DL1r score of each jet are used. For events with fewer than 10 jets, these values are substituted with 0. The $p_T$, $\eta$, $\phi$, and $E$ of the leptons and $E_T^{miss}$ are included as well. 
+
+Caterogical cross entropy is used as the loss function.
+
+\begin{table}[h!]
+  \centering
+  \caption{Accuracey of the NN in identifying b-jets from tops in 2lSS events for the alternate categorical method compared to the nominal method.}
+  \begin{tabular}{l|c|c}                                                                                                     
+  \hline\hline
+  Channel & Categorical & Nominal \\                                                                              
+  \hline                                                                                                                  
+  2lSS & & 73.9\% \\
+  3l & & 79.8\% \\
+  \hline                                                                                                                 
+  \end{tabular}                                                                                                           
+  \label{tab:topMatchCatApx}
+\end{table}
+
+%---------------------------------------------------------------------- 
+\subsubsection{Binary Classification of the Higgs $p_T$}
+\label{subsec:binPtApx}
 %---------------------------------------------------------------------- 
                                                                                                                      
-For the 2lSS channel, the following input features as used for training:
+A two bin fit of the Higgs momentum is used because statistics are insufficient for any finer resolution. This means separating high and low $p_T$ events is sufficient for this analysis. As such, rather than attempting the reconstruct the full Higgs $p_T$ spectrum, a binary classification approach is explored.
+
+A model is built to determine whether $t\bar{t}H$ events include a high $p_T$ ($>$150 GeV) or low $p_T$ ($<$150 GeV) Higgs Boson. While this is now a classification model, it uses the same input features described in section \ref{sec:ptReco}. Binary crossentropy is used as the loss function.
+
+\begin{figure}[h!]                                                                                                           
+  \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/bin_keras_score.png}}%                
+  \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/bin_keras_roc.png}}\\
+  \caption{}
+  \label{fig:bin2lSSroc}                                                                          
+\end{figure}
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/bin_keras_score.png}}%                               
+  \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/bin_keras_roc.png}}\\                                
+  \caption{}
+  \label{fig:bin3lSroc}
+\end{figure} 
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/bin_keras_score.png}}%                               
+  \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/bin_keras_roc.png}}\\                                
+  \caption{}
+  \label{fig:bin3lFroc}
+\end{figure} 
 
 %----------------------------------------------------------------------
-\subsubsection{3l Channel}
-\label{subsec:top3l}
+\subsubsection{Impact of Alternative Jet Selection}
+\label{subsec:ptCutApx}
 %---------------------------------------------------------------------- 
 
+A relatively low $p_T$ threshold of 15 GeV is used to determine jet candidates, as the jets originating from the Higgs decay are found to fall between 15 and 25 GeV a large fraction of the time. The impact of different jet $p_T$ cuts on our ability to reconstruct the Higgs $p_T$ is explored here. The performance of the Higgs $p_T$ prediction models is evaluated for jet $p_T$ cuts of 10, 15, 20, and 25 GeV.
 
-\subsection{Alternate b-jet Identification Approach}
-\label{subsec:altTopReco}
-
-An alternative approach 
-
-%----------------------------------------------------------------------
-
-\subsection{Higgs Reconstruction Algorithms}
-\label{subsec:higgsRecoMVA}
-
-%----------------------------------------------------------------------                                                    
-\subsubsection{2lSS Channel}
-\label{subsec:higgs2lSS}
-%----------------------------------------------------------------------  
-
-
-
-%----------------------------------------------------------------------
-
-%----------------------------------------------------------------------                                                   
-\subsubsection{3l Semi-leptonic Channel}
-\label{subsec:higgs3lS}
-%----------------------------------------------------------------------  
-
-
-
-%----------------------------------------------------------------------
-
-%----------------------------------------------------------------------                                                    
-\subsubsection{3l Fully-leptonic Channel}                                  
-\label{subsec:higgs3lF}                                                                                                   
-%----------------------------------------------------------------------
-
-
-
-%----------------------------------------------------------------------
-
-\subsection{$p_T$ Prediction MVA}
-\label{subsec:ptMVA}
-
-%----------------------------------------------------------------------                                                  
-\subsubsection{2lSS Channel}                                                                          
-\label{subsec:pt2lSS}                                                                                           
-%----------------------------------------------------------------------                                                     
-
-
-
-%----------------------------------------------------------------------
- 
-%----------------------------------------------------------------------                                                  
-\subsubsection{ 3l Semi-leptonic Channel}                                                                            
-\label{subsec:pt3lS}                                                                                                    
-%----------------------------------------------------------------------                                                      
-
-
-
-%----------------------------------------------------------------------
- 
-%----------------------------------------------------------------------                                                
-\subsubsection{ 3l Fully-leptonic Channel}                                                                            
-\label{subsec:pt3lF}                                                                                                    
-%----------------------------------------------------------------------
-
-
-
-%----------------------------------------------------------------------
-
-%----------------------------------------------------------------------
-\subsection{3l Decay MVA}
-\label{subsec:decayMVA}
-%----------------------------------------------------------------------
-
-
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_pt_scatter.png}}%            
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_norm2Dhist.png}}\\           
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_score.png}}%   
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_roc.png}}\\                       
+    \caption{}
+    \label{fig:pt2lSS_20}
+\end{figure} 
 
 %----------------------------------------------------------------------
