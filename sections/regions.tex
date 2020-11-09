@@ -53,15 +53,46 @@ For the 3l channel, the following selection is applied:
 
 Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic, and 3l fully leptonic. In particular, Neural Networks produced with Tensorflow are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Further, because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions.
 
-Output distributions of each MVA are shown in figure \ref{fig:sigBkgScore}. Detailed explanations of each of the models can be found in section \ref{apx:MVA}.
+\include{sections/tables/tabNames_sigBkg2lSS.tex}
+
+\include{sections/tables/tabNames_sigBkg3l.tex}
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_score.png}}%
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_roc.png}}\\
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_score.png}}% 
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_roc.png}}\\ 
+  \caption{}
+  \label{fig:sigBkgScore2lSS}
+\end{figure}
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_score.png}}%                                  
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_roc.png}}\\                                   
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_score.png}}%                                   
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_roc.png}}\\                                    
+  \caption{}
+  \label{fig:sigBkgScore3lS}                                                                                                
+\end{figure}
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_score.png}}%                                  
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_roc.png}}\\                                  
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_score.png}}%                                 
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_roc.png}}\\                                    
+  \caption{}
+  \label{fig:sigBkgScore3lF}                                                                                                
+\end{figure}
+
+Output distributions of each MVA are shown in figure \ref{fig:sigBkgScore}. 
 
 \begin{figure}
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_2lHigh.png}}%
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_3lSHigh.png}}%
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_3lFHigh.png}}\\
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_2lLow.png}}%
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_3lSLow.png}}%
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/xgb_higgsDiff/Plots/xgb_sigBkg_3lFLow.png}}
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_highPt.png}}%
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_highPt.png}}%
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_highPt.png}}\\
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_lowPt.png}}%
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_lowPt.png}}%
+  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_lowPt.png}}
   \label{fig:sigBkgScore}
   \caption{scores}
 \end{figure}
