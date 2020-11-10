@@ -1,5 +1,40 @@
 
-The following section provides details regarding various studies performed in support of this analysis, exploring alternate decisions and strategies. 
+The following section provides details of the various MVAs as well as a few studies performed in support of this analysis, exploring alternate decisions and strategies. 
+
+%----------------------------------------------------------------------
+\subsection{Higgs Reconstruction Models}
+\label{subsec:recoApx}
+%----------------------------------------------------------------------                                                      
+ 
+\subsubsection{b-jet Identification Features - 2lSS}
+\include{sections/tables/texPlots_top2lSS}
+
+\subsubsection{b-jet Identification Features - 3l}
+\include{sections/tables/texPlots_top3l}
+
+\subsubsection{Higgs Reconstruction Features - 2lSS}
+\include{sections/tables/texPlots_higgs2lSS}
+
+\subsubsection{Higgs Reconstruction Features - 3lS}                                                                         
+\include{sections/tables/texPlots_higgs3lS} 
+
+\subsubsection{Higgs Reconstruction Features - 3lF} 
+\include{sections/tables/texPlots_higgs3lF} 
+
+%----------------------------------------------------------------------  
+
+%----------------------------------------------------------------------
+\subsection{Background Rejection MVAs}
+\label{subsec:sigBkgApx}
+%----------------------------------------------------------------------                                                      
+ 
+\subsubsection{Background Rejection MVA Features - 2lSS}
+\include{sections/tables/texPlots_sigBkg2lSS}
+
+\subsubsection{Background Rejection MVA Features - 3l}
+\include{sections/tables/texPlots_sigBkg3l}
+
+%----------------------------------------------------------------------  
 
 %---------------------------------------------------------------------- 
 \subsection{Alternate b-jet Identification Algorithm}
@@ -8,9 +43,7 @@ The following section provides details regarding various studies performed in su
 
 The nominal analysis reconstructs the b-jets by considering different combinations of jets, and asking a neural network to determine whether each combination consists of b-jets from top quark decays. An alternate approach would be to give the neural network about all of the jets in an event at once, and train it to select which two are most likely to be the b-jets from top decay. It was hypothesized that this could perform better than considering each combination independently, as the neural network could consider the event as a whole. While this is not found to be the case, these studies are documented here as a point of interest and comparison.
 
-For these studies, the kinematics of the 10 highest $p_T$ jets in each event are used for training. This includes the vast majority of truth b-jets. Specifically the $p_T$, $\eta$, $\phi$, $E$, and DL1r score of each jet are used. For events with fewer than 10 jets, these values are substituted with 0. The $p_T$, $\eta$, $\phi$, and $E$ of the leptons and $E_T^{miss}$ are included as well. 
-
-Caterogical cross entropy is used as the loss function.
+For these studies, the kinematics of the 10 highest $p_T$ jets in each event are used for training. This includes the vast majority of truth b-jets. Specifically the $p_T$, $\eta$, $\phi$, $E$, and DL1r score of each jet are used. For events with fewer than 10 jets, these values are substituted with 0. The $p_T$, $\eta$, $\phi$, and $E$ of the leptons and $E_T^{miss}$ are included as well. Caterogical cross entropy is used as the loss function.
 
 \begin{table}[h!]
   \centering
@@ -19,15 +52,15 @@ Caterogical cross entropy is used as the loss function.
   \hline\hline
   Channel & Categorical & Nominal \\                                                                              
   \hline                                                                                                                  
-  2lSS & & 73.9\% \\
-  3l & & 79.8\% \\
+  2lSS & 70.6\% & 73.9\% \\
+  3l & 76.1\% & 79.8\% \\
   \hline                                                                                                                 
   \end{tabular}                                                                                                           
   \label{tab:topMatchCatApx}
 \end{table}
 
 %---------------------------------------------------------------------- 
-\subsubsection{Binary Classification of the Higgs $p_T$}
+\subsection{Binary Classification of the Higgs $p_T$}
 \label{subsec:binPtApx}
 %---------------------------------------------------------------------- 
                                                                                                                      
@@ -57,7 +90,7 @@ A model is built to determine whether $t\bar{t}H$ events include a high $p_T$ ($
 \end{figure} 
 
 %----------------------------------------------------------------------
-\subsubsection{Impact of Alternative Jet Selection}
+\subsection{Impact of Alternative Jet Selection}
 \label{subsec:ptCutApx}
 %---------------------------------------------------------------------- 
 
@@ -73,12 +106,3 @@ A relatively low $p_T$ threshold of 15 GeV is used to determine jet candidates, 
 \end{figure} 
 
 %----------------------------------------------------------------------
-
-%----------------------------------------------------------------------                                                      
-\subsubsection{Background Rejection MVAs}
-\label{subsec:sigBkgApx}
-%---------------------------------------------------------------------- 
-
-
-
-%----------------------------------------------------------------------  
