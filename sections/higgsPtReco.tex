@@ -382,7 +382,7 @@ To evaluate the performance of the model, the predicted $p_T$ spectrum is compar
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_test_pt_scatter.png}}%
-    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_test_norm2Dhist.png}}\\
+    \subfigure[]{\includegraphics[width=.53\linewidth]{ptReco/higgsTop2lSS/keras_test_norm2Dhist.png}}\\
     \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for 2lSS $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernal Density Estimation, and (b) a histogram where each column  has been normalized to one.}
     \label{fig:pt2lSSresults}
 \end{figure}
@@ -415,8 +415,8 @@ To evaluate the performance of the model, the predicted $p_T$ spectrum is compar
                                                                                                                              
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_test_pt_scatter.png}}%                      
-    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_test_norm2Dhist.png}}\\                     
-    \caption{}
+    \subfigure[]{\includegraphics[width=.53\linewidth]{ptReco/higgsTop3lS/keras_test_norm2Dhist.png}}\\                     
+    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for 3lS $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernal Density Estimation, and (b) a histogram where each column  has been normalized to one.}
     \label{fig:pt3lSresults}
 \end{figure}
 
@@ -425,7 +425,7 @@ Figure \ref{fig:pt3lSroc} shows (a) the output of the NN for events with truth $
 \begin{figure}[h!]                                                                                                           
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_score.png}}%                                
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/keras_roc.png}}\\
-    \caption{}
+    \caption(a) shows the reconstructed Higgs $p_T$ for 3lS events with truth $p_T > $ 150 GeV and $<$ 150 GeV, while (b) shows the ROC curve for those two sets of events.
     \label{fig:pt3lSroc}
 \end{figure}
 
@@ -448,8 +448,8 @@ The predicted transverse momentum, as a function of the truth $p_T$, is shown in
                                                                                                                              
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_test_pt_scatter.png}}%                      
-    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_test_norm2Dhist.png}}\\                     
-    \caption{}
+    \subfigure[]{\includegraphics[width=.53\linewidth]{ptReco/higgsTop3lF/keras_test_norm2Dhist.png}}\\                     
+    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for 3lF $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernal Density Estimation, and (b) a histogram where each column  has been normalized to one.}
     \label{fig:pt3lFresults}
 \end{figure}
 
@@ -458,7 +458,7 @@ When split into high and low $p_T$, based on a cutoff of 150 GeV, the
 \begin{figure}[h!]                                                                                                           
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_score.png}}%                                
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_roc.png}}\\
-    \caption{}
+    \caption{(a) shows the reconstructed Higgs $p_T$ for 3lF events with truth $p_T > $ 150 GeV and $<$ 150 GeV, while (b) shows the ROC curve for those two sets of events.}
     \label{fig:pt3lFroc}
 \end{figure}
 
@@ -480,7 +480,7 @@ A neural network with 5 hidden layers, each with 50 nodes, is trained to disting
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.48\linewidth]{decay3l/keras_score.png}}%                                 
     \subfigure[]{\includegraphics[width=.48\linewidth]{decay3l/keras_roc.png}}\\
-    \caption{}
+    \caption{(a) shows the output of the decay separation NN for Semi-leptonic (blue) and Fully-leptonic (orange) 3l events, scaled to equal area. (b) shows the ROC curve for those two sets of events.}
     \label{fig:decayResults}
 \end{figure}
 
