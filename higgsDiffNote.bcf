@@ -2136,9 +2136,10 @@
     <bcf:citekey order="27">PERF-2014-03</bcf:citekey>
     <bcf:citekey order="28">ATL-PHYS-PUB-2015-027</bcf:citekey>
     <bcf:citekey order="29">xgboost</bcf:citekey>
-    <bcf:citekey order="30">lumi</bcf:citekey>
-    <bcf:citekey order="31">jes</bcf:citekey>
-    <bcf:citekey order="32">btag_cal</bcf:citekey>
+    <bcf:citekey order="30">xgboost</bcf:citekey>
+    <bcf:citekey order="31">lumi</bcf:citekey>
+    <bcf:citekey order="32">jes</bcf:citekey>
+    <bcf:citekey order="33">btag_cal</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="none/global/" type="entry" sortscheme="none" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>

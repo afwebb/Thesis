@@ -1,38 +1,138 @@
-\subsection{Background Rejection MVAs}
-\label{subsec:bkgMVAs}
+Events are divided into two channels based on the number of leptons in the final state: one with two same-sign leptons, the other with three leptons. The $3l$ channel includes events where both leptons originated from the Higgs boson as well as events where only one of the leptons 
 
-Separate mdoels are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic, and 3l fully leptonic. In particular, Neural Networks produced with Tensorflow are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Further, because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. 
+%------------------------------------------------------------------------------------------
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Pre-MVA Event Selection}
+\label{subsec:preMVA}
 
-\subsubsection{2lSS - High $p_T$}
-\label{sec:2lHigh}
+A preselection is applied to define orthogonal analysis channels based on the number of leptons in each event. For the 2lSS channel, the following presection is used:
 
-\begin{figure}[!htbp]
-\centering
-\includegraphics[width=0.29\textwidth]{figures/features/2lHigh/DRjj01.eps}%
-\includegraphics[width=0.29\textwidth]{figures/features/2lHigh/DRlj00.eps}%
-\includegraphics[width=0.29\textwidth]{figures/features/2lHigh/DRll01.eps}\\
-\includegraphics[width=0.29\textwidth]{figures/features/2lHigh/MET_RefFinal_et.eps}%
-\includegraphics[width=0.29\textwidth]{figures/features/2lHigh/MET_RefFinal_phi.eps}%
-\includegraphics[width=0.29\textwidth]{figures/features/2lHigh/Mll01.eps}\\
-\caption{}
-\label{fig:}
+\begin{itemize}
+  \item Two very tight, same-charge, light leptons with $p_T > 20$ GeV
+  \item $>=$4 reconstructed jets, $>=$1 b-tagged jets
+  \item No reconstructed tau candidates
+\end{itemize}
+
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_0.png}}%                        
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_1.png}}%                     
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/Mll01}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nJets.png}}%                       
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nbJets.png}}%                
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/MET.png}}\\
+    \caption{}                           
+    \label{fig:presel2lSS}
 \end{figure}
 
-\subsubsection{2lSS - Low $p_T$}
-\label{sec:2lLow}
+For the 3l channel, the following selection is applied:
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{3l Semi-Leptonic - High $p_T$}
-\label{sec:3lSHigh}
+\begin{itemize}
+  \item Three light leptons with total charge $\pm 1$
+  \item Same charge leptons are required to be very tight, with $p_T > 20$ GeV
+  \item Opposite charge lepton must be loose, with $p_T > 10$ GeV
+  \item $>=$2 reconstructed jets, $>=$1 b-tagged jets                                                                        
+  \item No reconstructed tau candidates
+  \item $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all opposite-charge, same-flavor lepton pairs
+\end{itemize}
 
-\subsubsection{3l Semi-Leptonic - Low $p_T$}
-\label{sec:3lSLow}
+\begin{figure}[h!]
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_0.png}}%                             
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_1.png}}%                      
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/Mll01}}\\                             
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nJets.png}}%                          
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nbJets.png}}%                          
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/MET.png}}\\                         
+    \caption{}
+    \label{fig:presel3l}                                                                                          
+\end{figure}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\subsubsection{3l Fully Leptonic - High $p_T$}
-\label{sec:3lFHigh}
+ %------------------------------------------------------------------------------------------
 
-\subsubsection{3l Fully Leptonic - Low $p_T$}
-\label{sec:3lFLow}
+\subsection{Event MVA}
+\label{subsec:sigBkgMVA}
+
+Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic (3lS), and 3l fully leptonic (3lF). In particular, Boosted Decision Tree (BDT) algorithms are produced with XGBoost \cite{xgboost} are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Events are weighted in the BDT training by the weight of each Monte Carlo event. 
+
+Because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. This is found to provide better significance than attempting to build an inclusive model, as demonstrated in appendix \ref{subsec:sigBkgApx}. A cutoff of 150 GeV is used. This gives a total of 6 background rejection MVAs - explicitly, 2lSS high $p_T$ , 2lSS low $p_T$, 3lS high $p_T$ , 3lS low $p_T$, 3lF high $p_T$, and 3lF low $p_T$.
+
+The following features are used in both the high and low $p_T$ 2lSS BDTs:
+
+\include{sections/tables/tabNames_sigBkg2lSS}
+
+While for each of the 3l BDTs, the features listed below are used for training:
+
+\include{sections/tables/tabNames_sigBkg3l}
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/HT.png}}%                            
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/MLepMet.png}}%                       
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/Mll01.png}}%         
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/binHiggsPt_2lSS.png}}\\
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/dR_l0_l1.png}}%                    
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/dilep_type.png}}%           
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/higgsRecoScore.png}}%          
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Eta_0.png}}\\
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Eta_1.png}}%              
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Phi_0.png}}%                    
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Phi_1.png}}%                 
+  \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/jet_Pt_0.png}}\\
+  \caption{}
+  \label{}
+\end{figure}
+
+The BDTs are produced with a maximum tree depth of 6, using AUC as the target loss function. 
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_score.png}}%
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_roc.png}}\\
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_score.png}}% 
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_roc.png}}\\ 
+  \caption{}
+  \label{fig:sigBkgScore2lSS}
+\end{figure}
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_score.png}}%                                  
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_roc.png}}\\                                   
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_score.png}}%                                   
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_roc.png}}\\                                    
+  \caption{}
+  \label{fig:sigBkgScore3lS}                                                                                                
+\end{figure}
+
+\begin{figure}[h!]
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_score.png}}%                                  
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_roc.png}}\\                                  
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_score.png}}%                                 
+  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_roc.png}}\\                                    
+  \caption{}
+  \label{fig:sigBkgScore3lF}                                                                                                
+\end{figure}
+
+Output distributions of each MVA comparing MC prediction to data at 80 $fb^-1$ are shown in figure \ref{fig:sigBkgScore}. 
+
+\begin{figure}
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_highPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_highPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_highPt.png}}\\
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_lowPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_lowPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_lowPt.png}}
+  \label{fig:sigBkgScore}
+  \caption{scores}
+\end{figure}
+
+%------------------------------------------------------------------------------------------
+
+\subsection{Signal Region Definitions}
+\label{subsec:sigRegions}
+
+Once pre-selection has been applied, channels are further refined based on the MVAs described above. The output of the model described in section \ref{sec:decay3l} is used to separate the three channel into two - Semi-leptonic and Fully-leptonic - based on the predicted decay mode of the Higgs boson. 
+
+For each event, depending on the channel as well as the predicted $p_T$ of the Higgs derived from the algorithm described in section \ref{sec:ptReco}, a cut on the appropriate background rejection algorithm is applied. The specific selection used, and the event yield in each channel after this selection has been applied, is summarized below.
+
+\subsubsection{$2lSS$}
+
+\subsubsection{$3l - Semi-leptonic$}
+
+\subsubsection{$3l - Fully-leptonic$}

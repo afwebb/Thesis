@@ -9,9 +9,11 @@ A preselection is applied to define orthogonal analysis channels based on the nu
 
 \begin{itemize}
   \item Two very tight, same-charge, light leptons with $p_T > 20$ GeV
-  \item $>=$4 reconstructed jets, $>=$1 b-tagged jets
+  \item $\geq$4 reconstructed jets, $\geq$1 b-tagged jets
   \item No reconstructed tau candidates
 \end{itemize}
+
+The event yield after the 2lSS preselection has been applied, for MC and data at 80 $fb^{-1}$, is shown in figure \ref{fig:presel2lSS}. Good general agreement is found.
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_0.png}}%                        
@@ -20,7 +22,7 @@ A preselection is applied to define orthogonal analysis channels based on the nu
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nJets.png}}%                       
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nbJets.png}}%                
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/MET.png}}\\
-    \caption{}                           
+    \caption{Data/MC comparisons of the 2lSS pre-selection region. (a) and (b) show the $p_T$ of leptons 0 and 1, (c) shows the invariant mass of lepton 0 and 1, (d) shows the jet multiplicity, (e) the b-tagged jet multiplicity, and (f) the missing transverse energy.}                           
     \label{fig:presel2lSS}
 \end{figure}
 
@@ -30,10 +32,12 @@ For the 3l channel, the following selection is applied:
   \item Three light leptons with total charge $\pm 1$
   \item Same charge leptons are required to be very tight, with $p_T > 20$ GeV
   \item Opposite charge lepton must be loose, with $p_T > 10$ GeV
-  \item $>=$2 reconstructed jets, $>=$1 b-tagged jets                                                                        
+  \item $\geq$2 reconstructed jets, $\geq$1 b-tagged jets                                              
   \item No reconstructed tau candidates
   \item $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all opposite-charge, same-flavor lepton pairs
 \end{itemize}
+
+Comparisons of data and MC event yields after this selection has been applied are shown in figure \ref{fig:presel3l}.
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_0.png}}%                             
@@ -42,7 +46,7 @@ For the 3l channel, the following selection is applied:
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nJets.png}}%                          
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nbJets.png}}%                          
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/MET.png}}\\                         
-    \caption{}
+    \caption{Data/MC comparisons of the 3l pre-selection region. (a) and (b) show the $p_T$ of leptons 0 and 1, (c) shows the invariant mass of lepton 0 and 1, (d) shows the jet multiplicity, (e) the b-tagged jet multiplicity, and (f) the missing transverse energy.}
     \label{fig:presel3l}                                                                                          
 \end{figure}
 
@@ -109,15 +113,15 @@ The BDTs are produced with a maximum tree depth of 6, using AUC as the target lo
   \label{fig:sigBkgScore3lF}                                                                                                
 \end{figure}
 
-Output distributions of each MVA are shown in figure \ref{fig:sigBkgScore}. 
+Output distributions of each MVA comparing MC prediction to data at 80 $fb^-1$ are shown in figure \ref{fig:sigBkgScore}. 
 
 \begin{figure}
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_highPt.png}}%
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_highPt.png}}%
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_highPt.png}}\\
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_lowPt.png}}%
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_lowPt.png}}%
-  \subfigure[]{\includegraphics[width=.3\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_lowPt.png}}
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_highPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_highPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_highPt.png}}\\
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_lowPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_lowPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_lowPt.png}}
   \label{fig:sigBkgScore}
   \caption{scores}
 \end{figure}
@@ -127,12 +131,63 @@ Output distributions of each MVA are shown in figure \ref{fig:sigBkgScore}.
 \subsection{Signal Region Definitions}
 \label{subsec:sigRegions}
 
-Once pre-selection has been applied, channels are further refined based on the MVAs described above. The output of the model described in section \ref{sec:decay3l} is used to separate the three channel into two - Semi-leptonic and Fully-leptonic - based on the predicted decay mode of the Higgs boson. 
+Once pre-selection has been applied, channels are further refined based on the MVAs described above. The output of the model described in section \ref{sec:decay3l} is used to separate the three channel into two - Semi-leptonic and Fully-leptonic - based on the predicted decay mode of the Higgs boson. This leaves three orthogonal signal regions - 2lSS, 3lS, and 3lF. 
 
-For each event, depending on the channel as well as the predicted $p_T$ of the Higgs derived from the algorithm described in section \ref{sec:ptReco}, a cut on the appropriate background rejection algorithm is applied. The specific selection used, and the event yield in each channel after this selection has been applied, is summarized below.
+For each event, depending on the number of leptons as well as whether the $p_T$ of the Higgs is predicted to be high ($>$ 150 GeV) or low ($<$ 150 GeV), a cut on the appropriate background rejection MVA is applied. The particular cut values, listed in table \ref{tab:sigBkgCuts}, are determined by maximizing $S/\sqrt{B}$ in each region. 
 
-\subsubsection{$2lSS$}
+\begin{table}[h!]
+  \begin{center}
+  \begin{tabular}{l|l}
+  \hline\hline
+  Channel & BDT Score \\
+  \hline
+  2lSS high $p_T$ & 0.36 \\
+  2lSS low $p_T$ & 0.34 \\
+  3lS high $p_T$ & 0.51 \\
+  3lS low $p_T$ & 0.43 \\
+  3lF high $p_T$ & 0.33 \\
+  3lF low $p_T$ & 0.41 \\
+  \hline
+  \end{tabular}
+  \end{center}
+  \caption{Cutoff values on background rejection MVA score applied to signal regions.}
+  \label{tab:sigBkgCuts}
+\end{table}
 
-\subsubsection{$3l - Semi-leptonic$}
+The event preselection and MVA selection define the three signal regions. These signal region definitions are summarized in table \ref{tab:sigRegionDef}.
 
-\subsubsection{$3l - Fully-leptonic$}
+\begin{table}[h!]
+  \begin{center}
+  \begin{tabular}{ll}
+  \hline\hline
+  Region & Selection \\
+  \hline
+  2lSS & Two same charge tight leptons with $p_T$ $>$ 20 GeV \\
+  & $N_{jets}\geq$ 4, $N_{b-jets}\geq$ 1 b-tagged jets \\
+  & Zero $\tau_{had}$\\
+  & $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.36 \textbf{or} $H^{pred}_{p_T}<$150 GeV and BDT score $>$ 0.34 \\
+  \hline
+  3lS & Three light leptons with total charge $\pm 1$ \\
+  & Two tight SS leptons, $p_T > 20$ GeV \\
+  & One loose OS lepton, $p_T > 10$ GeV \\
+  & $N_{jets}\geq$ 2, $N_{b-jets}\geq$ 1 b-tagged jets \\
+  & Zero $\tau_{had}$ \\           
+  & $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all OSSF lepton pairs \\
+  & Decay NN Score $<$ 0.23 \\
+  & $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.51 \textbf{or} $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.43 \\
+  \hline
+  3lF & Three light leptons with total charge $\pm 1$ \\
+  & Two tight SS leptons, $p_T > 20$ GeV \\                                                                                  
+  & One loose OS lepton, $p_T > 10$ GeV \\                                                                                   
+  & $N_{jets}\geq$ 2, $N_{b-jets}\geq$ 1 b-tagged jets \\
+  & Zero $\tau_{had}$ \\
+  & $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all OSSF lepton pairs \\                                                 
+  & Decay NN Score $>$ 0.23 \\
+  & $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.33 \textbf{or} $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.41 \\
+  \hline\hline
+  \end{tabular}
+  \end{center}
+  \caption{Selection applied to define the three signal regions used in the fit.}
+  \label{tab:sigRegionCuts}
+\end{table}
+
