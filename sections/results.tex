@@ -5,7 +5,9 @@ Unblinded results are shown for the 80 $fb^{-1}$ data set, as well as MC only pr
 \label{sec:res80}
 %-------------------------------------------
 
-A maximum likelihood fit is performed simultaneously over the regions shown in figure \ref{fig:sigRegions80}.
+A maximum likelihood fit is performed simultaneously over the reconstructed Higgs $p_T$ spectrum in the three signal regions, 2lSS, 3lS, and 3lF, shown in figure \ref{fig:sigRegions80}. The $t\bar{t}H$ MC is split into high and low $p_T$, based on whether the truth $p_T$ of the Higgs is above or below 150 GeV. The parameters $\mu_{t\bar{t}H high p_T}$ and $\mu_{t\bar{t}H low p_T}$, where $\mu = \sigma_{observed}/\sigma_{SM} $, are extracted from the fit.
+
+As the data collected from 2015-2017 has been unblinded for $t\bar{t}H-ML$ channels, representing 80 $fb^{-1}$, those events are unblinded.
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat_80/Plots/recoHiggsPt_2lSS_postFit.png}}%   
@@ -15,12 +17,30 @@ A maximum likelihood fit is performed simultaneously over the regions shown in f
     \label{fig:sigRegions80}
 \end{figure}
 
+A post-fit summary of the fitted regions is shown in figure \ref{fig:Summary80}.
+
 \begin{figure}[h!]
     \center
     \includegraphics[width=.9\linewidth]{trexPlots/stat_80/Plots/Summary_postFit.png}
     \caption{Post-fit summary of fit.}                                                                          
     \label{fig:Summary80}
 \end{figure}
+
+The $\mu$ values for high and low $p_T$ Higgs are shown in \ref{tab:mu80}.
+
+\begin{table}[H]                                                                                                             
+  \centering                                                                                                              
+  \begin{tabular}{c}                                                                                            
+     $\mu_{t\bar{t}H high p_T} = 1.0^{+0.0}_{-0.0}(stat)^{+0.0}_{-0.0}(sys)$ \\       
+     $\mu_{t\bar{t}H low p_T} = 1.0^{+0.0}_{-0.0}(stat)^{+0.0}_{-0.0}(sys)$ \\
+  \end{tabular}                                                                                                            
+  \caption{Caption}                                                                                                        
+  \label{tab:mu80}                                                                                                  
+\end{table}  
+
+\textbf{Need to add something about systematics here}
+
+The background composition of each of the fit regions is shown in figure \ref{fig:pieChart80}.
 
 \begin{figure}[h!]
     \centering
@@ -36,6 +56,8 @@ A maximum likelihood fit is performed simultaneously over the regions shown in f
 \label{sec:res140}
 %------------------------------------------- 
 
+As data collected in 2018 has not yet been unblinded for $t\bar{t}H-ML$ at the time of this note, data from that year remains blinded. Instead, an Asimov fit is performed - with the MC prediction being used both as the SM prediction as well as the data in the fit - in order to give expected results.
+
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat_140/Plots/recoHiggsPt_2lSS_postFit.png}}%             
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat_140/Plots/recoHiggsPt_3lS_postFit.png}}%        
@@ -50,6 +72,18 @@ A maximum likelihood fit is performed simultaneously over the regions shown in f
     \caption{Post-fit summary of fit.}
     \label{fig:Summary140}
 \end{figure}
+
+The $\mu$ values for high and low $p_T$ Higgs are shown in \ref{tab:mu140}.
+
+\begin{table}[H]
+  \centering
+  \begin{tabular}{c}
+     $\mu_{t\bar{t}H high p_T} = 1.^{+0.}_{-0.}(stat)^{+0.}_{-0.}(sys)$ \\
+     $\mu_{t\bar{t}H low p_T} = 1.^{+0.}_{-0.}(stat)^{+0.}_{-0.}(sys)$ \\
+  \end{tabular}
+  \caption{Caption}
+  \label{tab:mu140}
+\end{table}
 
 \begin{figure}[h!]
     \centering                                                                                                               

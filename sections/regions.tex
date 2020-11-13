@@ -13,7 +13,11 @@ A preselection is applied to define orthogonal analysis channels based on the nu
   \item No reconstructed tau candidates
 \end{itemize}
 
-The event yield after the 2lSS preselection has been applied, for MC and data at 80 $fb^{-1}$, is shown in figure \ref{fig:presel2lSS}. Good general agreement is found.
+The event yield after the 2lSS preselection has been applied, for MC and data at 80 $fb^{-1}$, is shown in table \ref{tab:Yields2lSS}. 
+
+\include{sections/tables/Yields2lSS}
+
+figure \ref{fig:presel2lSS}. Good general agreement is found.
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_0.png}}%                        
@@ -37,7 +41,11 @@ For the 3l channel, the following selection is applied:
   \item $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all opposite-charge, same-flavor lepton pairs
 \end{itemize}
 
-Comparisons of data and MC event yields after this selection has been applied are shown in figure \ref{fig:presel3l}.
+The event yield after the 3l preselection has been applied, for MC and data at 80 $fb^{-1}$, is shown in table \ref{tab:yields3l}.
+
+\include{sections/tables/Yields3l}
+
+Comparisons of kinematic distributions for data and MC in this region are shown in figure \ref{fig:presel3l}.
 
 \begin{figure}[h!]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_0.png}}%                             
@@ -113,17 +121,22 @@ The BDTs are produced with a maximum tree depth of 6, using AUC as the target lo
   \label{fig:sigBkgScore3lF}                                                                                                
 \end{figure}
 
-Output distributions of each MVA comparing MC prediction to data at 80 $fb^-1$ are shown in figure \ref{fig:sigBkgScore}. 
+Output distributions of each MVA comparing MC prediction to data at 80 $fb^-1$ are shown in figures \ref{fig:sigBkgScoreHigh}-\ref{fig:sigBkgScoreLow}. 
 
 \begin{figure}
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_highPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_highPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_highPt.png}}\\
+  \caption{Output score of the high $p_T$ BDTs in the (a) 2lSS, (b) 3lS, and (c) 3lF channels}
+  \label{fig:sigBkgScoreHigh}
+\end{figure}
+
+\begin{figure}
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_lowPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_lowPt.png}}%
-  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_lowPt.png}}
-  \label{fig:sigBkgScore}
-  \caption{scores}
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_lowPt.png}}\\
+  \label{fig:sigBkgScoreLow}
+  \caption{Output score of the low $p_T$ BDTs in the (a) 2lSS, (b) 3lS, and (c) 3lF channels} 
 \end{figure}
 
 %------------------------------------------------------------------------------------------
@@ -137,7 +150,7 @@ For each event, depending on the number of leptons as well as whether the $p_T$ 
 
 \begin{table}[h!]
   \begin{center}
-  \begin{tabular}{l|l}
+  \begin{tabular}{l|c}
   \hline\hline
   Channel & BDT Score \\
   \hline
