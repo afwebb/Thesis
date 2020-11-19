@@ -124,6 +124,7 @@ The input features used in the 3l channel are listed in table \ref{tab:top3lfeat
 \begin{table}[h!]
   \begin{center}
   \begin{tabular}{ccc}
+  \hline\hline
     jet  $p_T$ 0 & jet  $p_T$ 1 & jet  $\eta$ 0 \\
     jet  $\eta$ 1 & Lepton  $p_T$ 0 & Lepton  $p_T$ 1 \\
     Lepton  $p_T$ 2 & $\Delta R(j_0)(j_1)$ & $M(j_0j_1)$ \\
@@ -137,6 +138,7 @@ The input features used in the 3l channel are listed in table \ref{tab:top3lfeat
     $\Delta\phi(j_1)(E_T^{miss})$ & HT Lepton & HT jets \\
     nJets & $E_T^{miss}$ & nJets OR DL1r 85 \\
     nJets OR DL1r 60 & & \\
+    \hline
   \end{tabular}
   \end{center}
   \caption{Input features for the b-jet identification algorithm in the 3l channel.}
@@ -151,8 +153,8 @@ A few of these features are shown in figure \ref{fig:features_top3l}, comaring t
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_j0_j1.pdf}}\\
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ml1j1.pdf}}%                     
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l0_j0.pdf}}%                          
-    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/Ptj0j1l0l1l2met.pdf}}\\
-    \caption{Input features for top3l training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events.}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top3l/features/dR_l0_j1.pdf}}\\
+    \caption{Input features for top3l training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events. (a) show the DL1r WP of jet 0, (b) the $p_T$ of jet 0, (c) $\Delta R$ between jet 0 and jet 1, (d) the invariant mass of lepton 1 and jet 1, (e) $\Delta R$ between lepton 0 and jet 0, and (f) $\Delta R$ between lepton 0 and jet 1}
     \label{fig:features_top3l}
 \end{figure}
 
@@ -164,8 +166,9 @@ The modeling of these inputs is validated against data, with figure \ref{fig:mod
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/dR_j0_j1.png}}\\
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/Ml1j1.png}}%                   
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j0.png}}%              
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/Ptj0j1l0l1l2met.png}}\\
-    \caption{Data/MC comparisons of input features for top3l training for 80 $fb^{-1}$ of data.}
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j1.png}}\\
+    \caption{Data/MC comparisons of input features for top3l training for 80 $fb^{-1}$ of data. (a) show the DL1r WP of je\
+t 0, (b) the $p_T$ of jet 0, (c) $\Delta R$ between jet 0 and jet 1, (d) the invariant mass of lepton 1 and jet 1, (e) $\Delta R$ between lepton 0 and jet 0, and (f) $\Delta R$ between lepton 0 and jet 1}
     \label{fig:model_top3l}
 \end{figure}
 
@@ -230,7 +233,7 @@ Here $j_0$ and $j_1$, and $l_H$ are the jet and lepton decay candidates, respect
     \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/dR_j0j1_lH.pdf}}%                
     \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/dR_lT_t0.pdf}}%         
     \subfigure[]{\includegraphics[width=.29\linewidth]{higgsMatching/higgsTop2lSS/features/jet_Pt_0.pdf}}\\
-    \caption{Input features for higgs2lSS training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events.}
+    \caption{Input features for higgs2lSS training. The signal in blue represents events where both jet candidates are truth b-jets from top decays, and the orange is all other combinations. Scaled to the same number of events. (a) shows the invariant mass of the two jet candidates and the lepton candidate, (b) the invariant mass of jet 0 and the lepton candidate, (c) $\Delta R$ between the jet candidates, (d) $\Delta R$ between jet 0 + jet 1 and the lepton candidate, (e) $\Delta R$ between the lepton from the top and the leading b-jet, (f) the $p_T$ of jet 0.}
     \label{fig:features_higgs2lSS}
 \end{figure}
 
@@ -243,7 +246,7 @@ The modeling of these inputs is validated against data, with figure \ref{fig:mod
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_j0j1_lH.png}}%                  
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_lT_t0.png}}%            
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/jet_Pt_0.png}}\\
-    \caption{Data/MC comparisons of input features for higgs2lSS training for 80 $fb^{-1}$ of data.}
+    \caption{Data/MC comparisons of input features for higgs2lSS training for 80 $fb^{-1}$ of data. (a) shows the invariant mass of the two jet candidates and the lepton candidate, (b) the invariant mass of jet 0 and the lepton candidate, (c) $\Delta R$ between the jet candidates, (d) $\Delta R$ between jet 0 + jet 1 and the lepton candidate, (e) $\Delta R$ between the lepton from the top and the leading b-jet, (f) the $p_T$ of jet 0.}
     \label{fig:model_higgs2lSS}
 \end{figure}
 
