@@ -18,6 +18,7 @@
 \usepackage{geometry}
 \usepackage{pdflscape}
 \usepackage{setspace}
+\usepackage{longtable}
 \setstretch{2}
 \setlength{\parindent}{1cm}
 \usepackage{chngcntr}
@@ -309,6 +310,27 @@ As search for the effects of dimension-six operators on $t\bar{t}H$ production i
 \part*{Appendices}
 \addcontentsline{toc}{part}{Appendices}
 %-------------------------------------------------------------------------------
+
+\subsection{Non-prompt lepton MVA}
+\label{sec:lepMVA}
+\include{wz_sections/lepMVA}
+
+\subsection{Non-prompt CR Modelling}
+\label{sec:fakeCR_plots}
+\include{wz_sections/fakes_CR}
+
+\subsection{tZ Interference Studies}
+\label{sec:tZInt}
+\include{wz_sections/tZInt}
+                                                                                                                             
+\subsection{Alternate tZ Inclusive Fit}
+\label{sec:inc_tZ}
+\include{wz_sections/with_tZ}
+                                                                                                                             
+\subsection{DSID list}
+\label{sec:dsid_list}
+\include{wz_sections/tables/allDSIDs}
+
 \section{Machine Learning Models}                                                                                  
 \label{apx:MVA}                                                                                        
 \input{sections/AppendixMVA}                                                                                    
