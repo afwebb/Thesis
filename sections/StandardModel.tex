@@ -7,7 +7,7 @@ The Standard Model of particle physics (SM) is a Quantum Field Theory (QFT) desc
 
 The SM particles, summarized in figure \ref{fig:SM_summary}, can be classified into two general categories based on their spin: fermions, and bosons. 
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
 \centering
    \includegraphics[width=0.75\linewidth]{figures/theory/SM_summary.pdf}
 \caption{A summary of the particles of the Standard Model, including their mass, charge and spin, with the fermions listed on the left, and the bosons on the right. \cite{}}
@@ -87,7 +87,7 @@ This field introduces a scalar potential to the Lagrangian of the form:
 
 Where $\mu$ and $\lambda$ are free parameters of the new field. This represents the most general potential allowed while preversing $SU(2)_L$ invariance and renormalizability. In the case that $\mu^2 < 0$, this potential takes the form shown in figure \ref{fig:higgspotential}.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
 \centering
    \includegraphics[width=0.75\linewidth]{figures/theory/higgspotential.eps}
 \caption{The value of the Higgs potential, $V(\Phi)$ as a function of $\Phi$, for the case that $\mu^2 < 0$ \cite{}.}
@@ -178,17 +178,72 @@ The fermion's Yakawa coupling to the VEV take the same form as the fermion's cou
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Limitations of the Standard Model}
-\label{sec:hierarchy}
+\subsection{$t\bar{t}H$ Production}
+\label{sec:ttH_theory}
 
-While the SM has great predictive power, there are still several experimental observation that the SM fails to explain. For example, the SM predicts neutrinos to be massless, despite experimental observation to the contrary.   
+The strength of a particles interaction with the Higgs, given by its Yakawa coupling, is proportionate to its mass. The top quark - as the heaviest known particle - has the strongest interaction, making this interaction particularly interesting to study. While several processes involve interactions between the Higgs and the top, some Higgs production modes include the top interaction only as a part of a loop diagram, such as the gluon-gluon fusion diagram shown in Figure \ref{fig:Hgg}. This process therefore only allows for an indirect probe of the Higgs-top Yakawa coupling, as the flavor of the quark in this diagram is not unique.
 
-\begin{figure}[!htbp]
+\begin{figure}[H]
+\centering                                                                                                                
+   \includegraphics[width=0.6\linewidth]{figures/theory/Hgg.JPG}
+\caption{Diagram of a Higgs boson produced via gluon-gluon fusion.}
+\label{fig:Hgg}
+\end{figure}
+
+Studying the Higgs produced in association with top quark pairs, $t\bar{t}H$, allows this interaction to be measured directly. This process, as shown in Figure \ref{fig:ttH_diagram}, involves a unique coupling between the Higgs and the top, which can be identified by the top quark pair in the final state.
+
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.6\linewidth]{figures/theory/ttH_diagram.JPG}
+\caption{Diagram of a Higgs boson produced in association with a pair of top quarks.}                         
+\label{fig:ttH_diagram}                                                                                    
+\end{figure}
+
+The Higgs boson, as well as the top quarks, have very short lifetimes - on the order of $10^{-22}$ s and $10^{-25}$ s respectively - meaning they can only be observed via their decay products. This thesis focuses on $t\bar{t}H$ events with multiple leptons in the final state, $t\bar{t}H-ML$. This includes $H \rightarrow W^+W^-$ events, where at least one of the W bosons decays leptonically. 
+
+While the branching ratio of $H\rightarrow W^+W^-$ is smaller than $H \rightarrow b \bar{b}$, it produces a clearer signal. On the other hand, $H\rightarrow \gamma\gamma$ produces the most easily identifiable signal, but has a much smaller branching ratio than $H\rightarrow W^+W^-$. Therefore, compared with other final state, the $t\bar{t}H-ML$ channel is an attractive candidate for study, as it involves a good balance between statistical power and identifiability. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Extensions to the Standard Model}
+\label{sec:bsm}
+
+While the SM has been tested to great precision, particularly at the LHC, it is generally accepted that it is only valid up to a certain energy scale. It is assumed that above a certain energy, at the scale where something like a Grand Unified Theory (GUT) or quantum gravity become relevant, the SM will not be applicable. Further, there are several experimental observations that the SM fails to explain. For example, the SM predicts neutrinos to be massless, despite experimental observation to the contrary, and fails to explain the observation of dark matter and dark energy. 
+
+Another example, revelant to the Higgs sector, is known as the hierarchy problem: large quantum corrections to the Higgs mass from loop diagrams, such as those shown in Figure \ref{fig:hierarchyDiagram}, are many orders of magnitude larger than the Higgs mass itself. The observed value of the Higgs mass therefore requires extremely precise cancellation between these corrections and the bare mass of the Higgs, a cancellation which seems unnatural and suggests something missing in our theoretical picture.
+
+\begin{figure}[H]
 \centering
    \includegraphics[width=0.5\linewidth]{figures/theory/hierarchyDiagram.eps}
-\caption{Above diagram is the leading order correction to the Higgs mass via a top quark loop, and below is the stop squark loop, coming from a \
-supersymmetric extension of the SM, that provides a potential cancellation of the top diagram \cite{}.}
+\caption{Above diagram is the leading order correction to the Higgs mass via a top quark loop, and below is the stop squark loop, coming from a supersymmetric extension of the SM, that provides a potential cancellation of the top diagram \cite{}.}
 \label{fig:hierarchyDiagram}
 \end{figure}
 
+Because so many of the properties of the Higgs boson have not yet been studied, its interactions are a promising place to search for new physics that could resolve some of the limitations of the SM. As explained above, the interactions of the Higgs with the top quark, as in $t\bar{t}H$ production, are particularly interesting: As the most massive particle in the Standard Model, the top quark is the most strongly interacting with the Higgs. Therefore, any new physics effects are likely to be seen most prominently in this interaction.
+
+These interactions can be measured directly by studying the production of a Higgs Boson in association with a pair of Top Quarks ($t\bar{t}H$) \cite{}. While this process has been observed by both the ATLAS \cite{} and CMS \cite{} collaborations, these analyses have focused on measuring the overall rate of $t\bar{t}H$ production. There are several theories of physics Beyond the Standard Model (BSM), however, that would affect the kinematics of $t\bar{t}H$ production without altering its overall rate \cite{}.
+
+An Effective Field Theory approach can be used to model the low energy effects of new, high energy physics, by paramaterizing BSM effects as higher dimensional operators. These additional operators can then be added to the SM Lagrangian to write an effective Lagrangian that accounts for the effects of these higher energy physics. The lowest order of these that could contribute to Higgs-top coupings are dimension-six, as represented in Equation \ref{eq:dim6}.
+
+\begin{equation}
+\label{eq:dim6}
+\mathcal{L_{eff}} = \mathcal{L_{SM}} + \frac{f}{\Lambda}\mathcal{O}^6
+\end{equation}
+
+Here $\Lambda$ represents the energy scale of the new physics, and $f$ is a Wilson coefficient which represents the strength of the effective coupling. An experimental observation of any non-zero value of $f$ would be a sign of BSM physics.
+
+The addition of these operators can be shown to modify the transverse momentum ($p_T$) spectrum of the Higgs Boson in Higg-top interactions, without effecting the overall rate of $t\bar{t}H$ production \cite{}. The effect of these higher order effects on the  as shown in Figure \ref{fig:eft_pt}. 
+
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.5\linewidth]{figures/theory/higgs_pt.PNG}
+\caption{The momentum spectrum of the Higgs boson produced via top-quarks with (red) and without (blue) the presence of dimension-six operators.}
+\label{fig:eft_pt}
+\end{figure}
+
+
+This provides a clear, physics observable that could be used to search for BSM effect. Therefore, reconstructing the momentum spectrum of the Higgs in $t\bar{t}H$ events provides a means to observe new physics in the Higgs sector.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 
