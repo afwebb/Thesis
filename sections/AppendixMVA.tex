@@ -45,7 +45,7 @@ The nominal analysis reconstructs the b-jets by considering different combinatio
 
 For these studies, the kinematics of the 10 highest $p_T$ jets in each event are used for training. This includes the vast majority of truth b-jets. Specifically the $p_T$, $\eta$, $\phi$, $E$, and DL1r score of each jet are used. For events with fewer than 10 jets, these values are substituted with 0. The $p_T$, $\eta$, $\phi$, and $E$ of the leptons and $E_T^{miss}$ are included as well. Caterogical cross entropy is used as the loss function.
 
-\begin{table}[h!]
+\begin{table}[H]
   \centering
   \caption{Accuracey of the NN in identifying b-jets from tops in 2lSS events for the alternate categorical method compared to the nominal method.}
   \begin{tabular}{l|c|c}                                                                                                     
@@ -68,21 +68,21 @@ A two bin fit of the Higgs momentum is used because statistics are insufficient 
 
 A model is built to determine whether $t\bar{t}H$ events include a high $p_T$ ($>$150 GeV) or low $p_T$ ($<$150 GeV) Higgs Boson. While this is now a classification model, it uses the same input features described in section \ref{sec:ptReco}. Binary crossentropy is used as the loss function.
 
-\begin{figure}[h!]                                                                                                           
+\begin{figure}[H]                                                                                                           
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/bin_keras_score.png}}%                
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/bin_keras_roc.png}}\\
   \caption{}
   \label{fig:bin2lSSroc}                                                                          
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/bin_keras_score.png}}%                               
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/bin_keras_roc.png}}\\                                
   \caption{}
   \label{fig:bin3lSroc}
 \end{figure} 
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/bin_keras_score.png}}%                               
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/bin_keras_roc.png}}\\                                
   \caption{}
@@ -96,7 +96,7 @@ A model is built to determine whether $t\bar{t}H$ events include a high $p_T$ ($
 
 A relatively low $p_T$ threshold of 15 GeV is used to determine jet candidates, as the jets originating from the Higgs decay are found to fall between 15 and 25 GeV a large fraction of the time. The impact of different jet $p_T$ cuts on our ability to reconstruct the Higgs $p_T$ is explored here. The performance of the Higgs $p_T$ prediction models is evaluated for jet $p_T$ cuts of 10, 15, 20, and 25 GeV.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_pt_scatter.png}}%            
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_norm2Dhist.png}}\\           
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_score.png}}%   

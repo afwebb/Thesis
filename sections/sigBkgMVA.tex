@@ -13,7 +13,7 @@ A preselection is applied to define orthogonal analysis channels based on the nu
   \item No reconstructed tau candidates
 \end{itemize}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_0.png}}%                        
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_1.png}}%                     
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/Mll01}}\\
@@ -35,7 +35,7 @@ For the 3l channel, the following selection is applied:
   \item $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all opposite-charge, same-flavor lepton pairs
 \end{itemize}
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_0.png}}%                             
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_1.png}}%                      
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/Mll01}}\\                             
@@ -63,7 +63,7 @@ While for each of the 3l BDTs, the features listed below are used for training:
 
 \include{sections/tables/tabNames_sigBkg3l}
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/HT.png}}%                            
   \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/MLepMet.png}}%                       
   \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/Mll01.png}}%         
@@ -82,7 +82,7 @@ While for each of the 3l BDTs, the features listed below are used for training:
 
 The BDTs are produced with a maximum tree depth of 6, using AUC as the target loss function. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_score.png}}%
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_roc.png}}\\
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_score.png}}% 
@@ -91,7 +91,7 @@ The BDTs are produced with a maximum tree depth of 6, using AUC as the target lo
   \label{fig:sigBkgScore2lSS}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_score.png}}%                                  
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_roc.png}}\\                                   
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_score.png}}%                                   
@@ -100,7 +100,7 @@ The BDTs are produced with a maximum tree depth of 6, using AUC as the target lo
   \label{fig:sigBkgScore3lS}                                                                                                
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_score.png}}%                                  
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_roc.png}}\\                                  
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_score.png}}%                                 
@@ -111,7 +111,7 @@ The BDTs are produced with a maximum tree depth of 6, using AUC as the target lo
 
 Output distributions of each MVA comparing MC prediction to data at 80 $fb^-1$ are shown in figure \ref{fig:sigBkgScore}. 
 
-\begin{figure}
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_highPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_highPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_highPt.png}}\\

@@ -19,7 +19,7 @@ The event yield after the 2lSS preselection has been applied, for MC and data at
 
 figure \ref{fig:presel2lSS}. Good general agreement is found.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_0.png}}%                        
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_1.png}}%                     
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/Mll01}}\\
@@ -47,7 +47,7 @@ The event yield after the 3l preselection has been applied, for MC and data at 8
 
 Comparisons of kinematic distributions for data and MC in this region are shown in figure \ref{fig:presel3l}.
 
-\begin{figure}[h!]
+\begin{figure}[H]
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_0.png}}%                             
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_1.png}}%                      
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/Mll01}}\\                             
@@ -75,7 +75,7 @@ While for each of the 3l BDTs, the features listed below are used for training:
 
 \include{sections/tables/tabNames_sigBkg3l}
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/HT.png}}%                            
   \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/MLepMet.png}}%                       
   \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/Mll01.png}}%         
@@ -94,7 +94,7 @@ While for each of the 3l BDTs, the features listed below are used for training:
 
 The BDTs are produced with a maximum tree depth of 6, using AUC as the target loss function. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_score.png}}%
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_roc.png}}\\
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_score.png}}% 
@@ -103,7 +103,7 @@ The BDTs are produced with a maximum tree depth of 6, using AUC as the target lo
   \label{fig:sigBkgScore2lSS}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_score.png}}%                                  
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_roc.png}}\\                                   
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_score.png}}%                                   
@@ -112,7 +112,7 @@ The BDTs are produced with a maximum tree depth of 6, using AUC as the target lo
   \label{fig:sigBkgScore3lS}                                                                                                
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_score.png}}%                                  
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_roc.png}}\\                                  
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_score.png}}%                                 
@@ -148,7 +148,7 @@ Once pre-selection has been applied, channels are further refined based on the M
 
 For each event, depending on the number of leptons as well as whether the $p_T$ of the Higgs is predicted to be high ($>$ 150 GeV) or low ($<$ 150 GeV), a cut on the appropriate background rejection MVA is applied. The particular cut values, listed in table \ref{tab:sigBkgCuts}, are determined by maximizing $S/\sqrt{B}$ in each region. 
 
-\begin{table}[h!]
+\begin{table}[H]
   \begin{center}
   \begin{tabular}{l|c}
   \hline\hline
@@ -169,7 +169,7 @@ For each event, depending on the number of leptons as well as whether the $p_T$ 
 
 The event preselection and MVA selection define the three signal regions. These signal region definitions are summarized in table \ref{tab:sigRegionCuts}.
 
-\begin{table}[h!]
+\begin{table}[H]
   \begin{center}
   \begin{tabular}{ll}
   \hline\hline
