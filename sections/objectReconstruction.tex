@@ -57,3 +57,31 @@ Jets are reconstructed from calibrated topological clusters built from energy de
 \subsection{Missing Transverse Energy}
 
 Because all $t\bar{t}H-ML$ channels considered include multiple neutrinos, missing transverse energy ($E_T^{miss}$) is present in each event. The missing transverse momentum vector is defined as the inverse of the sum of the transverse momenta of all reconstructed physics objects as well as remaining unclustered energy, the latter of which is estimated from low-\pt tracks associated with the primary vertex but not assigned to a hard object \cite{ATL-PHYS-PUB-2015-027}.
+
+\subsection{Overlap removal}
+\label{subsec:overlapremoval}
+
+To avoid double counting objects and remove leptons originating from decays of hadrons, overlap removal is performed in the following order: any electron candidate within $\Delta R = 0.1$ of another electron candidate with higher \pt\ is removed; any electron candidate within $\Delta R = 0.1$ of a muon candidate is removed; any jet within $\Delta R = 0.3$ of an electron candidate is removed; if a muon candidate and a jet lie within $\Delta R = min(0.4, $0.04+10$[GeV]/\pt(muon))$ of each other, the jet is kept and the muon is removed.
+
+This algorithm is applied to the preselected objects. The overlap removal procedure is summarized in Table~\ref{tab:overlap-removal}.
+
+\begin{table}[h!]
+ \begin{center}
+   \begin{tabular}{|c|c|c|}
+     \hline
+                            \textbf{Keep}  &  \textbf{Remove} & \textbf{Cone size ($\Delta$ R)}  \\
+         \hline
+                        electron        & electron (low \pt)    & 0.1 \\
+     \hline
+                        muon    & electron      & 0.1 \\
+     \hline
+                            electron    & jet   & 0.3 \\
+         \hline
+                        jet             & muon  & min(0.4, $0.04+10$[GeV]/\pt(muon)) \\
+         \hline
+                        electron        & tau   & 0.2 \\
+     \hline
+   \end{tabular}
+   \caption{\label{tab:overlap-removal} Summary of the overlap removal procedure between electrons, muons, and jets.}
+ \end{center}
+\end{table}
