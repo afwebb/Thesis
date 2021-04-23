@@ -84,7 +84,6 @@
     <requires type="editable">
       <file>bib/higgsDiffNote.bib</file>
       <file>bib/wz_heavy_flavor.bib</file>
-      <file>bib/</file>
       <file>bib/ATLAS.bib</file>
       <file>bib/CMS.bib</file>
       <file>bib/ConfNotes.bib</file>

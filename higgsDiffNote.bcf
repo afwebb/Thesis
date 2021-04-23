@@ -2119,7 +2119,6 @@
   <bcf:bibdata section="0">
     <bcf:datasource type="file" datatype="bibtex">bib/higgsDiffNote.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex">bib/wz_heavy_flavor.bib</bcf:datasource>
-    <bcf:datasource type="file" datatype="bibtex">bib/</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex">bib/ATLAS.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex">bib/CMS.bib</bcf:datasource>
     <bcf:datasource type="file" datatype="bibtex">bib/ConfNotes.bib</bcf:datasource>
