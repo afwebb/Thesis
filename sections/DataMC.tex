@@ -20,6 +20,7 @@ The study uses proton-proton collision data collected by the ATLAS detector from
 \end{itemize}
 
 \subsection{Monte Carlo Samples}
+\label{sec:MCsamples}
 
 Several Monte Carlo (MC) generators were used to simulate both signal and background processes. For all of these, the effects of the ATLAS detector are simulated in Geant4. The specific event generator used for each of these MC samples is listed in Table \ref{tbl:evgen}.
 
@@ -55,7 +56,9 @@ $Z \to l^+l^-$ & \textsc{Sherpa} 2.2.1 & MEPS NLO  & \textsc{Sherpa} & NNPDF 3.0
 \end{center}
 \end{table}
 
-While the main $t\bar{t}H$ analysis uses a more sophisticated data-driven approach to estimating the contribution of events with non-prompt leptons (or ''fakes''), at the time of this note this strategy has not been completely developed for the full Run-2 dataset. Therefore, the non-prompt contribution is estimated with MC, while applying conservative systematic uncertainties to these processes, as described in Section \ref{sec:sys}.
+As explained in detail in \cite{ttH_paper}, the $t\bar{t}W$ contribution predicted by MC is found disagree significantly with what is observed in data. While an effort is currently being undertaken to measure $t\bar{t}W$ more accurately, the approached used by the 80 $fb^{-1}$ $t\bar{t}H$ analysis is used for this analysis: A normalization factor of 1.68 is applied to the MC estimate of $t\bar{t}W$. Additionally, systematic uncertainties are applied to account for this modelling descrepency, as outlined in Section \ref{sec:sys}.
+
+While the main $t\bar{t}H$ analysis uses a more sophisticated data-driven approach to estimating the contribution of events with non-prompt leptons (or ''fakes''), at the time of this note this strategy has not been completely developed for the full Run-2 dataset. Therefore, the non-prompt contribution is estimated with MC, while applying normalization corrections and systematic uncertainties derived from data driven techniques developed for the 80 $fb^{-1}$ $t\bar{t}H/t\bar{t}W$ analysis \cite{ttH_paper}. The primary contribution to the non-prompt lepton background is from $t\bar{t}$ production, with $V$+jets and single-top as much smaller sources. Likelihood fits over several control regions enriched with these non-prompt backgrounds are fit to data in order to derive normalization factors for these backgrounds. The specific normalization factors and uncertainties applied to the non-prompt contributions are listed in Section \ref{sec:sys}.
 
 The specific DSIDs used in the analysis are listed below:
 
@@ -67,7 +70,7 @@ The specific DSIDs used in the analysis are listed below:
         \hline\hline
         $t\bar{t}H$ & 345873-5, 346343-5 \\ 
         $VV$ & 364250-364254, 364255, 363355-60, 364890 \\
-        $t\bar{t}W$ & 410155 \\
+        $t\bar{t}W$ & 413008 \\
         $t\bar{t}Z$ & 410156, 410157, 410218-20 \\
         low mass $t\bar{t}Z$ & 410276-8 \\
         Rare Top & 410397, 410398, 410399 \\

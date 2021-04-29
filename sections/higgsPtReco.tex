@@ -1,21 +1,23 @@
 Reconstructing the momentum of the Higgs boson is a particular challenge for channels with leptons in the final state: Because all channels include at least two neutrinos in the final state, the Higgs can never be fully reconstructed. However, the momentum spectrum can be well predicted by a neural network when provided with the four-vectors of the Higgs Boson decay products, as shown in Section \ref{sec:truthLevelReco}. With this in mind, several layers of MVAs are used to reconstruction the Higgs momentum. 
 
-The first layer is a model designed to select which jets are most likely to be the b-jets that came from the top decay, detailed in Section \ref{sec:bjetID}. As described in Section \ref{sec:higgsID},the kinematics of these jets are fed into the second layer, which is designed to identify the decay products of the Higgs Boson itself. The kinematics of these particles are then fed into yet another neural-network, which predicts the momentum of the Higgs (\ref{sec:ptReco}). MVAs are also used in the analysis to determine the decay of the Higgs boson in the 3l channel (\ref{sec:decay3l}). 
+The first layer is a model designed to select which jets are most likely to be the b-jets that came from the top decay, detailed in Section \ref{sec:bjetID}. As described in Section \ref{sec:higgsID},the kinematics of these jets and possible Higgs decay products are fed into the second layer, which is designed to identify the decay products of the Higgs Boson itself. The kinematics of the particles this layer identifies as most likely to have originated from the Higgs decay are then fed into yet another neural-network, which predicts the momentum of the Higgs (\ref{sec:ptReco}). For the 3l channel, an additional MVA is used to determine the decay mode of the Higgs boson in the 3l channel (\ref{sec:decay3l}). 
 
-Models are trained on Monte Carlo simulations of $t\bar{t}H$ events generated using \textsc{MG5\_aMC}. Specifically, events DSIDs 346343-5, 345873-5, and 345672-4 are used for training.
+Models are trained on Monte Carlo simulations of $t\bar{t}H$ events generated using \textsc{MG5\_aMC}. Specifically, events DSIDs 346343-5, 345873-5, and 345672-4 are used for training in order to increase the statistics of the training sample.
 
-For all of these models, the Keras neural network framework, with Tensorflow as the backend, is used, and the number of hidden layers and nodes are determined using grid search optimization. Each neural network uses the LeakyReLU activation function, a learning rate of 0.01, and the Adam optimization algorithm, as alternatives are found to either decrease or have no impact on performance. Batch normalization is applied after each layer. For the classification algorithms (b-jet matching, Higgs reconstruction, and 3l decay identification) binary-cross entropy is used as the loss function, while the $p_T$ reconstruction algorithm uses MSE. 
+For all of these models, the Keras neural network framework, with Tensorflow 2.0 as the backend, is used, and the number of hidden layers and nodes are determined using grid search optimization. Each neural network uses the LeakyReLU activation function, a learning rate of 0.01, and the Adam optimization algorithm, as alternatives are found to either decrease or have no impact on performance. Batch normalization is applied after each layer in order to stabilize the model and decrease training time. For the classification algorithms (b-jet matching, Higgs reconstruction, and 3l decay identification) binary-cross entropy is used as the loss function, while the $p_T$ reconstruction algorithm uses MSE. 
 
 The specific inputs features used for each model are arrived at through a process of trial and error - features considered potentially useful are tried, and those that are found to increase performance are included. While each model includes a relatively large number of features, some using upwards of 30, this inclusive approach is found to maximize the performance of each model while decreasing the variance compared to a reduced number of inputs. Each input feature is validated by comparing MC simulations to 80 $fb^{-1}$ of data, as shown in the sections below.
 
-\subsection{Decay Candidate Reconstruction}
+\subsection{Higgs Decay Product Identification}
 \label{sec:truthLevelReco}
 
-Machine Learning algorithms are trained to identify the decay products of the Higgs Boson using MC simulations of $t\bar{t}H$ events. These include light leptons and jets. Reconstructed physics objects are matched to truth level particles, in order to identify the parents of these reconstructed objects. The kinematics of the decay product candidates as well as event level variables are used as inputs. 
+Machine Learning algorithms are trained to identify the decay products of the Higgs Boson using MC simulations of $t\bar{t}H$ events. The kinematics of the reconstructed physics objects, as well as event level variables, are used as inputs, with the parent ID taken from the truth record used to label the data. The objects considered include light leptons and jets. 
+
+Reconstructed physics objects are matched to particle level objects, in order to identify the parent particle of these reconstructed objects. Reconstructed jets are matched to truth jets based on the requirements that the reco jet and truth jet fall within $\Delta R < 0.4$, and the two objects have a $p_T$ that agrees within 10\%. Truth level and reco level leptons are required to have the same flavor, a $\Delta R < 0.1$, and $p_T$ that agree within 10\%. Events where no match can be found between the particle level decay products of the Higgs and the reconstructed objects are not included in training.
 
 %The decay candidates of interest include b-jets from top decay, light jets and light leptons from the Higgs decay. Matching reconstruction level particles to truth level particles finds that the b-jets from tops are reconstructed at a rate close to 90\%. The leptons from the Higgs decay are nearly always reconstructed, while the light jets have a reconstruction rate of around 70\%. In the case that the Higgs decays to one lepton and two jets, both jets are reconstructed around 45\% of the time. However, the non-reconstructed jets are found to generally be fairly soft
 
-Leptons considered as possible Higgs and top decay candidates are required to pass the selection described in Section \ref{subsec:lepSelection}. For jets, however, it is found that a large fraction that originate from either the top decay or the Higgs decay fall outside the selection described in Section \ref{subsec:jetSelection}. Specifically, jets from the Higgs decay tend to be soft, with 32\% having $p_T$ $<$ 25 GeV. Therefore jets with $p_T$ $<$ 15 GeV are considered as possible candidates in the models described below. By contrast, less than 5\% of the jets originating from the Higgs fall below this $p_T$. The jets are found to be well modeled even down to this low $p_T$ threshold, as shown in Section \ref{subsec:preMVA}. The impact of using different $p_T$ selection for the jet candidates is considered in detail in Section \ref{subsec:ptCutApx}. As they are expected to originate from the primary vertex, jets are also required to pass a JVT cut.
+Leptons considered as possible Higgs and top decay candidates are required to pass the selection described in Section \ref{subsec:lepSelection}. For jets, however, it is found that a large fraction that originate from either the top decay or the Higgs decay fall outside the selection described in Section \ref{subsec:jetSelection}. Specifically, jets from the Higgs decay tend to be soft, with 32\% having $p_T$ $<$ 25 GeV. Therefore jets with $p_T$ $<$ 15 GeV are considered as possible candidates in the models described below. By contrast, less than 5\% of the jets originating from the Higgs fall below this $p_T$ threshold. The jets are found to be well modeled even down to this low $p_T$ threshold, as shown in Section \ref{subsec:preMVA}. The impact of using different $p_T$ selection for the jet candidates is considered in detail in Section \ref{subsec:ptCutApx}. As they are expected to originate from the primary vertex, jets are also required to pass a JVT cut.
 
 %------------------------------------------------------------------------ 
 \subsection{b-jet Identification}
@@ -58,7 +60,7 @@ For the 2lSS channel, the input features shown in Table \ref{tab:top2lSSfeatures
 
 As there are far more incorrect combinations than correct ones, by a factor of more than 20:1, the training set is resampled to reduce the fraction of incorrect combinations. A random sample of 5 million incorrect entries are used for training, along with close 1 million correct entries. 10\% of the dataset is set aside for testing, leaving around 5 million datapoints for training. 
 
-The difference between the distributions for a few of these features for the \"correct\" (i.e. both jets are truth b-jets), and \"incorrect\" combinations are shown in Figure \ref{fig:features_top2lSS}. The correct and incorrect contributions are scaled to the same integral, so as to better demonstrate the differences in the distributions.
+The difference between the distributions for a few of these features for the "correct" (i.e. both jets are truth b-jets), and "incorrect" combinations are shown in Figure \ref{fig:features_top2lSS}. The correct and incorrect contributions are scaled to the same integral, so as to better demonstrate the differences in the distributions.
 
 \begin{figure}[H]
     \subfigure[]{\includegraphics[width=.29\linewidth]{topMatching/top2lSS/features/jet_DL1r_0.pdf}}%                 
@@ -93,7 +95,7 @@ Based on the results of grid search evaluation, the optimal architecture is foun
   \caption{Results of the b-jet identification algorithm for the 2lSS channel, showing (a) the output score of the NN for correct and incorrect combinations of jets. (b) the ROC curve of the output, showing background rejection as a function of signal efficiency}
 \end{figure}
 
-For point of comparison, a \"naive\" approach to identify b-jets is used as well: The two jets which pass the highest DL1r b-tag working point are assumed to be the b-jets from the top decay. In the case that multiple jets meet the same b-tag working point, the jet with higher $p_T$ is used. This method identifies the correct jet pair 65\% of the time. 
+For point of comparison, a "naive" approach to identify b-jets is used as well: The two jets which pass the highest DL1r b-tag working point are assumed to be the b-jets from the top decay. In the case that multiple jets meet the same b-tag working point, the jet with higher $p_T$ is used. This method identifies the correct jet pair 65\% of the time. 
 
 The accuracey of the model for different values of n-bjets, compared to this naive approach, is shown in Table \ref{tab:topMatchAcc2lSS}.
 
@@ -107,10 +109,10 @@ The accuracey of the model for different values of n-bjets, compared to this nai
     2 b-jets & 88.4\% & 87.1\% \\
     $>=$3 b-jets & 61.7\% & 53.3\% \\
     \hline
-    Overall & 73.9\% \% & 67.2\% \\                                                                                  
+    Overall & 73.9\% & 67.2\% \\                                                                                  
     \hline                                                                                                 
   \end{tabular}
-  \caption{Accuracey of the NN in identifying b-jets from tops in 2lSS events for, compared to the accuracey of taking the two highest b-tagged jets.}     
+  \caption{Accuracey of the NN in identifying b-jets from tops in 2lSS events, overall and split by the number of b-tagged jets in the event, compared to the accuracey of taking the two highest b-tagged jets.}     
   \label{tab:topMatchAcc2lSS}                                                                                           
 \end{table}
 

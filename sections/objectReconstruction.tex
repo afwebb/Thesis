@@ -42,17 +42,24 @@ Events are required to be selected by dilepton triggers, as summarized in Table 
 \subsection{Light Leptons}
 \label{subsec:lepSelection}
 
-Electron candidates are reconstructed from energy clusters in the electromagnetic calorimeter that are associated with charged particle tracks reconstructed in the inner detector \cite{ATLAS-CONF-2016-024}.  Electron candidates are required to have $\pt > 10$ GeV and $|\eta_\textrm{cluster}| < 2.47$. Candidates in the transition region between different electromagnetic calorimeter components, $1.37 < |\eta_\textrm{cluster}| < 1.52$, are rejected. A multivariate likelihood discriminant combining shower shape and track information is used to distinguish prompt electrons from nonprompt leptons, such as those originating from hadronic showers. 
+Electron candidates are reconstructed from energy clusters in the electromagnetic calorimeter that are associated with charged particle tracks reconstructed in the inner detector \cite{ATLAS-CONF-2016-024}.  Electron candidates are required to have $\pt > 10$ GeV and $|\eta_\textrm{cluster}| < 2.47$. Candidates in the transition region between different electromagnetic calorimeter components, $1.37 < |\eta_\textrm{cluster}| < 1.52$, are rejected. A multivariate likelihood discriminant combining shower shape and track information is used to distinguish prompt electrons from nonprompt leptons, such as those originating from hadronic showers. Electron candidate are also required to pass TightLH identification.
 
 To further reduce the non-prompt contribution, the track of each electron is required to originate from the primary vertex; requirements are imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|$).
 
-Muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer \cite{PERF-2014-05}. Muon candidates are required to have $\pt > 10$~GeV and $|\eta| < 2.5$. All leptons are required to be isolated, and pass a non-prompt BDT selection described in detail in \cite{ttH_paper}.
+Muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer \cite{PERF-2014-05}. Muon candidates are required to have $\pt > 10$~GeV and $|\eta| < 2.5$. Muons are required to Medium ID requirements.
+
+All leptons are required to pass a non-prompt BDT selection developed by the main $t\bar{t}H-ML$/$t\bar{t}W$ analysis, described in detail in \cite{ttH_paper}. Optimized working points and scale factors for this BDT are taken from that analysis. This BDT and the WPs used are summarized in Appendix \ref{sec:lepMVA},
 
 \subsection{Jets}
 \label{subsec:jetSelection}
 
-%UPDATE TO PFLOW
-Jets are reconstructed from calibrated topological clusters built from energy deposits in the calorimeters \cite{ATL-PHYS-PUB-2015-015}, using the anti-$k_t$ algorithm with a radius parameter $R=0.4$.  Jets with energy contributions likely arising from noise or detector effects are removed from consideration \cite{ATLAS-CONF-2015-029}, and only jets satisfying $\pt > 25$~GeV and $|\eta| < 2.5$ are used in this analysis.  For jets with $\pt < 60$~GeV and $|\eta| < 2.4$, a jet-track association algorithm is used to confirm that the jet originates from the selected primary vertex, in order to reject jets arising from pileup collisions \cite{PERF-2014-03}. 
+Jets are reconstructed from calibrated topological clusters built from energy deposits in the calorimeters \cite{ATL-PHYS-PUB-2015-015}, using the anti-$k_t$ algorithm with a radius parameter $R=0.4$. Particle Flow, or PFlow, jets are used in the analysis, which are hadronic objects reconstructed using information from both the tracker and the calorimeter. Jets with energy contributions likely arising from noise or detector effects are removed from consideration \cite{ATLAS-CONF-2015-029}, and only jets satisfying $\pt > 25$~GeV and $|\eta| < 2.5$ are used in this analysis.  For jets with $\pt < 60$~GeV and $|\eta| < 2.4$, a jet-track association algorithm is used to confirm that the jet originates from the selected primary vertex, in order to reject jets arising from pileup collisions \cite{PERF-2014-03}. 
+
+
+\subsection{B-tagged Jets}
+\label{subsec:bjetSelection}
+
+Each analysis channel used in this analysis includes b-jets in the final state. These are identified using the DL1r b-tagging algorithm, which uses jet vertex and kinematic information to distinguish heavy and light flavored jets. These features are used as inputs to a neural network, the output of which is used to form calibrated working points (WPs) based on how likely a jet is to have originited from a b-quark. This analysis uses the 70\% DL1r WP - implying an efficiency of 70\% for truth b-jets - for selecting b-tagged jets. 
 
 \subsection{Missing Transverse Energy}
 

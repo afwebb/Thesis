@@ -184,7 +184,28 @@ The full list of systematic uncertainties considered in the analysis is summariz
   \end{center}
 \end{table}
 
-Theoretical uncertainties applied to MC predictions, including cross section, PDF, and scale uncertainties are taken from theory calculations. The theory uncertainties applied to the predominate background estimates are summarized in Table \ref{tab:xsecUnc}.
+As mentioned in Section \ref{sec:MCsamples}, a normalization corrections and uncertainties on the estimates of non-prompt leptons backgrounds are derived using data driven techniques, decribed in detail in \cite{ttH_paper}. These are derived from a likelihood fit over various non-prompt enriched control regions, targeting several sources of non-prompt light leptons separately: external conversion electrons, internal conversion electrons, electrons from heavy flavor decays, and muons from heavy flavor decays. %These are used to derive overall fake factors for electrons from light source (e.g. photon conversions or light hadrons), electrons from heavy flavor decays (namely, charm or bottom hadrons), and a single fake factor for muons.
+
+The normalization factor and uncertainty applied to each source of non-prompt leptons is summarized in Table \ref{tab:fakeNF}
+
+\begin{table}[H]
+\begin{tabular}{c|c}
+\hline\hline
+Processs & N \\
+\hline
+$NF_e^{ExtCO}$ & 1.70 $\pm$ 0.51 \\
+$NF_e^{IntCO}$ & 0.75 $\pm$ 0.26 \\
+$NF_e^{HF}$ & 1.09 $\pm$ 0.32 \\
+$NF_{\mu}^{HF}$ & 1.28 $\pm$ 0.17 \\
+\hline
+\label{tab:fakeNF}
+\end{tabular}
+\end{table}
+
+
+In addition to those derived from the control regions, several additional uncertainties are assigned to the non-prompt lepton background. An additional 25\% uncertainty on material conversions is assigned, based on the comparison between data and MC in a region where a loose electron fails the photon conversion veto. A shape uncertainty of 15\% (6\%) is assigned to the HF non-prompt electron (muon) background based on a comparison between data and MC where the second leading electron (muon) is only required to be loose. As the contribution from light non-prompt leptons is small, about 10\% percent of the contribution from HF non-prompt leptons, it is derived from the agreement between data and simulation in a LF enriched region at low values of the non-prompt lepton BDT. The resulting uncertainty is 100\%, and is taken to be uncorrelated between internal and material conversions.
+
+Theoretical uncertainties applied to MC predictions, including cross section, PDF, and scale uncertainties are taken from theory calculations for the predominate prompt backgrounds. Following the nominal $t\bar{t}H-ML$ analysis, a 50\% uncertainty is applied to Diboson to account for the large uncertainty in estimating VV + heavy flavor. The other ``rare'' background processes - including $tZ$, rare top processes, $ttWW$, $WtZ$, $VVV$, $tHjb$ and $WtH$ - are assigned an overall 50\% normalization uncertainty as well. The theory uncertainties applied to the MC estimates are summarized in Table \ref{tab:xsecUnc}.
 
 \begin{table}[H]                                                                                                              {\footnotesize
 \centering
@@ -192,3 +213,5 @@ Theoretical uncertainties applied to MC predictions, including cross section, PD
 \caption{Summary of theoretical uncertainties for MC predictions in the analysis.}
 \label{tab:xsecUnc}}
 \end{table}
+
+Additional uncertainties to account for $t\bar{t}W$ mismodelling are also applied. These include a ``Generator'' uncertainty, based on a comparison between the nominal Sherpa 2.2.5 sample, and the formerly used aMC@NLO sample, and an ``Extra radiation'' uncertainty, which includes renormalisation and factorisation scale variations of the Sherpa 2.2.5 sample.
