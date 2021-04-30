@@ -33,13 +33,13 @@ The the measured $\mu$ values for high and low $p_T$ Higgs production obtained f
   \begin{tabular}{c}                                                                                            
      $\mu_{t\bar{t}H\ high\ p_T} = 2.1^{+0.62}_{-0.59}(stat)^{+0.40}_{-0.43}(sys)$ \\       
      \\
-     $\mu_{t\bar{t}H\ low\ p_T} = 0.83^{+0.37}_{-0.37}(stat)^{+0.48}_{-0.47}(sys)$ \\
+     $\mu_{t\bar{t}H\ low\ p_T} = 0.83^{+0.39}_{-0.40}(stat)^{+0.51}_{-0.53}(sys)$ \\
   \end{tabular}                                                                                                            
   \caption{Best fit $\mu$ values for $t\bar{t}H\ high\ p_T$ and  $t\bar{t}H\ low\ p_T$, where $\mu = \sigma_{obs}/\sigma_{pred}$}
   \label{tab:mu80}                                                                                                  
 \end{table}  
 
-The most prominent sources of systematic uncertainty, as measured by their impact on $\mu_{t\bar{t}H\ high\ p_T}$, are summarized in Table \ref{tab:systematics_80}.
+The most prominent sources of systematic uncertainty, as measured by their impact on $\mu_{t\bar{t}H\ high\ p_T}$, are summarized in Table \ref{tab:systematics_high_80}.
 
 \begin{table}[H]                                                                                                             
     \centering
@@ -48,31 +48,59 @@ The most prominent sources of systematic uncertainty, as measured by their impac
         Uncertainty Source & \multicolumn{2}{c}{$\Delta \mu$ }  \\
         \hline
         Jet Energy Scale & 0.25 & 0.23 \\
-        $t\bar{t}H$ cross-section (QCD Scale) & -0.11 & 0.21 \\
-        ATLAS Luminosity & -0.13 & 0.14 \\
-        Jet Flavor Tagging & 0.14 & 0.13 \\
-        $t\bar{t}W$ cross-section (QCD Scale) & -0.12 & 0.11 \\
+        $t\bar{t}H$ cross-section (QCD scale) & -0.11 & 0.21 \\
+        Luminosity & -0.13 & 0.14 \\
+        Flavor Tagging & 0.14 & 0.13 \\
+        $t\bar{t}W$ cross-section (QCD scale) & -0.12 & 0.11 \\
         Higgs Branching Ratio & -0.1 & 0.11 \\
         $t\bar{t}H$ cross-section (PDF) & -0.07 & 0.08 \\
         Electron ID & -0.06 & 0.06 \\
-        $t\bar{t}$ HF Muon Unc. & -0.05 & 0.06 \\
-        $t\bar{t}Z$ cross-section (QCD Scale) & -0.05 & 0.05 \\
+        Non-prompt Muon Normalization & -0.05 & 0.06 \\
+        $t\bar{t}Z$ cross-section (QCD scale) & -0.05 & 0.05 \\
         Diboson cross-section & -0.05 & 0.05 \\
-        HF Muon Shape - 3l & -0.04 & 0.04 \\
+        Fake muon modelling & -0.04 & 0.04 \\
         \hline
-        Total Systematic Uncertainty & 0.40 & 0.43 \\
+        Total & 0.40 & 0.43 \\
         \hline\hline
     \end{tabular}
     \caption{Summary of the most significant sources of systematic uncertainty on the measurement of $t\bar{t}H\ high\ p_T$.}
-    \label{tab:systematics_80}
+    \label{tab:systematics_high_80}
+\end{table}
+
+The most significant sources of uncertainty on the measurement of $t\bar{t}H$ - low \pt are shown in Table \ref{tab:systematics_low_80}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|cc}
+        \hline\hline
+        Uncertainty Source & \multicolumn{2}{c}{$\Delta \mu$ }  \\
+        \hline
+        Internal Conversions & -0.26 & 0.26 \\
+        Luminosity & -0.16 & 0.17 \\
+        Non-prompt Muon Normalization & -0.16 & 0.16 \\
+        $t\bar{t}W$ cross-section (QCD scale) & -0.17 & 0.15 \\
+        Jet Energy Scal & 0.15 & 0.15 \\
+        Non-prompt Electron Modelling & -0.13 & 0.14 \\
+        Flavor Tagging & 0.13 & 0.13 \\
+        Non-prompt Muon Modelling & -0.12 & 0.13 \\
+        Non-prompt Electron Normalization & -0.11 & 0.11 \\
+        $t\bar{t}Z$ cross-section (QCD scale) & -0.08 & 0.09 \\
+        Diboson Cross-section & -0.07 & 0.07 \\
+        \hline           
+        Total & 0.51 & 0.53 \\
+        \hline\hline
+    \end{tabular}
+    \caption{Summary of the most significant sources of systematic uncertainty on the measurement of $t\bar{t}H\ low\ p_T$.}
+    \label{tab:systematics_low_80}
 \end{table}
 
 The ranking and impact of those nuisance parameters with the largest contribution to the overall uncertainty is shown in Figure \ref{fig:ranking_80}.
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\linewidth]{trexPlots/sys_80/Ranking_mu_XS_ttH_highPt.png}
-    \caption{Impact of systematic uncertainties on the measurement of high \pt $t\bar{t}H$ events}
+    \includegraphics[width=0.5\linewidth]{trexPlots/sys_80/Ranking_mu_XS_ttH_highPt.png}%
+    \includegraphics[width=0.5\linewidth]{trexPlots/sys_80/Ranking_mu_XS_ttH_lowPt.png}
+    \caption{Impact of systematic uncertainties on the measurement of high \pt (left) and low \pt (right) $t\bar{t}H$ events}
     \label{fig:ranking_80}
 \end{figure}
 
@@ -121,9 +149,9 @@ Projected uncertainties on the $\mu$ values extracted from the fit for high and 
 \begin{table}[H]
   \centering
   \begin{tabular}{c}
-     $\mu_{t\bar{t}H\ high\ p_T} = 1.00^{+0.45}_{-0.43}(stat)^{+0.31}_{-0.31}(sys)$ \\
+     $\mu_{t\bar{t}H\ high\ p_T} = 1.00^{+0.45}_{-0.43}(stat)^{+0.30}_{-0.31}(sys)$ \\
      \\
-     $\mu_{t\bar{t}H\ low\ p_T} = 1.00^{+0.29}_{-0.30}(stat)^{+0.47}_{-0.46}(sys)$ \\
+     $\mu_{t\bar{t}H\ low\ p_T} = 1.00^{+0.29}_{-0.30}(stat)^{+0.48}_{-0.50}(sys)$ \\
   \end{tabular}
   \caption{Best fit $\mu$ values for $t\bar{t}H\ high\ p_T$ and  $t\bar{t}H\ low\ p_T$, where $\mu = \sigma_{obs}/\sigma_{pred}$} 
   \label{tab:mu140}
@@ -137,32 +165,61 @@ The most prominent sources of systematic uncertainty, as measured by their impac
         \hline\hline
         Uncertainty Source & \multicolumn{2}{c}{$\Delta \mu$ }  \\
         \hline
-        Jet Energy Scale & 0.2 & 0.18 \\                                                                                    
-        $t\bar{t}W$ cross-section (QCD Scale) & -0.12 & 0.11 \\                                                              
-        ATLAS Luminosity & -0.11 & 0.11 \\
-        Jet Flavor Tagging & 0.11 & 0.10 \\
-        $t\bar{t}H$ cross-section (QCD Scale) & -0.06 & 0.06 \\
-        Higgs Branching Ratio & -0.1 & 0.11 \\
-        $t\bar{t}H$ cross-section (PDF) & -0.07 & 0.08 \\
-        Electron ID & -0.05 & 0.05 \\
-        $t\bar{t}$ HF Muon Unc. & -0.04 & 0.06 \\
-        $t\bar{t}Z$ cross-section (QCD Scale) & -0.03 & 0.04 \\
-        Diboson cross-section & -0.03 & 0.03 \\
-        HF Muon Shape - 3l & -0.02 & 0.02 \\                                                                                 
-        \hline                                                                                                               
-        Total Systematic Uncertainty & 0.31 & 0.31 \\
+        Jet Energy Scale & 0.19 & 0.17 \\
+        $t\bar{t}W$ Cross-section (QCD Scale) & -0.12 & 0.11 \\
+        Luminosity & -0.1 & 0.11 \\
+        Flavor Tagging & 0.1 & 0.1 \\
+        $t\bar{t}H$ Cross-section (QCD Scale) & -0.05 & 0.1 \\
+        $t\bar{t}Z$ Cross-section (QCD Scale) & -0.05 & 0.06 \\
+        Non-prompt Muon Normalization & -0.05 & 0.05 \\
+        Higgs Branching Ratio & -0.05 & 0.05 \\
+        Diboson Cross-section & -0.04 & 0.05 \\
+        Non-prompt Muon Modelling & -0.04 & 0.04 \\
+        $t\bar{t}H$ Cross-section (PDF) & -0.03 & 0.04 \\
+        Electron ID & -0.04 & 0.04 \\
+        $t\bar{t}W$ Cross-section (PDF) & -0.03 & 0.03 \\
+        \hline
+        Total & 0.30 & 0.31 \\
         \hline\hline
     \end{tabular}
     \caption{Summary of the most significant sources of systematic uncertainty on the measurement of $t\bar{t}H\ high\ p_T$.}
-    \label{tab:systematics_140}
+    \label{tab:systematics_high_140}
+\end{table}
+
+The most significant sources of systematic uncertainty on $t\bar{t}H$ low \pt are summarized in Table \ref{tab:systematics_low_140}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|cc}
+        \hline\hline
+        Uncertainty Source & \multicolumn{2}{c}{$\Delta \mu$ }  \\
+        \hline
+        Internal Conversions & -0.18 & 0.2 \\
+        Jet Energy Scale & 0.19 & 0.16 \\
+        Non-prompt Muon Normalization & -0.16 & 0.17 \\
+        Luminosity & -0.15 & 0.17 \\
+        $t\bar{t}W$ Cross-section (QCD Scale) & -0.17 & 0.15 \\
+        Non-prompt Electron Modelling & -0.13 & 0.14 \\
+        Non-prompt Muon Modelling & -0.13 & 0.13 \\
+        Flavor Tagging & 0.13 & 0.12 \\
+        Non-prompt Electron Normalization & -0.1 & 0.11 \\
+        $t\bar{t}Z$ Cross-section (QCD Scale) & -0.07 & 0.09 \\
+        $t\bar{t}H$ Cross-section (QCD Scale) & -0.05 & 0.1 \\
+        \hline
+        Total & 0.48 & 0.50 \\
+        \hline\hline
+    \end{tabular}
+    \caption{Summary of the most significant sources of systematic uncertainty on the measurement of $t\bar{t}H\ low\ p_T$.}
+    \label{tab:systematics_low_140}
 \end{table}
 
 The ranking and impact of those nuisance parameters with the largest contribution to the overall uncertainty is shown in Figure \ref{fig:ranking_140}.
                                                                                                                              
 \begin{figure}[H]
     \centering                                                                                                               
-    \includegraphics[width=0.7\linewidth]{trexPlots/sys_140/Ranking_mu_XS_ttH_highPt.png}
-    \caption{Impact of systematic uncertainties on the measurement of high \pt $t\bar{t}H$ events}                           
+    \includegraphics[width=0.5\linewidth]{trexPlots/sys_140/Ranking_mu_XS_ttH_highPt.png}%
+    \includegraphics[width=0.5\linewidth]{trexPlots/sys_140/Ranking_mu_XS_ttH_lowPt.png}
+    \caption{Impact of systematic uncertainties on the measurement of high \pt (left) and low \pt (right) $t\bar{t}H$ events}
     \label{fig:ranking_140}
 \end{figure}
 
