@@ -29,9 +29,11 @@ The following section provides details of the various MVAs as well as a few stud
 %----------------------------------------------------------------------                                                      
  
 \subsubsection{Background Rejection MVA Features - 2lSS}
+\label{apx:sigBkg2lSS}
 \include{sections/tables/texPlots_sigBkg2lSS}
 
 \subsubsection{Background Rejection MVA Features - 3l}
+\label{apx:sigBkg3l}
 \include{sections/tables/texPlots_sigBkg3l}
 
 %----------------------------------------------------------------------  
@@ -71,21 +73,21 @@ A model is built to determine whether $t\bar{t}H$ events include a high $p_T$ ($
 \begin{figure}[H]                                                                                                           
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/bin_keras_score.png}}%                
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/bin_keras_roc.png}}\\
-  \caption{}
+  \caption{Output distribution of the NN score for the binary high/low \pt separation model in the $2lSS$ channel.}
   \label{fig:bin2lSSroc}                                                                          
 \end{figure}
 
 \begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/bin_keras_score.png}}%                               
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/bin_keras_roc.png}}\\                                
-  \caption{}
+  \caption{Output distribution of the NN score for the binary high/low \pt separation model in the $3lS$ channel.}
   \label{fig:bin3lSroc}
 \end{figure} 
 
 \begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/bin_keras_score.png}}%                               
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/bin_keras_roc.png}}\\                                
-  \caption{}
+  \caption{Output distribution of the NN score for the binary high/low \pt separation model in the $3lS$ channel.}
   \label{fig:bin3lFroc}
 \end{figure} 
 
@@ -94,15 +96,30 @@ A model is built to determine whether $t\bar{t}H$ events include a high $p_T$ ($
 \label{subsec:ptCutApx}
 %---------------------------------------------------------------------- 
 
-A relatively low $p_T$ threshold of 15 GeV is used to determine jet candidates, as the jets originating from the Higgs decay are found to fall between 15 and 25 GeV a large fraction of the time. The impact of different jet $p_T$ cuts on our ability to reconstruct the Higgs $p_T$ is explored here. The performance of the Higgs $p_T$ prediction models is evaluated for jet $p_T$ cuts of 10, 15, 20, and 25 GeV.
+A relatively low $p_T$ threshold of 15 GeV is used to determine jet candidates, as the jets originating from the Higgs decay are found to fall between 15 and 25 GeV a large fraction of the time. The impact of different jet $p_T$ cuts on our ability to reconstruct the Higgs $p_T$ is explored here. 
+
+The models are retrained in the $2lSS$ channel with the same parameters as those used in the nominal analysis, but the jet \pt threshold is altered. The performance of the Higgs $p_T$ prediction models for jet $p_T$ cuts of 20 and 25 GeV are shown below.
 
 \begin{figure}[H]
+    \centering
+    \textbf{Jet $p_T > 20$ GeV}
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_pt_scatter.png}}%            
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_norm2Dhist.png}}\\           
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_score.png}}%   
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_roc.png}}\\                       
-    \caption{}
+    \caption{Output of the model designed to predict the Higgs momentum in the $2lSS$ channel, with the jet \pt cutoff used is raised to 20 GeV.}
     \label{fig:pt2lSS_20}
 \end{figure} 
+
+\begin{figure}[H]
+    \centering
+    \textbf{Jet $p_T > 25$ GeV}
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_pt_scatter.png}}%                   
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_norm2Dhist.png}}\\
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_score.png}}%                             
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_roc.png}}\\
+    \caption{Output of the model designed to predict the Higgs momentum in the $2lSS$ channel, with the jet \pt cutoff used is raised to 25 GeV.}
+    \label{fig:pt2lSS_25}
+\end{figure}
 
 %----------------------------------------------------------------------

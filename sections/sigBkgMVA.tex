@@ -20,7 +20,7 @@ A preselection is applied to define orthogonal analysis channels based on the nu
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nJets.png}}%                       
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nbJets.png}}%                
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/MET.png}}\\
-    \caption{}                           
+    \caption{Data/MC comparisons in the $2lSS$ preselection region for (a) lepton \pt 0, (b) lepton \pt 1, (c) invariant mass of the two leptons, (d) the jet multiplicity, (e) the b-jet multiplicity, and (f) the missing transverse energy.}                           
     \label{fig:presel2lSS}
 \end{figure}
 
@@ -42,7 +42,7 @@ For the 3l channel, the following selection is applied:
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nJets.png}}%                          
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nbJets.png}}%                          
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/MET.png}}\\                         
-    \caption{}
+    \caption{Data/MC comparisons in the $3l$ preselection region for (a) lepton \pt 0, (b) lepton \pt 1, (c) invariant mass of the two leptons, (d) the jet multiplicity, (e) the b-jet multiplicity, and (f) the missing transverse energy.}
     \label{fig:presel3l}                                                                                          
 \end{figure}
 
@@ -62,6 +62,8 @@ The following features are used in both the high and low $p_T$ 2lSS BDTs:
 While for each of the 3l BDTs, the features listed below are used for training:
 
 \include{sections/tables/tabNames_sigBkg3l}
+
+The modelling of the input features is verified by comparing data and MC, 
 
 \begin{figure}[H]
   \subfigure[]{\includegraphics[width=.24\linewidth]{trexPlots/sigBkg2lSSfeatures/Plots/HT.png}}%                            
@@ -109,7 +111,7 @@ The BDTs are produced with a maximum tree depth of 6, using AUC as the target lo
   \label{fig:sigBkgScore3lF}                                                                                                
 \end{figure}
 
-Output distributions of each MVA comparing MC prediction to data at 80 $fb^-1$ are shown in Figure \ref{fig:sigBkgScore}. 
+Output distributions of each MVA comparing MC prediction to data at 79.8 $fb^-1$ are shown in Figure \ref{fig:sigBkgScore}. 
 
 \begin{figure}[H]
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_highPt.png}}%

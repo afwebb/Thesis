@@ -201,9 +201,38 @@ Studying the Higgs produced in association with top quark pairs, $t\bar{t}H$, al
 \label{fig:ttH_diagram}                                                                                    
 \end{figure}
 
-The Higgs boson, as well as the top quarks, have very short lifetimes - on the order of $10^{-22}$ s and $10^{-25}$ s respectively - meaning they can only be observed via their decay products. Measuring this process is therefore a matter of identifying events with final states consistent with $t\bar{t}H$ production. This thesis focuses on $t\bar{t}H$ events with multiple leptons in the final state, $t\bar{t}H-ML$. This includes $H \rightarrow W^+W^-$ events, where at least one of the W bosons decays leptonically. 
+The Higgs boson, as well as the top quarks, have very short lifetimes - on the order of $10^{-22}$ s and $10^{-25}$ s respectively - meaning they can only be observed via their decay products. Measuring this process is therefore a matter of identifying events with final states consistent with $t\bar{t}H$ production. 
 
-While the branching ratio of $H\rightarrow W^+W^-$ is smaller than $H \rightarrow b \bar{b}$, it produces a clearer signal. On the other hand, $H\rightarrow \gamma\gamma$ produces the most easily identifiable signal, but has a much smaller branching ratio than $H\rightarrow W^+W^-$. Therefore, compared with other final states of $t\bar{t}H$, the $t\bar{t}H-ML$ channel is an attractive candidate for study, as it involves a good balance between statistical power and identifiability. 
+Studies of $t\bar{t}H$ production have been reported by the ATLAS collaboration for $H\rightarrow b\bar{b}$, $H\rightarrow \gamma\gamma$ and multilepton (encompassing $H\rightarrow W^+W^-$, $H\rightarrow ZZ$ and $H\rightarrow \tau^-\tau^+$, with $H\rightarrow ZZ\rightarrow 4l$ as a separate analysis) decay modes. While the branching ratio of $H\rightarrow W^+W^-$ is smaller than $H \rightarrow b \bar{b}$ (see Table \ref{tab:H_BR}), it produces a clearer signal, as $H \rightarrow b \bar{b}$ suffers from large $t\bar{t}$ backgrounds. On the other hand, $H\rightarrow \gamma\gamma$ produces the most easily identifiable signal, but has a much smaller branching ratio than $H\rightarrow W^+W^-$. Therefore, compared with other final states of $t\bar{t}H$, the $t\bar{t}H-ML$ channel is an attractive candidate for study, as it involves a good balance between statistical power and identifiability. 
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lc}
+\hline\hline
+Decay Mode & Branching Ratio (\%) \\
+\hline
+$H \rightarrow b \bar{b}$ & 58.2 \\
+$H\rightarrow WW^*$ & 21.4 \\
+$H\rightarrow gg$ & 8.19 \\
+$H\rightarrow \tau\tau$ & 6.27 \\
+$H\rightarrow c\bar{c}$ & 2.89 \\
+$H\rightarrow ZZ^*$ & 2.62 \\
+$H\rightarrow \gamma\gamma$ & 0.227 \\
+\hline
+\end{tabular}
+\label{tab:H_BR}
+\caption{Summary of the predominant SM Higgs ($m_H = 125$ GeV) branching ratios. Particles with a star imply off-shell decays.}
+\end{table} 
+
+Searches for $t\bar{t}H$ production typically target a measurement of the signal strength parameter, $\mu_{t\bar{t}H}$, which measures the ratio of the observed cross-section and the expected cross-section according to the SM.
+
+\begin{equation}
+        \mu_{t\bar{t}H} = \frac{\sigma^{obs.}_{t\bar{t}H}}{\sigma^{SM}_{t\bar{t}H}}
+\end{equation}
+
+$t\bar{t}H$ production was observed by ATLAS using up to 79.8 $fb^{-1}$ of data collected at $\sqrt{s}$ = 13 TeV, based on a combination of five Higgs decay modes: $b\bar{b}$, $WW^*$, $\tau^{-}\tau^{+}$, $\gamma\gamma$, and $ZZ^*$ \cite{Higgs_combo}. A significance of $5.8\sigma$ was observed, compared to a $4.9\sigma$ expected significance. Since then, two analyses have published updated results ($H\rightarrow \gamma\gamma$ and $H\rightarrow ZZ^*\rightarrow 4l$) with the full Run 2 dataset, representing 139 $fb^{-1}$. Studies are still ongoing in the remaining channels.
+
+This thesis focuses on $t\bar{t}H$ events with multiple leptons in the final state, $t\bar{t}H-ML$, specifically targeting events with two same-sign leptons ($2lSS$) or three leptons ($3l$) in the final state. This includes $H \rightarrow W^+W^-$ events, where at least one of the W bosons decays leptonically.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -260,9 +289,20 @@ The addition of these operators can be shown to modify the transverse momentum (
 \label{fig:eft_pt}
 \end{figure}
 
-
 This provides a clear, physics observable that could be used to search for evidence of BSM physics. The energy and luminosity produced by the LHC now make such a measurement possible. Reconstructing the momentum spectrum of the Higgs in $t\bar{t}H$ events therefore provides a means to search for new physics in the Higgs sector.
 
+Reconstructing the Higgs is a particular challenge in the multilepton channels of $t\bar{t}H$, due to an ambiguity arising from multiple sources of missing energy. In the $H\rightarrow \gamma\gamma$ channel, the kinematics of the Higgs can be fully reconstructed from the two photons. The same is true of $H\rightarrow b\bar{b}$, though with the additional challenge of identifying which two of the four b-quarks in the final state originated from the Higgs. By contrast, the two channels ($2lSS$ and $3l$) targeted by this analysis include at least one neutrino originating from the Higgs decay. 
+
+\begin{figure}[H]
+    \subfigure[]{\includegraphics[width=.43\linewidth]{theory/ttH-2lSS.JPG}}%                             
+    \subfigure[]{\includegraphics[width=.43\linewidth]{theory/ttH-3l.JPG}}%                                
+    \caption{Feynman diagrams of $t\bar{t}H$ production with (a) two same-sign leptons and (b) three leptons in the final state.}
+    \label{fig:ttH-2lSS-3l}
+\end{figure}
+
+Neutrinos are not detected by ATLAS; instead, their presence is inferred from missing transverse energy in the detector, $E^T_{miss}$. The two channels targeted here include not just a neutrino from the Higgs decay, but at least one additional neutrino from the decay of the top-quarks. This makes disentangling the contribution of the Higgs decay to $E^T_{miss}$, and thereby fully reconstructing the Higgs, impossible. 
+
+This challenge motivates the use of more sophisticated machine learning techniques when attempting to perform differential measurements of the Higgs \pt spectrum in the multi-lepton channels of $t\bar{t}H$.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
 

@@ -6,7 +6,7 @@ Models are trained on Monte Carlo simulations of $t\bar{t}H$ events generated us
 
 For all of these models, the Keras neural network framework, with Tensorflow 2.0 as the backend, is used, and the number of hidden layers and nodes are determined using grid search optimization. Each neural network uses the LeakyReLU activation function, a learning rate of 0.01, and the Adam optimization algorithm, as alternatives are found to either decrease or have no impact on performance. Batch normalization is applied after each layer in order to stabilize the model and decrease training time. For the classification algorithms (b-jet matching, Higgs reconstruction, and 3l decay identification) binary-cross entropy is used as the loss function, while the $p_T$ reconstruction algorithm uses MSE. 
 
-The specific inputs features used for each model are arrived at through a process of trial and error - features considered potentially useful are tried, and those that are found to increase performance are included. While each model includes a relatively large number of features, some using upwards of 30, this inclusive approach is found to maximize the performance of each model while decreasing the variance compared to a reduced number of inputs. Each input feature is validated by comparing MC simulations to 80 $fb^{-1}$ of data, as shown in the sections below.
+The specific inputs features used for each model are arrived at through a process of trial and error - features considered potentially useful are tried, and those that are found to increase performance are included. While each model includes a relatively large number of features, some using upwards of 30, this inclusive approach is found to maximize the performance of each model while decreasing the variance compared to a reduced number of inputs. Each input feature is validated by comparing MC simulations to 79.8 $fb^{-1}$ of data, as shown in the sections below.
 
 \subsection{Higgs Decay Product Identification}
 \label{sec:truthLevelReco}
@@ -82,7 +82,7 @@ The modeling of these inputs is validated against data, with Figure \ref{fig:mod
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/Ml1j1.png}}%                      
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/dR_l0_j0.png}}%                   
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top2lSSfeatures/Plots/Ptj0j1l0l1met.png}}\\
-    \caption{Data/MC comparisons of input features for top2lSS training for 80 $fb^{-1}$ of data. (a) shows the DL1r working point of leading jet, (b) shows the $p_T$ of the leading jet, (c) shows the $\Delta R$ of the two jets, (d) the invariant mass of lepton 1 and jet 1, (e) the $\Delta R$ of lepton 0 and jet 0, and (f) the $p_T$ of both jets, both leptons, and the $E_T^{miss}$.}
+    \caption{Data/MC comparisons of input features for top2lSS training for 79.8 $fb^{-1}$ of data. (a) shows the DL1r working point of leading jet, (b) shows the $p_T$ of the leading jet, (c) shows the $\Delta R$ of the two jets, (d) the invariant mass of lepton 1 and jet 1, (e) the $\Delta R$ of lepton 0 and jet 0, and (f) the $p_T$ of both jets, both leptons, and the $E_T^{miss}$.}
     \label{fig:model_top2lSS}
 \end{figure}
 
@@ -169,7 +169,7 @@ The modeling of these inputs is validated against data, with Figure \ref{fig:mod
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/Ml1j1.png}}%                   
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j0.png}}%              
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j1.png}}\\
-    \caption{Data/MC comparisons of input features for top3l training for 80 $fb^{-1}$ of data. (a) show the DL1r WP of je\
+    \caption{Data/MC comparisons of input features for top3l training for 79.8 $fb^{-1}$ of data. (a) show the DL1r WP of je\
 t 0, (b) the $p_T$ of jet 0, (c) $\Delta R$ between jet 0 and jet 1, (d) the invariant mass of lepton 1 and jet 1, (e) $\Delta R$ between lepton 0 and jet 0, and (f) $\Delta R$ between lepton 0 and jet 1}
     \label{fig:model_top3l}
 \end{figure}
@@ -248,7 +248,7 @@ The modeling of these inputs is validated against data, with Figure \ref{fig:mod
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_j0j1_lH.png}}%                  
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_lT_t0.png}}%            
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs2lSSfeatures/Plots/jet_Pt_0.png}}\\
-    \caption{Data/MC comparisons of input features for higgs2lSS training for 80 $fb^{-1}$ of data. (a) shows the invariant mass of the two jet candidates and the lepton candidate, (b) the invariant mass of jet 0 and the lepton candidate, (c) $\Delta R$ between the jet candidates, (d) $\Delta R$ between jet 0 + jet 1 and the lepton candidate, (e) $\Delta R$ between the lepton from the top and the leading b-jet, (f) the $p_T$ of jet 0.}
+    \caption{Data/MC comparisons of input features for higgs2lSS training for 79.8 $fb^{-1}$ of data. (a) shows the invariant mass of the two jet candidates and the lepton candidate, (b) the invariant mass of jet 0 and the lepton candidate, (c) $\Delta R$ between the jet candidates, (d) $\Delta R$ between jet 0 + jet 1 and the lepton candidate, (e) $\Delta R$ between the lepton from the top and the leading b-jet, (f) the $p_T$ of jet 0.}
     \label{fig:model_higgs2lSS}
 \end{figure}
 
@@ -296,7 +296,7 @@ The modeling of these inputs is validated against data, with Figure \ref{fig:mod
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/dR_j0j1_lH.png}}%
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/dR_j0_j1.png}}%
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lSfeatures/Plots/dPhi_j0j1lH_met.png}}\\
-    \caption{Data/MC comparisons of input features for higgs3lS training for 80 $fb^{-1}$ of data.}
+    \caption{Data/MC comparisons of input features for higgs3lS training for 79.8 $fb^{-1}$ of data.}
     \label{fig:model_higgs3lS}
 \end{figure} 
 
@@ -344,7 +344,7 @@ The modeling of these inputs is validated against data, with Figure \ref{fig:mod
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0lH1_lT.png}}%
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/dPhi_lH1_met.png}}%
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0_lT.png}}\\
-    \caption{Data/MC comparisons of input features for higgs3lF training for 80 $fb^{-1}$ of data.}
+    \caption{Data/MC comparisons of input features for higgs3lF training for 79.8 $fb^{-1}$ of data.}
     \label{fig:model_higgs3lF}
 \end{figure} 
 
