@@ -15,17 +15,18 @@ A preselection is applied to define orthogonal analysis channels based on the nu
 
 The event yield after the 2lSS preselection has been applied, for MC and data at 79.8 $fb^{-1}$, is shown in Table \ref{tab:Yields2lSS}. 
 
-\include{sections/tables/Yields2lSS}
+\include{sections/tables/presel2lSS}
 
 Figure \ref{fig:presel2lSS}. Good general agreement is found.
 
 \begin{figure}[H]
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_0.png}}%                        
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/lep_Pt_1.png}}%                     
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/Mll01}}\\
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nJets.png}}%                       
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/nbJets.png}}%                
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat2l_80/Plots/MET.png}}\\
+    \centering
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys2l_80/Plots/lep_Pt_0.png}}%                        
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys2l_80/Plots/lep_Pt_1.png}}%                     
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys2l_80/Plots/Mll01}}\\
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys2l_80/Plots/nJets.png}}%                       
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys2l_80/Plots/nbJets.png}}%                
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys2l_80/Plots/MET.png}}\\
     \caption{Data/MC comparisons of the $2lSS$ pre-selection region. (a) and (b) show the $p_T$ of leptons 0 and 1, (c) shows the invariant mass of lepton 0 and 1, (d) shows the jet multiplicity, (e) the b-tagged jet multiplicity, and (f) the missing transverse energy.}                           
     \label{fig:presel2lSS}
 \end{figure}
@@ -43,17 +44,18 @@ For the 3l channel, the following selection is applied:
 
 The event yield after the 3l preselection has been applied, for MC and data at 79.8 $fb^{-1}$, is shown in Table \ref{tab:Yields3l}.
 
-\include{sections/tables/Yields3l}
+\include{sections/tables/presel3l}
 
 Comparisons of kinematic distributions for data and MC in this region are shown in Figure \ref{fig:presel3l}.
 
 \begin{figure}[H]
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_0.png}}%                             
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/lep_Pt_1.png}}%                      
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/Mll01}}\\                             
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nJets.png}}%                          
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/nbJets.png}}%                          
-    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/stat3l_80/Plots/MET.png}}\\                         
+    \centering
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/lep_Pt_0.png}}%                             
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/lep_Pt_1.png}}%                      
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/Mll01}}\\                             
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/nJets.png}}%                          
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/nbJets.png}}%                          
+    \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/MET.png}}\\                         
     \caption{Data/MC comparisons of the 3l pre-selection region. (a) and (b) show the $p_T$ of leptons 0 and 1, (c) shows the invariant mass of lepton 0 and 1, (d) shows the jet multiplicity, (e) the b-tagged jet multiplicity, and (f) the missing transverse energy.}
     \label{fig:presel3l}                                                                                          
 \end{figure}
@@ -115,9 +117,9 @@ Output distributions of each MVA, comparing MC predictions to data at 79.8 $fb^{
 \begin{figure}
   \centering
   \textbf{High \pt Background Rejection BDTs}
-  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_highPt.png}}%
-  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_highPt.png}}%
-  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_highPt.png}}\\
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys2l_80/Plots/sigBkg_2lSS_highPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lS_highPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lF_highPt.png}}\\
   \caption{Output score of the high $p_T$ BDTs in the (a) 2lSS, (b) 3lS, and (c) 3lF channels}
   \label{fig:sigBkgScoreHigh}
 \end{figure}
@@ -125,9 +127,9 @@ Output distributions of each MVA, comparing MC predictions to data at 79.8 $fb^{
 \begin{figure}
   \centering
   \textbf{Low \pt Background Rejection BDTs}
-  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat2l_80/Plots/sigBkg_2lSS_lowPt.png}}%
-  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lS_lowPt.png}}%
-  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/stat3l_80/Plots/sigBkg_3lF_lowPt.png}}\\
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys2l_80/Plots/sigBkg_2lSS_lowPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lS_lowPt.png}}%
+  \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lF_lowPt.png}}\\
   \label{fig:sigBkgScoreLow}
   \caption{Output score of the low $p_T$ BDTs in the (a) 2lSS, (b) 3lS, and (c) 3lF channels} 
 \end{figure}
