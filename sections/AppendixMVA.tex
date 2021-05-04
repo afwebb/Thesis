@@ -2,7 +2,7 @@
 The following section provides details of the various MVAs as well as a few studies performed in support of this analysis, exploring alternate decisions and strategies. 
 
 %----------------------------------------------------------------------
-\subsection{Higgs Reconstruction Models}
+\subsection{Higgs Reconstruction Model Details}
 \label{subsec:recoApx}
 %----------------------------------------------------------------------                                                      
  
@@ -24,7 +24,7 @@ The following section provides details of the various MVAs as well as a few stud
 %----------------------------------------------------------------------  
 
 %----------------------------------------------------------------------
-\subsection{Background Rejection MVAs}
+\subsection{Background Rejection MVA Details}
 \label{subsec:sigBkgApx}
 %----------------------------------------------------------------------                                                      
  
@@ -37,6 +37,33 @@ The following section provides details of the various MVAs as well as a few stud
 \include{sections/tables/texPlots_sigBkg3l}
 
 %----------------------------------------------------------------------  
+
+%-------------------------------------------------                                                                           
+\subsection{Truth Level Studies}
+\label{sec:truthPtStudies}
+%-------------------------------------------------                                                                          
+  
+Attempts to identify the decay products of the Higgs are motivated by the ability to reconstruct the Higgs momentum based on their kinematics. In order to demonstrate that this is case, the kinematics of reconstructed objects that are truth matched to the Higgs decay are used as inputs to a neural network which is designed to predict of the momentum of the Higgs. This is done in the $2lSS$ channel, as it proves to be the most challenging for \pt reconstruction. 
+
+Only leptons and jets which are truth matched to the Higgs are used as inputs for the model; events where the lepton and both jets are not reconstructed are not included. The model uses the same feature set and network architecture as the \pt prediction model used in the main analysis, as described in Section \ref{subsec:pt2lSS}.
+
+The results of the model are summarized below:
+
+\begin{figure}[H]
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/truthHiggsTop2lSS/keras_test_pt_scatter.png}}%   
+    \subfigure[]{\includegraphics[width=.56\linewidth]{ptReco/truthHiggsTop2lSS/keras_test_norm2Dhist.png}}\\
+    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for 2lSS $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernal Density Estimation, and (b) a histogram where each column  has been normalized to one.}
+    \label{fig:truth2lSSresults}
+\end{figure}
+
+\begin{figure}[H]
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/truthHiggsTop2lSS/keras_score.png}}%                
+    \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/truthHiggsTop2lSS/keras_roc.png}}\\
+    \caption{(a) shows the reconstructed Higgs $p_T$ for 2lSS events with truth $p_T > $ 150 GeV and $<$ 150 GeV, while (b) shows the ROC curve for those two sets of events.}
+    \label{fig:truth2lSSroc}
+\end{figure}
+
+Based on the performance of the model, as shown Figures \ref{fig:truth2lSSresults} and \ref{fig:truth2lSSroc}, the Higgs momentum can be reconstructed with fairly high precision when its decay products are correctly identified.
 
 %---------------------------------------------------------------------- 
 \subsection{Alternate b-jet Identification Algorithm}
