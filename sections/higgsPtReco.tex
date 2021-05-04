@@ -237,7 +237,11 @@ For all channels, the models described in Section \ref{sec:bjetID} are used to i
 
 For the 2lSS channel, the Higgs decay products include one light lepton and two jets. The neural network is trained on the kienmatics of different combinations of leptons and jets, as well as the b-jets identified in Section \ref{sec:bjetID}, with the specific input features listed in Table \ref{tab:higgsTop2lSSfeatures}.
 
+\begin{table}[H]
 \include{sections/tables/tabNames_higgsTop2lSS}
+\caption{Input features used to identify the Higgs decay products in 2lSS events}
+\label{tab:higgsTop2lSSfeatures}
+\end{table}
 
 Here $j_0$ and $j_1$, and $l_H$ are the jet and lepton decay candidates, respectively. The other lepton in the event is labeled $l_T$, as it is assumed to have come from the decay of one of the top quarks. $b_0$ and $b_1$ are the two b-jets identified by the b-jet identification algorithm. The b-jet Reco Score is the output of the b-jet reconstruction algorithm.
 
@@ -288,7 +292,11 @@ The neural network identifies the correct combination 55\% of the time. It ident
 
 For 3l $t\bar{t}H$ where the Higgs decay semi-leptonically, the decay products include one of the three leptons and two jets. In this case, the other two leptons originated from the decay of the tops, meaning the opposite-sign (OS) lepton cannot have come the Higgs. This leave only the two same-sign (SS) leptons as possible Higgs decay products. 
 
+\begin{table}[H]
 \include{sections/tables/tabNames_higgsTop3lS}
+  \caption{Input features used to identify the Higgs decay products in 3l semi-leptonic events}
+  \label{tab:higgsTop3lSfeatures}
+\end{table}
 
 Here $j_0$ and $j_1$, and $l_H$ are the jet and lepton decay candidates, respectively. The other two leptons in the event are labeled as $l_{T0}$ and $l_{T1}$. $b_0$ and $b_1$ are the two b-jets identified by the b-jet identification algorithm. The b-jet Reco Score is the output of the Higgs reconstruction algorithm. 
 
@@ -339,7 +347,11 @@ The neural network identifies the correct combination 64\% of the time. It ident
 
 In the fully-leptonic 3l case, the goal is identify which two of the three leptons originated from the Higgs decay. Since one of these two must be the OS lepton, this problem is reduced to determining which of the two SS leptons originated from the Higgs. The kinematics of both possibilities are used for training, one where the SS lepton from the Higgs is correctly labeled, and one where it is not.
 
+\begin{table}[H]
 \include{sections/tables/tabNames_higgsTop3lF}
+  \caption{Input features used to identify the Higgs decay products in 3l fully leptonic events}
+  \label{tab:higgsTop3lFfeatures}
+\end{table}
 
 Here $l_{H0}$ and $l_{H1}$ are the Higgs decay candidates. The other lepton in the event is labeled $l_T$. $b_0$ and $b_1$ are the two b-jets identified by the b-jet identification algorithm. The b-jet Reco Score is the output of the Higgs reconstruction algorithm. 
 
@@ -401,7 +413,11 @@ Because the analysis uses a two bin fit of the Higgs $p_T$, the momentum reconst
 
 The input variables listed in Table \ref{tab:pt2lSSfeatures} are used to predict the Higgs $p_T$ in the 2lSS channel. Here $j_0$ and $j_1$ are the two jets identified as Higgs decay products. The lepton identified as originating from the Higgs is labeled $l_H$, while the other lepton is labeled $l_T$, as it is assumed to have come from the decay of one of the top quarks. $b_0$ and $b_1$ are the\ two b-jets identified by the b-jet identification algorithm. The Higgs Reco Score and b-jet Reco Score are the outputs of the Higgs reconstruction algorithm, and the b-jet identification algorithm, respectively.
 
+\begin{table}[H]
 \include{sections/tables/tabNames_pt2lSS}
+  \caption{Input features for reconstructing the Higgs $p_T$ spectrum for 2lSS events}
+  \label{tab:pt2lSSfeatures}
+\end{table}
 
 The optimal neural network architecture for this channel is found to consist of 7 hidden layers with 60 nodes each. The inputdata set includes 1.2 million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs. 
 
@@ -434,7 +450,11 @@ We are also interested in how well the model distinguishes between events with $
 
 The following input features are used to predict the Higgs $p_T$ for events in the 3lS channel:
 
+\begin{table}[H]
 \include{sections/tables/tabNames_pt3lS}
+  \caption{Input features for reconstructing the Higgs $p_T$ spectrum for 3lS events}
+  \label{tab:pt3lSfeatures}
+\end{table}
 
 Again, $j_0$ and $j_1$ are the two jets identified as Higgs decay products, ordered by $p_T$. The lepton identified as originating from the Higgs is labeled $l_H$, while the other two leptons are labeled $l_{T0}$ and $l_{T1}$. $b_0$ and $b_1$ are the two b-jets identified by the b-jet identification algorithm. The Higgs Reco Score and b-jet Reco Score are the outputs of the Higgs reconstruction algorithm, and the b-jet identification algorithm, respectively.
 
@@ -469,7 +489,11 @@ Figure \ref{fig:pt3lSroc} shows (a) the output of the NN for events with truth $
 
 The features listed in \ref{tab:pt3lFfeatures} are used to construct a model for predictin the Higgs $p_T$ for 3lF events.
 
+\begin{table}[H]
 \include{sections/tables/tabNames_pt3lF}
+  \caption{Input features for reconstructing the Higgs $p_T$ spectrum for 3lF events}
+  \label{tab:pt3lFfeatures}
+\end{table}
 
 $l_{H0}$ and $l_{H1}$ respresent the two leptons identified by the Higgs reconstruction model as originating from the Higgs, while $l_T$ is the other lepton in the event. The Higgs Reco Score and b-jet Reco Score are the outputs of the Higgs reconstruction algorithm, and b-jet identification algorithm, respectively.
 
@@ -504,7 +528,11 @@ In the 3l channel, there are two possible ways for the Higgs to decay, both invo
 
 The kinematics of each event, along with the output scores of the Higgs and top reconstruction algorithms, are used to distinguish these two possible decay modes. The particular inputs used are listed in Table \ref{tab:decay3lfeatures}.
 
+\begin{table}[H]
 \include{sections/tables/tabNames_decay3l}
+\caption{Input features used to distinguish semi-leptonic and fully-leptonic Higgs decays in the 3l channel.}
+\label{tab:decay3lfeatures}
+\end{table}
 
 Here $l_0$ is the opposite charge lepton, $l_1$ and $l_2$ are the two SS leptons order by $\Delta R$ from lepton 0. score3lF and score3lS are the outputs of the 3lS and 3lF Higgs reconstruction algorithms, while topScore is the output of the b-jet identification algorithm.
 
