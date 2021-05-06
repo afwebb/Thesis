@@ -1,0 +1,35 @@
+
+\subsection{Prompt Background Processes}
+\label{sec:promptBackground}
+
+The signal processes are modelled using 
+
+As explained in detail in \cite{ttH_paper}, the $t\bar{t}W$ contribution predicted by MC is found disagree significantly with what is observed in data. While an effort is currently being undertaken to measure $t\bar{t}W$ more accurately, the approached used by the 79.8 $fb^{-1}$ $t\bar{t}H$ analysis is used for this analysis: A normalization factor of 1.68 is applied to the MC estimate of $t\bar{t}W$. Additionally, systematic uncertainties are applied to account for this modelling descrepency, as outlined in Section \ref{sec:sys}.
+
+
+\subsection{Non-prompt Background Processes}
+\label{sec:fakeBackground}
+
+While the main $t\bar{t}H$ analysis uses a more sophisticated data-driven approach to estimating the contribution of events with non-prompt leptons (or ''fakes''), at the time of this note this strategy has not been completely developed for the full Run-2 dataset. Therefore, the non-prompt contribution is estimated with MC, while applying normalization corrections and systematic uncertainties derived from data driven techniques developed for the 79.8 $fb^{-1}$ $t\bar{t}H/t\bar{t}W$ analysis \cite{\ttH_paper}. The primary contribution to the non-prompt lepton background is from $t\bar{t}$ production, with $V$+jets and single-top as much smaller sources. Likelihood fits over several control regions enriched with these non-prompt backgrounds are fit to data in order to derive normalization factors for these backgrounds. The specific normalization factors and uncertainties applied to the non-prompt contributions are listed in Section \ref{sec:sys}.
+
+As mentioned in Section \ref{sec:MCsamples}, a normalization corrections and uncertainties on the estimates of non-prompt leptons backgrounds are derived using data driven techniques, decribed in detail in \cite{ttH_paper}. These are derived from a likelihood fit over various non-prompt enriched control regions, targeting several sources of non-prompt light leptons separately: external conversion electrons, internal conversion electrons, electrons from heavy flavor decays, and muons from heavy flavor decays. %These are used to derive overall fake factors for electrons from light source (e.g. photon conversions or light hadrons), electrons from heavy flavor decays (namely, charm or bottom hadrons), and a single fake factor for muons.       
+
+The normalization factor and uncertainty applied to each source of non-prompt leptons is summarized in Table \ref{tab:fakeNF}
+
+\begin{table}[H]
+\begin{center}
+\begin{tabular}{c|c}
+\hline\hline
+Processs &  \\
+\hline
+$NF_e^{ExtCO}$ & 1.70 $\pm$ 0.51 \\
+$NF_e^{IntCO}$ & 0.75 $\pm$ 0.26 \\
+$NF_e^{HF}$ & 1.09 $\pm$ 0.32 \\
+$NF_{\mu}^{HF}$ & 1.28 $\pm$ 0.17 \\
+\hline
+\label{tab:fakeNF}
+\end{tabular}
+\end{center}
+\end{table}
+
+In addition to those derived from the control regions, several additional uncertainties are assigned to the non-prompt lepton background. An additional 25\% uncertainty on material conversions is assigned, based on the comparison between data and MC in a region where a loose electron fails the photon conversion veto. A shape uncertainty of 15\% (6\%) is assigned to the HF non-prompt electron (muon) background based on a comparison between data and MC where the second leading electron (muon) is only required to be loose. As the contribution from light non-prompt leptons is small, about 10\% percent of the contribution from HF non-prompt leptons, it is derived from the agreement between data and simulation in a LF enriched region at low values of the non-prompt lepton BDT. The resulting uncertainty is 100\%, and is taken to be uncorrelated between internal and material conversions.
