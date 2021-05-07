@@ -2198,11 +2198,12 @@
     <bcf:citekey order="71">ATL-PHYS-PUB-2015-027</bcf:citekey>
     <bcf:citekey order="72">xgboost</bcf:citekey>
     <bcf:citekey order="73">lumi</bcf:citekey>
-    <bcf:citekey order="74">jes</bcf:citekey>
-    <bcf:citekey order="75">btag_cal</bcf:citekey>
-    <bcf:citekey order="76">ttH_paper</bcf:citekey>
-    <bcf:citekey order="77">ttW_140</bcf:citekey>
-    <bcf:citekey order="78">Madgraph</bcf:citekey>
+    <bcf:citekey order="74">LUCID2</bcf:citekey>
+    <bcf:citekey order="75">jes</bcf:citekey>
+    <bcf:citekey order="76">btag_cal</bcf:citekey>
+    <bcf:citekey order="77">ttH_paper</bcf:citekey>
+    <bcf:citekey order="78">ttW_140</bcf:citekey>
+    <bcf:citekey order="79">Madgraph</bcf:citekey>
   </bcf:section>
   <bcf:sortlist section="0" name="none/global/" type="entry" sortscheme="none" sortnamekeyscheme="global" labelprefix="">
   <bcf:sorting>
