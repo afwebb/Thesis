@@ -1,23 +1,7 @@
 
-For both data and Monte Carlo (MC) simulations, samples were prepared in the \verb|xAOD| format, which was used to produced a \verb|xAOD| based on the \verb|HIGG8D1| derivation framework. This framework was designed for the main $t\bar{t}H$ multi-lepton analysis. Because this analysis targets events with multiple light leptons, as well as tau hadrons, this framework skims the dataset of any events that do not meet at least one of the following requirements:
-
-\begin{itemize}
-    \item at least two light leptons within a range $|\eta|$<2.6, with leading lepton $p_{T}$ > 15 GeV and subleading lepton $p_{T}$ > 5 GeV
-    \item at least one light lepton with $p_{T}$ > 15 GeV within a range $|\eta|$<2.6, and at least two hadronic taus with $p_{T}$ > 15 GeV.
-\end{itemize}
-
-Samples were then generated from these \verb|HIGG8D1| derivations using AnalysisBase version 21.2.127. A ptag of p4133 was used for MC samples, and p4134 for data.
-
 \subsection{Data Samples}
 
-The study uses proton-proton collision data collected by the ATLAS detector from 2015 through 2018, which represents an integrated luminosity of 139 $fb^{-1}$ and an energy of $\sqrt{s} = 13$ TeV. All data used in this analysis was included in one the following Good Run Lists:
-
-\begin{itemize}
-    \item data15\_13TeV.periodAllYear\_DetStatus-v79-repro20-02\_DQDefects-00-02-02\\\_PHYS\_StandardGRL\_All\_Good\_25ns.xml
-    \item data16\_13TeV.periodAllYear\_DetStatus-v88-pro20-21\_DQDefects-00-02-04\\\_PHYS\_StandardGRL\_All\_Good\_25ns.xml 
-    \item data17\_13TeV.periodAllYear\_DetStatus-v97-pro21-13\_Unknown\_PHYS\_StandardGRL\\\_All\_Good\_25ns\_Triggerno17e33prim.xml
-    \item data18\_13TeV.periodAllYear\_DetStatus-v102-pro22-04\_Unknown\_PHYS\_StandardGRL\\\_All\_Good\_25ns\_Triggerno17e33prim.xml
-\end{itemize}
+The study uses proton-proton collision data collected by the ATLAS detector from 2015 through 2018, which represents an integrated luminosity of 139 $fb^{-1}$ and an energy of $\sqrt{s} = 13$ TeV. All data used in this analysis was included in one of the Good Run Lists verified by Data Quality checks.
 
 \subsection{Monte Carlo Samples}
 \label{sec:MCsamples}
@@ -68,38 +52,3 @@ While the main $t\bar{t}H$ analysis is currently refining a data-driven approach
 
 Other background processes, such as $tH$, $tZ$, $t\bar{t}WW$ and $t\bar{t}t\bar{t}$, are expected to make minor contributions to the total background. The generators and setting used for these backgrounds are summarized in Table \ref{tbl:evgen}.
 
-The specific DSIDs used in the analysis are listed below:
-
-\begin{table}[H]
-    \centering
-    \begin{tabular}{l|l}
-        \hline\hline
-        Sample & DSID \\
-        \hline\hline
-        $t\bar{t}H$ & 345873-5, 346343-5 \\ 
-        $VV$ & 364250-364254, 364255, 363355-60, 364890 \\
-        $t\bar{t}W$ & 413008 \\
-        $t\bar{t}Z$ & 410156, 410157, 410218-20 \\
-        low mass $t\bar{t}Z$ & 410276-8 \\
-        Rare Top & 410397, 410398, 410399 \\
-        single Top & 410658-9, 410644-5 \\
-        three Top & 304014 \\
-        four Top & 410080 \\
-        $t\bar{t}WW$ & 410081 \\
-        Z + jets & 364100-41 \\
-        low mass Z + jets & 364198-215 \\
-        W + jets & 364156-97 \\
-        $V\gamma$ & 364500-35 \\
-        $tZ$  & 410560 \\
-        $tW$  & 410013-4 \\
-        $WtZ$ & 410408 \\
-        $VVV$ & 364242-9 \\
-        $VH$ & 342284-5 \\
-        $WtH$ & 341998 \\
-        $t\bar{t}\gamma$ & 410389 \\
-        $t\bar{t}$ & 410470 \\
-        \hline\hline
-    \end{tabular}
-    \caption{List of Monte Carlo samples by data set ID used in the analysis.}
-    \label{tbl:dsids}
-\end{table}
