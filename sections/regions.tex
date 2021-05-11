@@ -1,11 +1,11 @@
-Events are divided into two channels based on the number of leptons in the final state: one with two same-sign leptons, the other with three leptons. The $3l$ channel includes events where both leptons originated from the Higgs boson as well as events where only one of the leptons 
+ Events are divided into two channels based on the number of leptons in the final state: one with two same-sign leptons, the other with three leptons. The $3l$ channel includes events where two leptons originated from the Higgs boson as well as events where only one of the leptons originated from the Higgs. This motivates splitting the $3l$ channel into semi-leptonic, and fully leptonic channels, after an event preselection has been applied.
 
 %------------------------------------------------------------------------------------------
 
 \subsection{Pre-MVA Event Selection}
 \label{subsec:preMVA}
 
-A preselection is applied to define orthogonal analysis channels based on the number of leptons in each event. For the 2lSS channel, the following presection is used:
+A preselection is applied to define orthogonal analysis channels based on the number of leptons in each event. For the $2lSS$ channel, the following presection is used:
 
 \begin{itemize}
   \item Two very tight, same-charge, light leptons with $p_T > 20$ GeV
@@ -13,7 +13,7 @@ A preselection is applied to define orthogonal analysis channels based on the nu
   \item No reconstructed tau candidates
 \end{itemize}
 
-The event yield after the 2lSS preselection has been applied, for MC and data at 79.8 $fb^{-1}$, is shown in Table \ref{tab:Yields2lSS}. 
+The event yield after the $2lSS$ preselection has been applied, for MC and data at 79.8 $fb^{-1}$, is shown in Table \ref{tab:Yields2lSS}. 
 
 \begin{table}[H]
 \include{sections/tables/presel2lSS}
@@ -35,7 +35,7 @@ Figure \ref{fig:presel2lSS}. Good general agreement is found.
     \label{fig:presel2lSS}
 \end{figure}
 
-For the 3l channel, the following selection is applied:
+For the $3l$ channel, the following selection is applied:
 
 \begin{itemize}
   \item Three light leptons with total charge $\pm 1$
@@ -46,7 +46,7 @@ For the 3l channel, the following selection is applied:
   \item $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all opposite-charge, same-flavor lepton pairs
 \end{itemize}
 
-The event yield after the 3l preselection has been applied, for MC and data at 79.8 $fb^{-1}$, is shown in Table \ref{tab:Yields3l}.
+The event yield after the $3l$ preselection has been applied, for MC and data at 79.8 $fb^{-1}$, is shown in Table \ref{tab:Yields3l}.
 
 \begin{table}[H]
 \include{sections/tables/presel3l}
@@ -64,7 +64,7 @@ Comparisons of kinematic distributions for data and MC in this region are shown 
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/nJets.png}}%                          
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/nbJets.png}}%                          
     \subfigure[]{\includegraphics[width=.29\linewidth]{trexPlots/sys3l_80/Plots/MET.png}}\\                         
-    \caption{Data/MC comparisons of the 3l pre-selection region. (a) and (b) show the $p_T$ of leptons 0 and 1, (c) shows the invariant mass of lepton 0 and 1, (d) shows the jet multiplicity, (e) the b-tagged jet multiplicity, and (f) the missing transverse energy.}
+    \caption{Data/MC comparisons of the $3l$ pre-selection region. (a) and (b) show the $p_T$ of leptons 0 and 1, (c) shows the invariant mass of lepton 0 and 1, (d) shows the jet multiplicity, (e) the b-tagged jet multiplicity, and (f) the missing transverse energy.}
     \label{fig:presel3l}                                                                                          
 \end{figure}
 
@@ -73,17 +73,17 @@ Comparisons of kinematic distributions for data and MC in this region are shown 
 \subsection{Event MVA}
 \label{subsec:sigBkgMVA}
 
-Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - 2lSS, 3l semi-leptonic (3lS), and 3l fully leptonic (3lF). Here events with three leptons are split into 3lS and 3lF based on the model described in \ref{sec:decay3l}. In particular, Boosted Decision Tree (BDT) algorithms are produced with XGBoost \cite{xgboost} are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Events are weighted in the BDT training by the weight of each Monte Carlo event. 
+Separate multi-variate analysis techniques (MVAs) are used in order to distinguish signal events from background for each analysis channel - $2lSS$, $3l$ semi-leptonic ($3lS$), and $3l$ fully leptonic (3lF). Here events with three leptons are split into $3lS$ and $3lF$ based on the model described in \ref{sec:decay3l}. In particular, Boosted Decision Tree (BDT) algorithms are produced with XGBoost \cite{xgboost_cite} are trained using the kinematics of signal and background events derived from Monte Carlo simulations. Events are weighted in the BDT training by the weight of each Monte Carlo event. 
 
-Because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. This is found to provide better significance than attempting to build an inclusive model, as demonstrated in appendix \ref{subsec:sigBkgApx}. A cutoff of 150 GeV is used. This gives a total of 6 background rejection MVAs - explicitly, 2lSS high $p_T$ , 2lSS low $p_T$, 3lS high $p_T$ , 3lS low $p_T$, 3lF high $p_T$, and 3lF low $p_T$.
+Because the background composition differs for events with a high reconstructed Higgs $p_T$ compared to events with low reconstructed Higgs $p_T$, separate MVAs are produced for high and low $p_T$ regions. This is found to provide better significance than attempting to build an inclusive model, as demonstrated in appendix \ref{subsec:sigBkgApx}. A cutoff of 150 GeV is used. This gives a total of 6 background rejection MVAs - explicitly, $2lSS$ high $p_T$ , $2lSS$ low $p_T$, $3lS$ high $p_T$ , $3lS$ low $p_T$, $3lF$ high $p_T$, and $3lF$ low $p_T$.
 
-The following features are used in both the high and low $p_T$ 2lSS BDTs:
+The following features are used in both the high and low $p_T$ $2lSS$ BDTs:
 
 \begin{table}[H]
 \include{sections/tables/tabNames_sigBkg2lSS}
 \end{table}
 
-While for each of the 3l BDTs, the features listed below are used for training:
+While for each of the $3l$ BDTs, the features listed below are used for training:
 
 \begin{table}[H]
 \include{sections/tables/tabNames_sigBkg3l}
@@ -94,9 +94,9 @@ Modelling of each of these input features is verified in Appendix \ref{subsec:si
 \begin{figure}[H]
   \centering
   \textbf{$2lSS$}\\
-  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_score.png}}%
+  \subfigure[High $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_score.png}}%
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_roc.png}}\\
-  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_score.png}}% 
+  \subfigure[Low $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_score.png}}% 
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_roc.png}}\\ 
   \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $2lSS$ events with (a) high regressed Higgs \pt and (b) low regressed Higgs \pt. (b) and (d) show the ROC curve for the $2lSS$ high and low \pt models, respectively.}
   \label{fig:sigBkgScore2lSS}
@@ -105,9 +105,9 @@ Modelling of each of these input features is verified in Appendix \ref{subsec:si
 \begin{figure}[H]
   \centering
   \textbf{$3l$ - Semileptonic}\\
-  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_score.png}}%                                  
+  \subfigure[High $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_score.png}}%                 
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_roc.png}}\\                                   
-  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_score.png}}%                                   
+  \subfigure[Low $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_score.png}}%             
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_roc.png}}\\                                    
   \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $3lS$ events with (a) high regressed Higgs \pt and (b) low regressed Higgs \pt. (b) and (d) show the ROC curve for the $3lS$ high and low \pt models, respectively.}
   \label{fig:sigBkgScore3lS}                                                                                                
@@ -116,9 +116,9 @@ Modelling of each of these input features is verified in Appendix \ref{subsec:si
 \begin{figure}[H]
   \centering
   \textbf{$3l$ - Fully Leptonic}\\
-  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_score.png}}%                                  
+  \subfigure[High $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_score.png}}%              
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_roc.png}}\\                                  
-  \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_score.png}}%                                 
+  \subfigure[Low $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_score.png}}%           
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_roc.png}}\\                                    
   \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $3lF$ events with (a) high regressed Higgs \pt and (b) low regressed Higgs \pt. (b) and (d) show the ROC curve for the $3lF$ high and low \pt models, respectively.}
   \label{fig:sigBkgScore3lF}                                                                                                
@@ -132,7 +132,7 @@ Output distributions of each MVA, comparing MC predictions to data at 79.8 $fb^{
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys2l_80/Plots/sigBkg_2lSS_highPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lS_highPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lF_highPt.png}}\\
-  \caption{Output score of the high $p_T$ BDTs in the (a) 2lSS, (b) 3lS, and (c) 3lF channels}
+  \caption{Output score of the high $p_T$ BDTs in the (a) $2lSS$, (b) 3lS, and (c) $3lF$ channels}
   \label{fig:sigBkgScoreHigh}
 \end{figure}
 
@@ -143,7 +143,7 @@ Output distributions of each MVA, comparing MC predictions to data at 79.8 $fb^{
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lS_lowPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lF_lowPt.png}}\\
   \label{fig:sigBkgScoreLow}
-  \caption{Output score of the low $p_T$ BDTs in the (a) 2lSS, (b) 3lS, and (c) 3lF channels} 
+  \caption{Output score of the low $p_T$ BDTs in the (a) $2lSS$, (b) 3lS, and (c) $3lF$ channels} 
 \end{figure}
 
 %------------------------------------------------------------------------------------------
@@ -151,7 +151,7 @@ Output distributions of each MVA, comparing MC predictions to data at 79.8 $fb^{
 \subsection{Signal Region Definitions}
 \label{subsec:sigRegions}
 
-Once pre-selection has been applied, channels are further refined based on the MVAs described above. The output of the model described in Section \ref{sec:decay3l} is used to separate the three channel into two - Semi-leptonic and Fully-leptonic - based on the predicted decay mode of the Higgs boson. This leaves three orthogonal signal regions - 2lSS, 3lS, and 3lF. 
+Once pre-selection has been applied, channels are further refined based on the MVAs described above. The output of the model described in Section \ref{sec:decay3l} is used to separate the three channel into two - Semi-leptonic and Fully-leptonic - based on the predicted decay mode of the Higgs boson. This leaves three orthogonal signal regions - $2lSS$, $3lS$, and $3lF$. 
 
 For each event, depending on the number of leptons as well as whether the $p_T$ of the Higgs is predicted to be high ($>$ 150 GeV) or low ($<$ 150 GeV), a cut on the appropriate background rejection MVA is applied. The particular cut values, listed in Table \ref{tab:sigBkgCuts}, are determined by maximizing $S/\sqrt{B}$ in each region. 
 
@@ -161,12 +161,12 @@ For each event, depending on the number of leptons as well as whether the $p_T$ 
   \hline\hline
   Channel & BDT Score \\
   \hline
-  2lSS high $p_T$ & 0.36 \\
-  2lSS low $p_T$ & 0.34 \\
-  3lS high $p_T$ & 0.51 \\
-  3lS low $p_T$ & 0.43 \\
-  3lF high $p_T$ & 0.33 \\
-  3lF low $p_T$ & 0.41 \\
+  $2lSS$ high $p_T$ & 0.36 \\
+  $2lSS$ low $p_T$ & 0.34 \\
+  $3lS$ high $p_T$ & 0.51 \\
+  $3lS$ low $p_T$ & 0.43 \\
+  $3lF$ high $p_T$ & 0.33 \\
+  $3lF$ low $p_T$ & 0.41 \\
   \hline
   \end{tabular}
   \end{center}
@@ -182,12 +182,12 @@ The event preselection and MVA selection listed in Table \ref{tab:sigBkgCuts} ar
   \hline\hline
   Region & Selection \\
   \hline
-  2lSS & Two same charge tight leptons with $p_T$ $>$ 20 GeV \\
+  $2lSS$ & Two same charge tight leptons with $p_T$ $>$ 20 GeV \\
   & $N_{jets}\geq$ 4, $N_{b-jets}\geq$ 1 b-tagged jets \\
   & Zero $\tau_{had}$\\
   & $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.36 \textbf{or} $H^{pred}_{p_T}<$150 GeV and BDT score $>$ 0.34 \\
   \hline
-  3lS & Three light leptons with total charge $\pm 1$ \\
+  $3lS$ & Three light leptons with total charge $\pm 1$ \\
   & Two tight SS leptons, $p_T > 20$ GeV \\
   & One loose OS lepton, $p_T > 10$ GeV \\
   & $N_{jets}\geq$ 2, $N_{b-jets}\geq$ 1 b-tagged jets \\
@@ -196,7 +196,7 @@ The event preselection and MVA selection listed in Table \ref{tab:sigBkgCuts} ar
   & Decay NN Score $<$ 0.23 \\
   & $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.51 \textbf{or} $H^{pred}_{p_T}<$150 GeV and BDT score $>$ 0.43 \\
   \hline
-  3lF & Three light leptons with total charge $\pm 1$ \\
+  $3lF$ & Three light leptons with total charge $\pm 1$ \\
   & Two tight SS leptons, $p_T > 20$ GeV \\                                                                                  
   & One loose OS lepton, $p_T > 10$ GeV \\                                                                                   
   & $N_{jets}\geq$ 2, $N_{b-jets}\geq$ 1 b-tagged jets \\
