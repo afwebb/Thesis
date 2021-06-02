@@ -1,60 +1,16 @@
 
-All analysis channels considered in this note share a common object selection for leptons and jets, as well as a shared trigger selection. 
-
-\subsection{Trigger Requirements}
-
-Events are required to be selected by dilepton triggers. The $p_T$ thresholds of the dilepton trigger on two electrons were 12 GeV in 2015, 17 GeV in 2016, and 24 GeV in 2017 and 2018, while for the dimuon triggers the $p_T$ thresholds on the leading (sub-leading) muon were 18 GeV (8 GeV) in 2015, and 22 GeV (8 GeV) in 2016-2018. For the electron+muon triggers, the $p_T$ thresholds on the electron (muon) were 17 GeV (14 GeV) for all datasets.
-
-\subsection{Light Leptons}
-\label{subsec:lepSelection}
+All analysis channels considered in this note share a common object selection for leptons and jets, as well as a shared trigger selection. Events are required to be selected by dilepton triggers. The $p_T$ thresholds of the dilepton trigger on two electrons were 12 GeV in 2015, 17 GeV in 2016, and 24 GeV in 2017 and 2018, while for the dimuon triggers the $p_T$ thresholds on the leading (sub-leading) muon were 18 GeV (8 GeV) in 2015, and 22 GeV (8 GeV) in 2016-2018. For the electron+muon triggers, the $p_T$ thresholds on the electron (muon) were 17 GeV (14 GeV) for all datasets.
 
 Electron candidates are reconstructed from energy clusters in the electromagnetic calorimeter that are associated with charged particle tracks reconstructed in the inner detector \cite{ATLAS-CONF-2016-024}.  Electron candidates are required to have $\pt > 10$ GeV and $|\eta_\textrm{cluster}| < 2.47$. Candidates in the transition region between different electromagnetic calorimeter components, $1.37 < |\eta_\textrm{cluster}| < 1.52$, are rejected. A multivariate likelihood discriminant combining shower shape and track information is used to distinguish prompt electrons from nonprompt leptons, such as those originating from hadronic showers. %Electron candidate are also required to pass TightLH identification.
 
-To further reduce the non-prompt contribution, the track of each electron is required to originate from the primary vertex; requirements are imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|$).
-
-Muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer \cite{PERF-2014-05}. Muon candidates are required to have $\pt > 10$~GeV and $|\eta| < 2.5$. %Muons are required to pass Medium ID requirements.
+To further reduce the non-prompt contribution, the track of each electron is required to originate from the primary vertex; requirements are imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|$). Muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer \cite{PERF-2014-05}. Muon candidates are required to have $\pt > 10$~GeV and $|\eta| < 2.5$. %Muons are required to pass Medium ID requirements.
 
 All leptons are required to pass a non-prompt BDT selection developed by the main $t\bar{t}H$/$t\bar{t}W$ analysis, described in detail in \cite{ttH_paper}. Optimized working points and scale factors for this BDT are taken from that analysis. This BDT and the WPs used are summarized in Appendix \ref{sec:lepMVA},
 
-\subsection{Jets}
-\label{subsec:jetSelection}
-
 Jets are reconstructed from calibrated topological clusters built from energy deposits in the calorimeters \cite{ATL-PHYS-PUB-2015-015}, using the anti-$k_t$ algorithm with a radius parameter $R=0.4$. Particle Flow, or PFlow, jets are used in the analysis, which are hadronic objects reconstructed using information from both the tracker and the calorimeter. Jets with energy contributions likely arising from noise or detector effects are removed from consideration \cite{ATLAS-CONF-2015-029}, and only jets satisfying $\pt > 25$~GeV and $|\eta| < 2.5$ are used in this analysis.  For jets with $\pt < 60$~GeV and $|\eta| < 2.4$, a jet-track association algorithm is used to confirm that the jet originates from the selected primary vertex, in order to reject jets arising from pileup collisions \cite{PERF-2014-03}. 
-
-
-\subsection{B-tagged Jets}
-\label{subsec:bjetSelection}
 
 Each analysis channel used in this analysis includes b-jets in the final state. These are identified using the DL1r b-tagging algorithm, which uses jet vertex and kinematic information to distinguish heavy and light flavored jets. These features are used as inputs to a neural network, the output of which is used to form calibrated working points (WPs) based on how likely a jet is to have originited from a b-quark. This analysis uses the 70\% DL1r WP - implying an efficiency of 70\% for truth b-jets - for selecting b-tagged jets. 
 
-\subsection{Missing Transverse Energy}
-
 Because all $t\bar{t}H-ML$ channels considered include multiple neutrinos, missing transverse energy ($E_T^{miss}$) is present in each event. The missing transverse momentum vector is defined as the inverse of the sum of the transverse momenta of all reconstructed physics objects as well as remaining unclustered energy, the latter of which is estimated from low-\pt tracks associated with the primary vertex but not assigned to a hard object \cite{ATL-PHYS-PUB-2015-027}.
 
-\subsection{Overlap removal}
-\label{subsec:overlapremoval}
-
-To avoid double counting objects and remove leptons originating from decays of hadrons, overlap removal is performed in the following order: any electron candidate within $\Delta R = 0.1$ of another electron candidate with higher \pt\ is removed; any electron candidate within $\Delta R = 0.1$ of a muon candidate is removed; any jet within $\Delta R = 0.3$ of an electron candidate is removed; if a muon candidate and a jet lie within $\Delta R = min(0.4, $0.04+10$[GeV]/\pt(muon))$ of each other, the jet is kept and the muon is removed.
-
-This algorithm is applied to the preselected objects. The overlap removal procedure is summarized in Table~\ref{tab:overlap-removal}.
-
-\begin{table}[h!]
- \begin{center}
-   \begin{tabular}{|c|c|c|}
-     \hline
-                            \textbf{Keep}  &  \textbf{Remove} & \textbf{Cone size ($\Delta$ R)}  \\
-         \hline
-                        electron        & electron (low \pt)    & 0.1 \\
-     \hline
-                        muon    & electron      & 0.1 \\
-     \hline
-                            electron    & jet   & 0.3 \\
-         \hline
-                        jet             & muon  & min(0.4, $0.04+10$[GeV]/\pt(muon)) \\
-         \hline
-                        electron        & tau   & 0.2 \\
-     \hline
-   \end{tabular}
-   \caption{\label{tab:overlap-removal} Summary of the overlap removal procedure between electrons, muons, and jets.}
- \end{center}
-\end{table}
+To avoid double counting objects and remove leptons originating from decays of hadrons, overlap removal is performed in the following order: any electron candidate within $\Delta R = 0.1$ of another electron candidate with higher \pt\ is removed; any electron candidate within $\Delta R = 0.1$ of a muon candidate is removed; any jet within $\Delta R = 0.2$ of an electron candidate is removed; if a muon candidate and a jet lie within $\Delta R = min(0.4, $0.04+10$[GeV]/\pt(muon))$ of each other, the jet is kept and the muon is removed if the jet has three or more track, otherwise the muon is kept and the jet is removed..
