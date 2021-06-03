@@ -9,7 +9,7 @@
 % Use this variant if the files are in a central location, e.g. $HOME/texmf.
 % \newcommand*{\ATLASLATEXPATH}{}
 %-------------------------------------------------------------------------------
-\documentclass[PAPER, atlasdraft=true, texlive=2016, UKenglish]{\ATLASLATEXPATH atlasdoc}
+\documentclass[NOTE, atlasdraft=true, texlive=2016, UKenglish]{\ATLASLATEXPATH atlasdoc}
 \usepackage{float}
 \usepackage{euler}\usepackage{pgf}
 %\usepackage{subcaption}
@@ -208,6 +208,17 @@
 \input{wz_sections/truthJetResults}
 %-------------------------------------------------------------------------------
 
+%------------------------------------------------------------------------------- 
+\section{Conclusion}
+\label{sec:conclusion}
+
+A measurement of $WZ$ + heavy flavor is performed using 140 $fb^{-1}$ of $\sqrt{s} = 13$ TeV proton-proton collision data collected by the ATLAS detector at the LHC. The expected cross-section of WZ + $b$ with 1-jet is $1.74^{+0.82}_{-0.75}(stat)^{+0.53}_{-0.48}(sys)$ fb, and $14.6 \pm 2.5 (stat) \pm 2.3 (sys)$ fb for WZ + $c$, with a correlation of -0.22 between them. An expected significance of 2.0 is observed for WZ + $b$ in this region.
+
+For the 2-jet regions, an expected significance of 1.7 is observed for WZ + $b$, with an expected cross-section of $2.5^{+1.3}_{-1.3}(stat)^{+0.95}_{-0.83}(sys)$ fb. For WZ + $c$, a cross-section of $12.7 \pm 3.2 (stat) \pm 2.7 (sys)$ fb is expected for 2-jet events. A correlation of -0.26 is observed for WZ + $b$ and WZ + $c$.
+
+\textbf{This section will be include final results once unblinded.}
+%------------------------------------------------------------------------------- 
+
 %-------------------------------------------------------------------------------
 %-------------------------------------------------------------------------------
 
@@ -261,7 +272,7 @@
 \part{Conclusion}
 \label{part:conclusion}
 
-As search for the effects of dimension-six operators on $t\bar{t}H$ production is performed. An effective field theory approached is used to parameratize the effects of high energy physics on the Higgs momentum spectrum. The momentum spectrum is reconstructed using various MVA techniques, and the limits on dimension-six operators are limited to X. 
+A method of employing machine learning techniques in order to reconstruct the momentum sprectum of the Higgs boson produced in association with top quark pairs has been presented for events with multiple leptons in the final state. Preliminary results for using these techniques to perform differential measurements in this channel have been presented: Using 80 $fb^{-1}$ of data, normalization factors of $\mu_{t\bar{t}H\ high\ p_T} = 2.1^{+0.62}_{-0.59}(stat)^{+0.40}_{-0.43}(sys)$ and $\mu_{t\bar{t}H\ low\ p_T} = 0.83^{+0.39}_{-0.40}(stat)^{+0.51}_{-0.53}(sys)$ are measured for events with Higgs \pt $>$150 GeV and $<$150 GeV, respectively. Projected results for 139 $fb^{-1}$ of data give sentivity of $\mu_{t\bar{t}H\ high\ p_T} = 1.00^{+0.45}_{-0.43}(stat)^{+0.30}_{-0.31}(sys)$ and $\mu_{t\bar{t}H\ low\ p_T} = 1.00^{+0.29}_{-0.30}(stat)^{+0.48}_{-0.50}(sys)$.
 
 %-------------------------------------------------------------------------------
 % If you use biblatex and either biber or bibtex to process the bibliography
@@ -289,22 +300,22 @@ As search for the effects of dimension-six operators on $t\bar{t}H$ production i
 
 \section{Non-prompt lepton MVA}
 \label{sec:lepMVA}
-\include{wz_sections/lepMVA}
+\input{wz_sections/lepMVA}
 
 \section{Supplementary WZ + Heavy Flavor Studies}
 \label{apx:WZ}
 
 \subsection{Non-prompt CR Modelling}
 \label{sec:fakeCR_plots}
-\include{wz_sections/fakes_CR}
+\input{wz_sections/fakes_CR}
 
 \subsection{tZ Interference Studies}
 \label{sec:tZInt}
-\include{wz_sections/tZInt}
+\input{wz_sections/tZInt}
                                                                                                                              
 \subsection{Alternate tZ Inclusive Fit}
 \label{sec:inc_tZ}
-\include{wz_sections/with_tZ}
+\input{wz_sections/with_tZ}
                                                                                                                              
 \section{Supplementary $t\bar{t}H$ Differential Analysis Studies}                                                            
 \label{apx:MVA}                                                                                        
