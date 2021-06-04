@@ -1,0 +1,573 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%  disstemplate.tex, to be compiled with latex.		     %
+%%  08 April 2002	Version 4				     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%								     %
+%%  Writing a Doctoral Dissertation with LaTeX at		     %
+%%	the University of Texas at Austin			     %
+%%								     %
+%%  (Modify this ``template'' for your own dissertation.)	     %
+%%								     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass[12pt]{report}	% The documentclass must be ``report''.
+
+\usepackage{utdiss2}  		% Dissertation package style file.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Optional packages used for this sample dissertation. If you don't  %
+% need a capability in your dissertation, feel free to comment out   %
+% the package usage command.					     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{amsmath,amsthm,amsfonts,amscd} 
+				% Some packages to write mathematics.
+\usepackage{eucal} 	 	% Euler fonts
+\usepackage{verbatim}      	% Allows quoting source with commands.
+\usepackage{makeidx}       	% Package to make an index.
+\usepackage{epsfig}         	% Allows inclusion of eps files.
+\usepackage{url}		% Allows good typesetting of web URLs.
+\usepackage{float}
+\usepackage{euler}\usepackage{pgf}
+%\usepackage{subcaption}
+%\usepackage{natbib}                                                                                                         
+%\usepackage{biblatex}
+\usepackage{changepage}
+\usepackage{geometry}
+\usepackage{pdflscape}
+\usepackage{setspace}
+\usepackage{longtable}
+\usepackage{subfigure}
+\setstretch{2}
+\setlength{\parindent}{1cm}
+\usepackage{chngcntr}
+\counterwithin{figure}{section}
+\counterwithin{equation}{section}
+\graphicspath{{logos/}{figures/}}
+\newcommand*{\pt}{\ensuremath{p_{\text{T}}}\xspace}
+%\usepackage{draftcopy}		% Uncomment this line to have the
+				% word, "DRAFT," as a background
+				% "watermark" on all of the pages of
+				% of your draft versions. When ready
+				% to generate your final copy, re-comment
+				% it out with a percent sign to remove
+				% the word draft before you re-run
+				% Makediss for the last time.
+
+%\addbibresource{bib/higgsDiffNote.bib}
+%\addbibresource{bib/ttHDiff.bib}                                                                                            
+%\addbibresource{bib/wz_heavy_flavor.bib}
+%\addbibresource{bib/}                                                                                                       
+%\addbibresource{bib/ATLAS.bib}
+%\addbibresource{bib/CMS.bib}
+%\addbibresource{bib/ConfNotes.bib}
+%\addbibresource{bib/PubNotes.bib}
+
+\author{Aaron Webb}  	% Required
+
+\address{3816 Speedway, 109\\ Austin, Texas 78751}  % Required
+
+\title{A Deep Learning Approach to Differential Measurements of Higgs - Top Interactions in Multilepton Final States using the ATLAS Detector at the LHC}
+                                                    % Required
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% NOTICE: The total number of supervisors and other members %%%%%%%%%%
+%%%%%%%%%%%%%%% MUST be seven (7) or less! If you put in more, %%%%%%%
+%%%%%%%%%%%%%%% they are put on the page after the Committee %%%%%%%%%
+%%%%%%%%%%%%%%% Certification of Approved Version page. %%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Enter names of the supervisor and co-supervisor(s), if any,
+% of your dissertation committee. Put one name per line with
+% the name in square brackets. The name on the last line, however,
+% must be in curly braces.
+%
+% If you have only one supervisor, the entry below will read:
+%
+%	\supervisor
+%		{Supervisor's Name}
+%
+% NOTE: Maximum three supervisors. Minimum one supervisor.
+% NOTE: The Office of Graduate Studies will accept only two supervisors!
+% 
+%
+\supervisor{Peter Onyisi}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Enter names of the other (non-supervisor) members(s) of your
+% dissertation committee. Put one name per line with the name
+% in square brackets. The name on the last line, however, must
+% be in curly braces.
+%
+% NOTE: Maximum six other members. Minimum zero other members.
+% NOTE: The Office of Graduate Studies may restrict you to a total
+%	of six committee members.
+%
+%
+\committeemembers
+	[Timothy Andeen]
+	[Can Kilic]
+	{James Scott}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\previousdegrees{B.S.}
+     % The abbreviated form of your previous degree(s).
+     % E.g., \previousdegrees{B.S., MBA}.
+     %
+     % The default value is `B.S., M.S.'
+
+%\graduationmonth{...}      
+     % Graduation month, either May, August, or December, in the form
+     % as `\graduationmonth{May}'. Do not abbreviate.
+     %
+     % The default value (either May, August, or December) is guessed
+     % according to the time of running LaTeX.
+
+%\graduationyear{...}   
+     % Graduation year, in the form as `\graduationyear{2001}'.
+     % Use a 4 digit (not a 2 digit) number.
+     %
+     % The default value is guessed according to the time of 
+     % running LaTeX.
+
+%\typist{...}       
+     % The name(s) of typist(s), put `the author' if you do it yourself.
+     % E.g., `\typist{Maryann Hersey and the author}'.
+     %
+     % The default value is `the author'.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Commands for master's theses and reports.			     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% If the degree you're seeking is NOT Doctor of Philosophy, uncomment
+% (remove the % in front of) the following two command lines (the ones
+% that have the \ as their second character).
+%
+%\degree{MASTER OF ARTS}
+%\degreeabbr{M.A.}
+
+% Uncomment the line below that corresponds to the type of master's
+% document you are writing.
+%
+%\masterreport
+%\masterthesis
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some optional commands to change the document's defaults.	     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%\singlespacing
+%\oneandonehalfspacing
+
+%\singlespacequote
+\oneandonehalfspacequote
+
+\topmargin 0.125in	% Adjust this value if the PostScript file output
+			% of your dissertation has incorrect top and 
+			% bottom margins. Print a copy of at least one
+			% full page of your dissertation (not the first
+			% page of a chapter) and measure the top and
+			% bottom margins with a ruler. You must have
+			% a top margin of 1.5" and a bottom margin of
+			% at least 1.25". The page numbers must be at
+			% least 1.00" from the bottom of the page.
+			% If the margins are not correct, adjust this
+			% value accordingly and re-compile and print again.
+			%
+			% The default value is 0.125"
+
+		% If you want to adjust other margins, they are in the
+		% utdiss2-nn.sty file near the top. If you are using
+		% the shell script Makediss on a Unix/Linux system, make
+		% your changes in the utdiss2-nn.sty file instead of
+		% utdiss2.sty because Makediss will overwrite any changes
+		% made to utdiss2.sty.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Some optional commands to be tested.				     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% If there are 10 or more sections, 10 or more subsections for a section,
+% etc., you need to make an adjustment to the Table of Contents with the
+% command \longtocentry.
+%
+%\longtocentry 
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Some math support.					     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Theorem environments (these need the amsthm package)
+%
+%% \theoremstyle{plain} %% This is the default
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{ax}{Axiom}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}[section]
+\newtheorem*{notation}{Notation}
+
+%\numberwithin{equation}{section}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%	Macros.							     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%	Here some macros that are needed in this document:
+
+
+\newcommand{\latexe}{{\LaTeX\kern.125em2%
+                      \lower.5ex\hbox{$\varepsilon$}}}
+
+\newcommand{\amslatex}{\AmS-\LaTeX{}}
+
+\chardef\bslash=`\\	% \bslash makes a backslash (in tt fonts)
+			%	p. 424, TeXbook
+
+\newcommand{\cn}[1]{\texttt{\bslash #1}}
+
+\makeatletter		% Starts section where @ is considered a letter
+			% and thus may be used in commands.
+\def\square{\RIfM@\bgroup\else$\bgroup\aftergroup$\fi
+  \vcenter{\hrule\hbox{\vrule\@height.6em\kern.6em\vrule}%
+                                              \hrule}\egroup}
+\makeatother		% Ends sections where @ is considered a letter.
+			% Now @ cannot be used in commands.
+
+\makeindex    % Make the index
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%		The document starts here.			     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\copyrightpage          % Produces the copyright page.
+
+
+%
+% NOTE: In a doctoral dissertation, the Committee Certification page
+%		(with signatures) is BEFORE the Title page.
+%	In a masters thesis or report, the Signature page
+%		(with signatures) is AFTER the Title page.
+%
+%	If you are writing a masters thesis or report, you MUST REVERSE
+%	the order of the \commcertpage and \titlepage commands below.
+%
+\commcertpage           % Produces the Committee Certification
+			%   of Approved Version page (doctoral)
+			%   or Signature page (masters).
+			%		20 Mar 2002	cwm
+
+\titlepage              % Produces the title page.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dedication and/or epigraph are optional, but must occur here.      %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+\begin{dedication}
+\index{Dedication@\emph{Dedication}}%
+Dedicated to something 
+\end{dedication}
+
+
+\begin{acknowledgments}		% Optional
+\index{Acknowledgments@\emph{Acknowledgments}}%
+I wish to thank 
+\end{acknowledgments}
+
+
+% The abstract is required. Note the use of ``utabstract'' instead of
+% ``abstract''! This was necessary to fix a page numbering problem.
+% The abstract heading is generated automatically.
+% Do NOT use \begin{abstract} ... \end{abstract}.
+%
+\utabstract
+\index{Abstract}%
+\indent
+
+\par Several theories Beyond the Standard Model predict a modification of the momentum spectrum of the Higgs Boson, without a significantly altered rate of Higgs produced in association with top quark pairs ($t\bar{t}H$). This provides a physical observable that can be used to search for new physics based on data collected by the LHC. This thesis presents techniques and preliminary results for a differential measurement of the Higgs transverse momentum in $t\bar{t}H$ events with multiple leptons in the final state, using data collected at an energy of $\sqrt{s}$ = 13 TeV by the ATLAS detector at the LHC.
+
+\par Because of the challenges inherent in reconstructing the Higgs in multilepton final states, a deep learning approach is used to predict of the Higgs. The regressed Higgs $p_T$ spectrum is fit to data for events with two same-sign leptons and three leptons in the final state, in order to extract normalization factors for high ($p_{T}(H) > 150$ GeV) and low ($p_{T}(H) < 150$ GeV) momentum $t\bar{t}H$ events. Preliminary results are presented for 80 $fb^{-1}$ of data, with projected results shown for 140 $fb^{-1}$.
+
+\par This thesis also details a measurement of WZ + heavy flavor production, a significant background to $t\bar{t}H$ that is poorly understood. This study targets events with three leptons and one or two jets in the final state, using 140 $fb^{-1}$ of  $\sqrt{s}$ = 13 TeV data. A measured cross-section of $X\pm X$ fb ($X\pm X$ fb) is observed for WZ + $b$ (WZ + $c$) with 1 associated jet and $X\pm X$ fb ($X\pm X$ fb) for WZ + $b$ (WZ + $c$) with 2 assoicated jets.
+
+
+
+\tableofcontents   % Table of Contents will be automatically
+                   % generated and placed here.
+
+\listoftables      % List of Tables and List of Figures will be placed
+\listoffigures     % here, if applicable.
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Actual text starts here.					     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% Including external files for each chapter makes this document simpler,
+% makes each chapter simpler, and allows for generating test documents
+% with as few as zero chapters (by commenting out the include statements).
+% This allows quicker processing by the Makediss command file in case you
+% are not working on a specific, long and slow to compile chapter. You
+% can even change the chapter order by merely interchanging the order
+% of the include statements (something I found helpful in my own
+% dissertation).
+%
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+\part{Introduction}
+\label{part:intro}
+
+%------------------------------------------------------------------------------- 
+
+\section{Introduction}
+\label{sec:intro}
+\input{sections/introduction}
+
+%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------- 
+\part{Theoretical Motivation}
+\label{part:theory}
+
+%-------------------------------------------------------------------------------
+
+\section{The Standard Model and the Higgs Boson}
+\label{sec:sm}
+\input{sections/StandardModel}
+
+%------------------------------------------------------------------------------
+
+%\section{Effective Field Theory in $t\bar{t}H$ Production}
+%\label{sec:eft}
+%\input{sections/dimSixOperators}
+
+%------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+
+\part{The LHC and the ATLAS Detector}
+\label{part:lhcAtlas}
+
+%-------------------------------------------------------------------------------
+
+\section{The LHC}
+\label{sec:lhc}
+\input{sections/LHC}
+
+%------------------------------------------------------------------------------
+
+\section{The ATLAS Detector}
+\label{sec:atlas}
+\input{sections/ATLAS}
+
+%------------------------------------------------------------------------------- 
+%-------------------------------------------------------------------------------                                             
+ 
+\part{Measurement of WZ + Heavy Flavor}                                                                                    
+\label{part:wz}
+
+%------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------                                             
+\section{Introduction}                                                                                                      
+\label{sec:intro}                                                                                                           
+\input{wz_sections/intro}                                                                                                      
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------                                             
+\section{Data and Monte Carlo Samples}
+\label{sec:data}
+\input{wz_sections/MC}
+%-------------------------------------------------------------------------------                                             
+ 
+%-------------------------------------------------------------------------------                                             
+\section{Object Reconstruction}
+\label{sec:obj}
+\input{wz_sections/reco}
+%-------------------------------------------------------------------------------                                             
+ 
+%-------------------------------------------------------------------------------                                             
+\section{Event Selection and Signal Region Definitions}
+\label{sec:evt_selection}
+\input{wz_sections/evtSel}
+%-------------------------------------------------------------------------------                                             
+ 
+%-------------------------------------------------------------------------------                                             
+\section{tZ Separation Multivariate Analysis}
+\label{sec:tZ_bdt}
+\input{wz_sections/tZ}
+%-------------------------------------------------------------------------------
+
+%-------------------------------------------------------------------------------                                             
+\section{Systematic Uncertainties}
+\label{sec:sys}
+\input{wz_sections/sys}                                                                              
+%-------------------------------------------------------------------------------                                             
+                                                                                                                             
+%-------------------------------------------------------------------------------                                           
+\section{Results}
+\label{sec:results}                                                                                                          
+\input{wz_sections/truthJetResults}
+%-------------------------------------------------------------------------------
+
+%------------------------------------------------------------------------------- 
+\section{Conclusion}
+\label{sec:conclusion}
+
+A measurement of $WZ$ + heavy flavor is performed using 140 $fb^{-1}$ of $\sqrt{s} = 13$ TeV proton-proton collision data collected by the ATLAS detector at the LHC. The expected cross-section of WZ + $b$ with 1-jet is $1.74^{+0.82}_{-0.75}(stat)^{+0.53}_{-0.48}(sys)$ fb, and $14.6 \pm 2.5 (stat) \pm 2.3 (sys)$ fb for WZ + $c$, with a correlation of -0.22 between them. An expected significance of 2.0 is observed for WZ + $b$ in this region.
+
+For the 2-jet regions, an expected significance of 1.7 is observed for WZ + $b$, with an expected cross-section of $2.5^{+1.3}_{-1.3}(stat)^{+0.95}_{-0.83}(sys)$ fb. For WZ + $c$, a cross-section of $12.7 \pm 3.2 (stat) \pm 2.7 (sys)$ fb is expected for 2-jet events. A correlation of -0.26 is observed for WZ + $b$ and WZ + $c$.
+
+\textbf{This section will be include final results once unblinded.}
+%------------------------------------------------------------------------------- 
+
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+
+\part{Differential Studies of $t\bar{t}H$ Multilepton }
+\label{part:analysis}
+
+%-------------------------------------------------------------------------------
+
+\section{Data and Monte Carlo Samples}
+\label{sec:dataMC}
+\input{sections/DataMC}
+
+%-------------------------------------------------------------------------------   
+
+\section{Object Reconstruction}
+\label{sec:objReco}
+\input{sections/objectReconstruction}
+
+%------------------------------------------------------------------------------- 
+
+\section{Higgs Momentum Reconstruction}
+\label{sec:mva}
+\input{sections/higgsPtReco}
+
+%---------------------------------------------------------------------
+
+\section{Signal Region Definitions}
+\label{sec:signal_region}
+\input{sections/regions}
+
+%-------------------------------------------------------------------------------
+
+%\section{Background Rejection MVA}
+%\label{sec:sigBkg}
+%\input{sections/sigBkgMVA}
+
+%------------------------------------------------------------------------------- 
+
+\section{Systematic Uncertainties}
+\label{sec:sys}
+\input{sections/systematics}
+
+%-------------------------------------------------------------------------------
+                                                                
+\section{Results}
+\label{sec:results}
+\input{sections/results}
+
+%------------------------------------------------------------------------------
+
+\part{Conclusion}
+\label{part:conclusion}
+
+A method of employing machine learning techniques in order to reconstruct the momentum sprectum of the Higgs boson produced in association with top quark pairs has been presented for events with multiple leptons in the final state. Preliminary results for using these techniques to perform differential measurements in this channel have been presented: Using 80 $fb^{-1}$ of data, normalization factors of $\mu_{t\bar{t}H\ high\ p_T} = 2.1^{+0.62}_{-0.59}(stat)^{+0.40}_{-0.43}(sys)$ and $\mu_{t\bar{t}H\ low\ p_T} = 0.83^{+0.39}_{-0.40}(stat)^{+0.51}_{-0.53}(sys)$ are measured for events with Higgs $p_T$ $>$150 GeV and $<$150 GeV, respectively. Projected results for 139 $fb^{-1}$ of data give sentivity of $\mu_{t\bar{t}H\ high\ p_T} = 1.00^{+0.45}_{-0.43}(stat)^{+0.30}_{-0.31}(sys)$ and $\mu_{t\bar{t}H\ low\ p_T} = 1.00^{+0.29}_{-0.30}(stat)^{+0.48}_{-0.50}(sys)$.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendix/Appendices                                                %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% If you have only one appendix, use the command \appendix instead
+% of \appendices.
+%
+\appendices
+\index{Appendices@\emph{Appendices}}%
+
+\section{Non-prompt lepton MVA}
+\label{sec:lepMVA}
+\input{wz_sections/lepMVA}
+
+\section{Supplementary WZ + Heavy Flavor Studies}
+\label{apx:WZ}
+
+\subsection{Non-prompt CR Modelling}
+\label{sec:fakeCR_plots}
+\input{wz_sections/fakes_CR}
+
+\subsection{tZ Interference Studies}
+\label{sec:tZInt}
+\input{wz_sections/tZInt}
+                                                                                                                             
+\subsection{Alternate tZ Inclusive Fit}
+\label{sec:inc_tZ}
+\input{wz_sections/with_tZ}
+                                                                                                                             
+\section{Supplementary $t\bar{t}H$ Differential Analysis Studies}                                                            
+\label{apx:MVA}                                                                                        
+\input{sections/AppendixMVA}                                                                                    
+%\input{sections/sigBkgMVA} 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Generate the bibliography.					     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%								     %
+% NOTE: For master's theses and reports, NOTHING is permitted to     %
+%	come between the bibliography and the vita. The command      %
+%	to generate the index (if used) MUST be moved to before      %
+%	this section.						     %
+%								     %
+\nocite{*}      % This command causes all items in the 		     %
+                % bibliographic database to be added to 	     %
+                % the bibliography, even if they are not 	     %
+                % explicitly cited in the text. 		     %
+		%						     %
+\bibliographystyle{plain}  % Here the bibliography 		     %
+%\bibliography{diss}        % is inserted.			     %
+\bibliography{bib/wz_heavy_flavor,bib/higgsDiffNote,bib/ATLAS,bib/CMS,bib/ConfNotes,bib/PubNotes}  
+%\printbibliography
+%\index{Bibliography@\emph{Bibliography}}%			     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Generate the index.						     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%								     %
+% NOTE: For master's theses and reports, NOTHING is permitted to     %
+%	come between the bibliography and the vita. This section     %
+%	to generate the index (if used) MUST be moved to before      %
+%	the bibliography section.				     %
+%								     %
+\printindex%    % Include the index here. Comment out this line      %
+%		% with a percent sign if you do not want an index.   %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\end{document}

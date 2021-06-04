@@ -43,9 +43,9 @@ The following section provides details of the various MVAs as well as a few stud
 \label{sec:truthPtStudies}
 %-------------------------------------------------                                                                          
   
-Attempts to identify the decay products of the Higgs are motivated by the ability to reconstruct the Higgs momentum based on their kinematics. In order to demonstrate that this is case, the kinematics of reconstructed objects that are truth matched to the Higgs decay are used as inputs to a neural network which is designed to predict of the momentum of the Higgs. This is done in the $2lSS$ channel, as it proves to be the most challenging for \pt reconstruction. 
+Attempts to identify the decay products of the Higgs are motivated by the ability to reconstruct the Higgs momentum based on their kinematics. In order to demonstrate that this is case, the kinematics of reconstructed objects that are truth matched to the Higgs decay are used as inputs to a neural network which is designed to predict of the momentum of the Higgs. This is done in the $2lSS$ channel, as it proves to be the most challenging for $p_T$ reconstruction. 
 
-Only leptons and jets which are truth matched to the Higgs are used as inputs for the model; events where the lepton and both jets are not reconstructed are not included. The model uses the same feature set and network architecture as the \pt prediction model used in the main analysis, as described in Section \ref{subsec:pt2lSS}.
+Only leptons and jets which are truth matched to the Higgs are used as inputs for the model; events where the lepton and both jets are not reconstructed are not included. The model uses the same feature set and network architecture as the $p_T$ prediction model used in the main analysis, as described in Section \ref{subsec:pt2lSS}.
 
 The results of the model are summarized below:
 
@@ -100,21 +100,21 @@ A model is built to determine whether $t\bar{t}H$ events include a high $p_T$ ($
 \begin{figure}[H]                                                                                                           
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/bin_keras_score.png}}%                
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/bin_keras_roc.png}}\\
-  \caption{Output distribution of the NN score for the binary high/low \pt separation model in the $2lSS$ channel.}
+  \caption{Output distribution of the NN score for the binary high/low $p_T$ separation model in the $2lSS$ channel.}
   \label{fig:bin2lSSroc}                                                                          
 \end{figure}
 
 \begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/bin_keras_score.png}}%                               
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS/bin_keras_roc.png}}\\                                
-  \caption{Output distribution of the NN score for the binary high/low \pt separation model in the $3lS$ channel.}
+  \caption{Output distribution of the NN score for the binary high/low $p_T$ separation model in the $3lS$ channel.}
   \label{fig:bin3lSroc}
 \end{figure} 
 
 \begin{figure}[H]
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/bin_keras_score.png}}%                               
   \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/bin_keras_roc.png}}\\                                
-  \caption{Output distribution of the NN score for the binary high/low \pt separation model in the $3lS$ channel.}
+  \caption{Output distribution of the NN score for the binary high/low $p_T$ separation model in the $3lS$ channel.}
   \label{fig:bin3lFroc}
 \end{figure} 
 
@@ -125,7 +125,7 @@ A model is built to determine whether $t\bar{t}H$ events include a high $p_T$ ($
 
 A relatively low $p_T$ threshold of 15 GeV is used to determine jet candidates, as the jets originating from the Higgs decay are found to fall between 15 and 25 GeV a large fraction of the time. The impact of different jet $p_T$ cuts on our ability to reconstruct the Higgs $p_T$ is explored here. 
 
-The models are retrained in the $2lSS$ channel with the same parameters as those used in the nominal analysis, but the jet \pt threshold is altered. The performance of the Higgs $p_T$ prediction models for jet $p_T$ cuts of 20 and 25 GeV are shown below.
+The models are retrained in the $2lSS$ channel with the same parameters as those used in the nominal analysis, but the jet $p_T$ threshold is altered. The performance of the Higgs $p_T$ prediction models for jet $p_T$ cuts of 20 and 25 GeV are shown below.
 
 \begin{figure}[H]
     \centering
@@ -134,7 +134,7 @@ The models are retrained in the $2lSS$ channel with the same parameters as those
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_norm2Dhist.png}}\\           
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_score.png}}%   
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_roc.png}}\\                       
-    \caption{Output of the model designed to predict the Higgs momentum in the $2lSS$ channel, with the jet \pt cutoff used is raised to 20 GeV.}
+    \caption{Output of the model designed to predict the Higgs momentum in the $2lSS$ channel, with the jet $p_T$ cutoff used is raised to 20 GeV.}
     \label{fig:pt2lSS_20}
 \end{figure} 
 
@@ -145,7 +145,7 @@ The models are retrained in the $2lSS$ channel with the same parameters as those
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_test_norm2Dhist.png}}\\
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_score.png}}%                             
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS_20/keras_roc.png}}\\
-    \caption{Output of the model designed to predict the Higgs momentum in the $2lSS$ channel, with the jet \pt cutoff used is raised to 25 GeV.}
+    \caption{Output of the model designed to predict the Higgs momentum in the $2lSS$ channel, with the jet $p_T$ cutoff used is raised to 25 GeV.}
     \label{fig:pt2lSS_25}
 \end{figure}
 

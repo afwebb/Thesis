@@ -43,7 +43,7 @@ For the $3l$ channel, the following selection is applied:
   \item Opposite charge lepton must be loose, with $p_T > 10$ GeV
   \item $\geq$2 reconstructed jets, $\geq$1 b-tagged jets                                              
   \item No reconstructed tau candidates
-  \item $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all opposite-charge, same-flavor lepton pairs
+  \item $|M(l^+l^-)-91.2\textsc{ GeV}| > 10$ GeV for all opposite-charge, same-flavor lepton pairs
 \end{itemize}
 
 The event yield after the $3l$ preselection has been applied, for MC and data at 79.8 $fb^{-1}$, is shown in Table \ref{tab:Yields3l}.
@@ -98,7 +98,7 @@ Modelling of each of these input features is verified in Appendix \ref{subsec:si
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_highPt/xgb_roc.png}}\\
   \subfigure[Low $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_score.png}}% 
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/2lSS_lowPt/xgb_roc.png}}\\ 
-  \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $2lSS$ events with (a) high regressed Higgs \pt and (b) low regressed Higgs \pt. (b) and (d) show the ROC curve for the $2lSS$ high and low \pt models, respectively.}
+  \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $2lSS$ events with (a) high regressed Higgs $p_T$ and (b) low regressed Higgs $p_T$. (b) and (d) show the ROC curve for the $2lSS$ high and low $p_T$ models, respectively.}
   \label{fig:sigBkgScore2lSS}
 \end{figure}
 
@@ -109,7 +109,7 @@ Modelling of each of these input features is verified in Appendix \ref{subsec:si
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_highPt/xgb_roc.png}}\\                                   
   \subfigure[Low $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_score.png}}%             
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lS_lowPt/xgb_roc.png}}\\                                    
-  \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $3lS$ events with (a) high regressed Higgs \pt and (b) low regressed Higgs \pt. (b) and (d) show the ROC curve for the $3lS$ high and low \pt models, respectively.}
+  \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $3lS$ events with (a) high regressed Higgs $p_T$ and (b) low regressed Higgs $p_T$. (b) and (d) show the ROC curve for the $3lS$ high and low $p_T$ models, respectively.}
   \label{fig:sigBkgScore3lS}                                                                                                
 \end{figure}
 
@@ -120,7 +120,7 @@ Modelling of each of these input features is verified in Appendix \ref{subsec:si
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_highPt/xgb_roc.png}}\\                                  
   \subfigure[Low $p_T$]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_score.png}}%           
   \subfigure[]{\includegraphics[width=.48\linewidth]{sigBkgBDT/3lF_lowPt/xgb_roc.png}}\\                                    
-  \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $3lF$ events with (a) high regressed Higgs \pt and (b) low regressed Higgs \pt. (b) and (d) show the ROC curve for the $3lF$ high and low \pt models, respectively.}
+  \caption{Output BDT scores of training and testing data for signal (blue) and background (orange) for $3lF$ events with (a) high regressed Higgs $p_T$ and (b) low regressed Higgs $p_T$. (b) and (d) show the ROC curve for the $3lF$ high and low $p_T$ models, respectively.}
   \label{fig:sigBkgScore3lF}                                                                                                
 \end{figure}
 
@@ -128,7 +128,7 @@ Output distributions of each MVA, comparing MC predictions to data at 79.8 $fb^{
 
 \begin{figure}
   \centering
-  \textbf{High \pt Background Rejection BDTs}
+  \textbf{High $p_T$ Background Rejection BDTs}
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys2l_80/Plots/sigBkg_2lSS_highPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lS_highPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lF_highPt.png}}\\
@@ -138,7 +138,7 @@ Output distributions of each MVA, comparing MC predictions to data at 79.8 $fb^{
 
 \begin{figure}
   \centering
-  \textbf{Low \pt Background Rejection BDTs}
+  \textbf{Low $p_T$ Background Rejection BDTs}
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys2l_80/Plots/sigBkg_2lSS_lowPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lS_lowPt.png}}%
   \subfigure[]{\includegraphics[width=.32\linewidth]{trexPlots/sys3l_80/Plots/sigBkg_3lF_lowPt.png}}\\
@@ -192,7 +192,7 @@ The event preselection and MVA selection listed in Table \ref{tab:sigBkgCuts} ar
   & One loose OS lepton, $p_T > 10$ GeV \\
   & $N_{jets}\geq$ 2, $N_{b-jets}\geq$ 1 b-tagged jets \\
   & Zero $\tau_{had}$ \\           
-  & $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all OSSF lepton pairs \\
+  & $|M(l^+l^-)-91.2\textsc{ GeV}| > 10$ GeV for all OSSF lepton pairs \\
   & Decay NN Score $<$ 0.23 \\
   & $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.51 \textbf{or} $H^{pred}_{p_T}<$150 GeV and BDT score $>$ 0.43 \\
   \hline
@@ -201,7 +201,7 @@ The event preselection and MVA selection listed in Table \ref{tab:sigBkgCuts} ar
   & One loose OS lepton, $p_T > 10$ GeV \\                                                                                   
   & $N_{jets}\geq$ 2, $N_{b-jets}\geq$ 1 b-tagged jets \\
   & Zero $\tau_{had}$ \\
-  & $|M(l^+l^-)-91.2\textrm{ GeV}| > 10$~\GeV{} for all OSSF lepton pairs \\                                                 
+  & $|M(l^+l^-)-91.2\textsc{ GeV}| > 10$ GeV for all OSSF lepton pairs \\                                                 
   & Decay NN Score $>$ 0.23 \\
   & $H^{pred}_{p_T}>$150 GeV and BDT score $>$ 0.33 \textbf{or} $H^{pred}_{p_T}<$150 GeV and BDT score $>$ 0.41 \\
   \hline\hline
