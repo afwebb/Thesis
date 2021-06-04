@@ -158,12 +158,12 @@
 %
 % Regular text spacing
 %
-\def\doublespacing{%
-    \def\default@spacing{\baselineskip=23.5pt plus .5pt minus .2pt}}
-\def\oneandonehalfspacing{%
-    \def\default@spacing{\baselineskip=20.5pt plus .5pt minus .2pt}}
-\def\singlespacing{%
-    \def\default@spacing{\baselineskip=15.5pt plus .5pt minus .2pt}}
+%\def\doublespacing{%
+%    \def\default@spacing{\baselineskip=23.5pt plus .5pt minus .2pt}}
+%\def\oneandonehalfspacing{%
+%    \def\default@spacing{\baselineskip=20.5pt plus .5pt minus .2pt}}
+%\def\singlespacing{%
+%    \def\default@spacing{\baselineskip=15.5pt plus .5pt minus .2pt}}
 
 
 %
@@ -253,6 +253,7 @@
 \def\chapter{%
     \clearpage
     \short@page \setcounter{regular@short}{0}	%<<--
+    \doublespacing
     %\default@spacing
 %
 % Comment out one of the two lines below to determine indention of
@@ -266,6 +267,7 @@
 \def\shortchapter{%
     \clearpage
     \short@page \setcounter{regular@short}{1}	%<<--
+    \doublespacing
     %\default@spacing
 %
 % Comment out one of the two lines below to determine indention of
@@ -379,6 +381,7 @@
 \renewcommand{\thefigure}{\@arabic\c@figure}   % numbering
 \renewcommand{\thetable}{\@arabic\c@table}     % (5/16/97 M.A.L.)
 
+\doublespacing
 %\default@spacing                               % (6/30/97 M.A.L.)
                                                %
 }                                              % 
