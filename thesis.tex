@@ -228,7 +228,8 @@
 %\numberwithin{equation}{section}
 
 \makeatletter
-     \renewcommand*\l@figure{\@dottedtocline{1}{1em}{3.2em}}
+\renewcommand*\l@figure{\@dottedtocline{1}{2.5em}{4em}}% 3em instead of 2.3em
+\let\l@table\l@figure
 \makeatother
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
