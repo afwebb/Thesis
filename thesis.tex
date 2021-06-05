@@ -27,6 +27,7 @@
 \usepackage{verbatim}      	% Allows quoting source with commands.
 \usepackage{makeidx}       	% Package to make an index.
 \usepackage{epsfig}         	% Allows inclusion of eps files.
+\usepackage[T1]{fontenc}
 \usepackage{url}		% Allows good typesetting of web URLs.
 \usepackage{float}
 \usepackage{euler}\usepackage{pgf}
@@ -46,6 +47,13 @@
 \counterwithin{equation}{section}
 \graphicspath{{logos/}{figures/}}
 \newcommand*{\pt}{\ensuremath{p_{\text{T}}}\xspace}
+\usepackage{color}   %May be necessary if you want to color links
+\usepackage{hyperref}
+%\hypersetup{
+%    colorlinks=true, %set true if you want colored links
+%    linktoc=all,     %set to all if you want both sections and subsections linked
+%    linkcolor=blue,  %choose some color if you want links to stand out
+%}
 %\usepackage{draftcopy}		% Uncomment this line to have the
 				% word, "DRAFT," as a background
 				% "watermark" on all of the pages of
@@ -285,15 +293,15 @@
 % Dedication and/or epigraph are optional, but must occur here.      %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-\begin{dedication}
-\index{Dedication@\emph{Dedication}}%
-Dedicated to something 
-\end{dedication}
+%\begin{dedication}
+%\index{Dedication@\emph{Dedication}}%
+%Dedicated to something 
+%\end{dedication}
 
 
 \begin{acknowledgments}		% Optional
 \index{Acknowledgments@\emph{Acknowledgments}}%
-I wish to thank 
+I wish to thank someone or other probably
 \end{acknowledgments}
 
 
@@ -339,6 +347,7 @@ I wish to thank
 %-------------------------------------------------------------------------------
 \part{Introduction}
 \label{part:intro}
+\index{Introduction@\emph{Introduction}}% 
 
 %------------------------------------------------------------------------------- 
 \doublespacing
@@ -350,13 +359,13 @@ I wish to thank
 %------------------------------------------------------------------------------- 
 \part{Theoretical Motivation}
 \label{part:theory}
-
+\index{Theoretical Motivation@\emph{Theoretical Motivation}}% 
 %-------------------------------------------------------------------------------
 
 \section{The Standard Model and the Higgs Boson}
 \label{sec:sm}
 \input{sections/StandardModel}
-
+\index{The Standard Model and the Higgs Boson@\emph{The Standard Model and the Higgs Boson}}% 
 %------------------------------------------------------------------------------
 
 %\section{Effective Field Theory in $t\bar{t}H$ Production}
@@ -551,7 +560,7 @@ A method of employing machine learning techniques in order to reconstruct the mo
 		%						     %
 \bibliographystyle{plain}  % Here the bibliography 		     %
 %\bibliography{diss}        % is inserted.			     %
-\bibliography{bib/wz_heavy_flavor,bib/higgsDiffNote,bib/ttHDiff,bib/ATLAS,bib/CMS,bib/ConfNotes,bib/PubNotes}  
+\bibliography{bib/wz_heavy_flavor,bib/higgsDiffNote,bib/ATLAS,bib/CMS,bib/ConfNotes,bib/PubNotes}  
 %\printbibliography
 \index{Bibliography@\emph{Bibliography}}%			     %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
