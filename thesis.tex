@@ -49,11 +49,11 @@
 \newcommand*{\pt}{\ensuremath{p_{\text{T}}}\xspace}
 \usepackage{color}   %May be necessary if you want to color links
 \usepackage{hyperref}
-%\hypersetup{
-%    colorlinks=true, %set true if you want colored links
-%    linktoc=all,     %set to all if you want both sections and subsections linked
-%    linkcolor=blue,  %choose some color if you want links to stand out
-%}
+\hypersetup{
+    colorlinks=true, %set true if you want colored links
+    linktoc=all,     %set to all if you want both sections and subsections linked
+    linkcolor=blue,  %choose some color if you want links to stand out
+}
 %\usepackage{draftcopy}		% Uncomment this line to have the
 				% word, "DRAFT," as a background
 				% "watermark" on all of the pages of
@@ -353,7 +353,7 @@ I wish to thank someone or other probably
 \doublespacing
 \section{Introduction}
 \label{sec:intro}
-\input{sections/introduction}
+\include{sections/introduction}
 
 %-------------------------------------------------------------------------------
 %------------------------------------------------------------------------------- 
@@ -364,7 +364,7 @@ I wish to thank someone or other probably
 
 \section{The Standard Model and the Higgs Boson}
 \label{sec:sm}
-\input{sections/StandardModel}
+\include{sections/StandardModel}
 \index{The Standard Model and the Higgs Boson@\emph{The Standard Model and the Higgs Boson}}% 
 %------------------------------------------------------------------------------
 
@@ -384,6 +384,7 @@ I wish to thank someone or other probably
 
 \section{The LHC}
 \label{sec:lhc}
+\index{The LHC@\emph{The LHC}}
 \input{sections/LHC}
 
 %------------------------------------------------------------------------------
