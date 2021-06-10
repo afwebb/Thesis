@@ -1,0 +1,101 @@
+
+This section decribes the identification and reconstruction of the physics objects relevant to these analyses. This includes the reconstruction and selection of light leptons and jets, the determination of missing energy in each event ($E_T^{miss}$), the algorithms used to identify jets originating from $b$-hadrons ($b$-tagging), and the procedure used to resolve ambiguities between physics objects, known as overlap removal.
+
+\subsection{Electrons}
+
+Electron candidates are reconstructed from energy clusters in the electromagnetic (EM) calorimeter that are associated with charged particle tracks reconstructed in the inner detector~\cite{ATLAS-CONF-2016-024}. This is done in the pseudorapidity region $|\eta| < 2.5$, excluding the transition region between the barrel and end-cap of the EM calorimeter, $1.37 < |\eta_\textrm{cluster}| < 1.52$, where there is a large fraction of inactive material.            
+
+Electron reconstruction begins by identifying energy clusters in the EM calorimeter. The EM calorimeter is divided into a grid of ``towers'', each covering a solid angle of $\Delta\eta\times\Delta\phi = 0.025\times 0.025$, corresponding to the resolution of the calorimeter. A sliding windows algorithm, with clusters of $3\times 5$ towers, is used to traverse the phase space of the calorimeter. Candidates are formed from these clusters which represent a local maximum and transverse energy more than 2.5 GeV. If two cluster which overlap within an area of $5\times 9$, the higher energy cluster is kept.
+
+Once cluster candidates are identified, they are matched to tracks from the inner detector. This association is performed by comparing the $\eta$ and $\phi$ values of the tracks to the energy clusters, which must fall within $|\Delta\eta| < 0.05$ and $-0.10 < \Delta\phi < 0.05$. The assymetric $\phi$ condition is chosen to account for the energy loss of charged particles whose tracks bend through the magnetic field of the inner detector. If multiple tracks match a single cluster, a primary track is chosen based on the number of hits in the pixel and silicon layers of the tracker, and whether the track originates from a secondary vertex.
+
+Measurements involving electrons must correct for the reconstruction efficiency of electrons, which is calculated directly using a data driven tag-and-probe method \cite{tagAndProbe}. This involed using a precisely known physics process, $Z\rightarrow e^+e^-$, to calculate the electron efficiency of the detector. An extremely high electron reconstruction efficiency is found, as shown in Figure \ref{fig:eEffEt}.
+
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.65\linewidth]{figures/theory/eEffEt.JPG}
+\caption{Electron efficiency as a function of electron transverse energy for $Z\rightarrow e^+e^-$ events \cite{tagAndProbe}.}
+\label{fig:eEffEt}
+\end{figure}
+
+\subsection{Muons}
+                   
+Muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer (MS) \cite{PERF-2014-05}. Similar to electrons, an outside-in approach is used, where muon tracks are first identified in the MS, which are then matched to tracks from the inner detector.
+
+Muon candidate tracks are required to consist of at least one hit in the Pixel detector, five hits in the SCT $|\eta| < 2.5$. 
+
+\subsection{Jets}
+\label{subsec:jets}
+%UPDATE FOR PFLOW
+
+The nature of the strong force prevents quarks produced in collisions from being measured directly; instead, free quarks produce many quark-antiquark pairs, or hadrons. This process is called hadronization. The tight cone of particles produced from the hadronization of a quark or gluon is referred to as a jet. Jets, rather than quarks, are what is observed by the detector.
+
+Jets are reconstructed from calibrated topological clusters built from energy deposits in the calorimeters \cite{ATL-PHYS-PUB-2015-015}, as well as information from the inner tracking detector, using the anti-$k_t$ algorithm with a radius parameter $R=0.4$. 
+
+\subsection{B-tagging}
+\label{subsec:bjets}
+
+he DL1r b-tagging algorithm is used to distinguish heavy flavor jets from lighter ones. The DL1r algorithm \cite{btag_cal} uses jet kinematics, particularly jet vertex information, as input for a neural network which assigns each jet a score designed to reflect how likely that jet is to have originated from a b-quark. 
+
+\begin{figure}[H] 
+    \centering
+    \includegraphics[width=0.54\linewidth]{DL1_output.pdf} 
+    \caption{Output distribution of the DL1r algorithm for pure samples of b-jets, charm jets, and light jets, with each normalized to unity \cite{btag_cal}}
+    \label{fig:DL1r}
+\end{figure}
+
+From the output of the BDT, working points (WPs) are developed based on the efficiency of truth b-jets at particular values of the DL1r algorithm. These WPs are taken from the March 2020 CDI file, 2020-21-13TeV-MC16-CDI-2020-03-11\_v2.root. The working points used in this analysis are summarized in Table \ref{tab:btag_WPs}. 
+
+\begin{table}[H] 
+\begin{center}
+\begin{tabular}{|c|c|c|}
+     \hline
+    WP & \multicolumn{2}{c|}{Rejection}\\
+    \hline
+    $b$-jet eff. & $c$-jet & light jet\\
+    \hline
+     85\% & 2.6 & 29 \\
+     77\% & 4.9 & 130 \\
+     70\% & 9.4 & 390 \\
+     60\% & 27 & 1300 \\
+     \hline
+     \end{tabular}
+    \caption{$c$-jet and light-flavor jet rejections corresponding to each $b$-tagging Working Point by b-jet efficiency, evaluated on $t\bar{t}$ events.}
+     \label{tab:btag_WPs}
+     \end{center}
+\end{table}
+
+As shown in table \ref{tab:btag_WPs}, a tighter WP will accept fewer b-jets, but reject a higher fraction of charm and light\
+ jets. Generally, analyses that include b-jets will use a fixed working point, for example, requiring that a jet pass the 70\% threshold. By instead treating these working points as bins, e.g. events with jets that fall between the 85\% and 77\% WPs fall into one bin, while events with jets passing the 60\% WP fall into another, additional information can be gained. This analysis uses each of these working points to form orthogonal regions in order to provide separation between WZ + $b$, WZ + $c$, and WZ + light.
+
+\subsection{Missing transverse energy}
+\label{subsec:met}
+
+Missing transverse momentum ($E_T^{miss}$) is used as part of the event selection. The missing transverse momentum vector is defined as the negative of the vector sum of the transverse momenta of all reconstructed physics objects as well as remaining unclustered energy, the latter of which is estimated from low-\pt tracks associated with the primary vertex but not assigned to a hard object, with object definitions taken from \cite{met_2018}. Light leptons considered in the $E_T^{miss}$ reconstruction are required to have $p_T$>10 GeV, while jets are required to have $p_T$>20 GeV.
+
+\subsection{Overlap removal}
+\label{subsec:overlapremoval}
+
+To avoid double counting objects and remove leptons originating from decays of hadrons, overlap removal is performed in the following order: any electron candidate within $\Delta R = 0.1$ of another electron candidate with higher \pt\ is removed; any electron candidate within $\Delta R = 0.1$ of a muon candidate is removed; any jet within $\Delta R = 0.2$ of an electron candidate is removed; if a muon candidate and a jet lie within $\Delta R = min(0.4, $0.04+10$[GeV]/\pt(muon))$ of each other, the jet is kept and the muon is removed if the jet has at least three associated tracks, otherwise the jet is removed and the muon is kept.
+
+This algorithm is applied to the preselected objects. The overlap removal procedure is summarized in Table~\ref{tab:overlap-removal}. 
+
+\begin{table}[h!]
+ \begin{center}
+   \begin{tabular}{|c|c|c|}
+     \hline
+                            \textbf{Keep}  &  \textbf{Remove} & \textbf{Cone size ($\Delta$ R)}  \\
+         \hline
+                        electron        & electron (low \pt)    & 0.1 \\
+     \hline
+                        muon    & electron      & 0.1 \\
+     \hline
+                            electron    & jet   & 0.2 \\
+         \hline
+                        jet             & muon  & min(0.4, $0.04+10$[GeV]/\pt(muon)), $n_track>$3 \\
+         \hline muon             & jet  & min(0.4, $0.04+10$[GeV]/\pt(muon)), $n_track<$3 \\
+     \hline
+   \end{tabular}
+   \caption{\label{tab:overlap-removal} Summary of the overlap removal procedure between electrons, muons, and jets.}
+ \end{center}
+\end{table}
