@@ -1,9 +1,9 @@
 
-This section decribes the identification and reconstruction of the physics objects relevant to these analyses. This includes the reconstruction and selection of light leptons and jets, the determination of missing energy in each event ($E_T^{miss}$), the algorithms used to identify jets originating from $b$-hadrons ($b$-tagging), and the procedure used to resolve ambiguities between physics objects, known as overlap removal.
+This section decribes the reconstruction of the physics objects relevant to these analyses, as well as the selection applied to these objects. This selection and object definition is shared between both analyses presented. This includes the reconstruction and selection of light leptons and jets, the determination of missing energy in each event ($E_T^{miss}$), the algorithms used to identify jets originating from $b$-hadrons ($b$-tagging), and the procedure used to resolve ambiguities between physics objects, known as overlap removal.
 
 \subsection{Electrons}
 
-Electron candidates are reconstructed from energy clusters in the electromagnetic (EM) calorimeter that are associated with charged particle tracks reconstructed in the inner detector~\cite{ATLAS-CONF-2016-024}. This is done in the pseudorapidity region $|\eta| < 2.5$, excluding the transition region between the barrel and end-cap of the EM calorimeter, $1.37 < |\eta_\textrm{cluster}| < 1.52$, where there is a large fraction of inactive material.            
+Electron candidates are reconstructed from energy clusters in the electromagnetic (EM) calorimeter that are associated with charged particle tracks reconstructed in the inner detector~\cite{ATLAS-CONF-2016-024}. Electron candidates are required to fall within the pseudorapidity region $|\eta| < 2.5$, excluding the transition region between the barrel and end-cap of the EM calorimeter, $1.37 < |\eta_\textrm{cluster}| < 1.52$, where there is a large fraction of inactive material. 
 
 Electron reconstruction begins by identifying energy clusters in the EM calorimeter. The EM calorimeter is divided into a grid of ``towers'', each covering a solid angle of $\Delta\eta\times\Delta\phi = 0.025\times 0.025$, corresponding to the resolution of the calorimeter. A sliding windows algorithm, with clusters of $3\times 5$ towers, is used to traverse the phase space of the calorimeter. Candidates are formed from these clusters which represent a local maximum and transverse energy more than 2.5 GeV. If two cluster which overlap within an area of $5\times 9$, the higher energy cluster is kept.
 
@@ -14,15 +14,41 @@ Measurements involving electrons must correct for the reconstruction efficiency 
 \begin{figure}[H]
 \centering
    \includegraphics[width=0.65\linewidth]{figures/theory/eEffEt.JPG}
-\caption{Electron efficiency as a function of electron transverse energy for $Z\rightarrow e^+e^-$ events \cite{tagAndProbe}.}
+\caption{Electron reconstruction efficiency as a function of electron transverse energy for $Z\rightarrow e^+e^-$ events \cite{tagAndProbe}.}
 \label{fig:eEffEt}
 \end{figure}
 
+Electrons which are reconstructed pass through to an electron identification step, described in \cite{tagAndProbe}. Electron identification attempts to select prompt electrons using properties of the ID tracks and EM clusters of electron candidates.  A likelihood approach is used to form working points (WPs) of decreasing electron efficiency, but increasing prompt electron purity: Loose, Medium, and Tight. More restrictive WPs can be used to reduce the contributions of fake and non-prompt electrons. As with reconstruction, the tag-and-probe method is used to calculate the electron efficiency of each of these WPs. 
+
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.65\linewidth]{figures/theory/eEffEt.JPG}
+\caption{Electron identification efficiency for Loose, Medium, and Tight WPs as a function of electron transverse energy for $Z\rightarrow e^+e^-$ events \cite{tagAndProbe}.}
+\label{fig:eEffEt}
+\end{figure}
+
+Electrons are required to pass the tight identification working point to minimize non-prompt backgrounds. To further reduce the non-prompt contribution, the track of each electron is required to originate from the primary vertex; requirements are also imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|$).
+
+Electron and muons are required to pass a non-prompt BDT selection developed by the main $t\bar{t}H$/$t\bar{t}W$ analysis, described in detail in \cite{ttH_paper}. Optimized working points and scale factors for this BDT are taken from that analysis. This BDT and the WPs used are summarized in Appendix \ref{sec:lepMVA},
+
 \subsection{Muons}
                    
-Muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer (MS) \cite{PERF-2014-05}. Similar to electrons, an outside-in approach is used, where muon tracks are first identified in the MS, which are then matched to tracks from the inner detector.
+The reconstruction algorithm for Combined Muons is used, where muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer (MS) \cite{PERF-2014-05}. Only muons which fall within a range of $|\eta| < 2.5$ are considered. Similar to electrons, an outside-in approach is used, where muon tracks are first identified in the MS, which are then matched to tracks from the inner detector.
 
-Muon candidate tracks are required to consist of at least one hit in the Pixel detector, five hits in the SCT $|\eta| < 2.5$. 
+%Muon candidate tracks are required to consist of at least one hit in the Pixel detector, five hits in the SCT $|\eta| < 2.5$.
+
+Muon identification is used to suppress non-prompt muons, and ensure robust momentum measurements. The Medium identification WP is used for muons. Medium ID cuts require at least one Pixel hit, five SCT hits, fewer than three Pixel or SCT holes, and that at least 10\% of the TRT hits originally assigned to the track are included. A hole is defined as an active sensor traversed by the track but containing no hits. A missing hit is considered a hole only when it falls between hits successfully assigned to a given track. Again, a tag-and-probe method is used in order to calculate the reconstruction efficiency of muons.
+
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.65\linewidth]{figures/theory/muonID.JPG}
+\caption{Muon reconstruction efficiency for Medium ID muons as a function of transverse energy for $Z\rightarrow \mu\mu$ and $J/\psi\rightarrow\mu\mu$ events \cite{PERF-2014-05}.}
+\label{fig:eEffEt}
+\end{figure}
+ 
+\subsection{Non-prompt lepton MVA}
+\label{sec:lepMVA}
+\input{wz_sections/lepMVA}
 
 \subsection{Jets}
 \label{subsec:jets}
@@ -71,12 +97,12 @@ As shown in table \ref{tab:btag_WPs}, a tighter WP will accept fewer b-jets, but
 \subsection{Missing transverse energy}
 \label{subsec:met}
 
-Missing transverse momentum ($E_T^{miss}$) is used as part of the event selection. The missing transverse momentum vector is defined as the negative of the vector sum of the transverse momenta of all reconstructed physics objects as well as remaining unclustered energy, the latter of which is estimated from low-\pt tracks associated with the primary vertex but not assigned to a hard object, with object definitions taken from \cite{met_2018}. Light leptons considered in the $E_T^{miss}$ reconstruction are required to have $p_T$>10 GeV, while jets are required to have $p_T$>20 GeV.
+Missing transverse momentum ($E_T^{miss}$) is used as part of the event selection. The missing transverse momentum vector is defined as the negative of the vector sum of the transverse momenta of all reconstructed physics objects as well as remaining unclustered energy, the latter of which is estimated from low-$p_T$ tracks associated with the primary vertex but not assigned to a hard object, with object definitions taken from \cite{met_2018}. Light leptons considered in the $E_T^{miss}$ reconstruction are required to have $p_T$>10 GeV, while jets are required to have $p_T$>20 GeV.
 
 \subsection{Overlap removal}
 \label{subsec:overlapremoval}
 
-To avoid double counting objects and remove leptons originating from decays of hadrons, overlap removal is performed in the following order: any electron candidate within $\Delta R = 0.1$ of another electron candidate with higher \pt\ is removed; any electron candidate within $\Delta R = 0.1$ of a muon candidate is removed; any jet within $\Delta R = 0.2$ of an electron candidate is removed; if a muon candidate and a jet lie within $\Delta R = min(0.4, $0.04+10$[GeV]/\pt(muon))$ of each other, the jet is kept and the muon is removed if the jet has at least three associated tracks, otherwise the jet is removed and the muon is kept.
+To avoid double counting objects and remove leptons originating from decays of hadrons, overlap removal is performed in the following order: any electron candidate within $\Delta R = 0.1$ of another electron candidate with higher $p_T$ is removed; any electron candidate within $\Delta R = 0.1$ of a muon candidate is removed; any jet within $\Delta R = 0.2$ of an electron candidate is removed; if a muon candidate and a jet lie within $\Delta R = min(0.4, $0.04+10$[GeV]/p_T(muon))$ of each other, the jet is kept and the muon is removed if the jet has at least three associated tracks, otherwise the jet is removed and the muon is kept.
 
 This algorithm is applied to the preselected objects. The overlap removal procedure is summarized in Table~\ref{tab:overlap-removal}. 
 
@@ -86,14 +112,14 @@ This algorithm is applied to the preselected objects. The overlap removal proced
      \hline
                             \textbf{Keep}  &  \textbf{Remove} & \textbf{Cone size ($\Delta$ R)}  \\
          \hline
-                        electron        & electron (low \pt)    & 0.1 \\
+                        electron        & electron (low $p_T$)    & 0.1 \\
      \hline
                         muon    & electron      & 0.1 \\
      \hline
                             electron    & jet   & 0.2 \\
          \hline
-                        jet             & muon  & min(0.4, $0.04+10$[GeV]/\pt(muon)), $n_track>$3 \\
-         \hline muon             & jet  & min(0.4, $0.04+10$[GeV]/\pt(muon)), $n_track<$3 \\
+                        jet             & muon  & min(0.4, $0.04+10$[GeV]/$p_T$(muon)), $n_track>$3 \\
+         \hline muon             & jet  & min(0.4, $0.04+10$[GeV]/$p_T$(muon)), $n_track<$3 \\
      \hline
    \end{tabular}
    \caption{\label{tab:overlap-removal} Summary of the overlap removal procedure between electrons, muons, and jets.}
