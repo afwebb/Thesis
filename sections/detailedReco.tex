@@ -27,17 +27,15 @@ Electrons which are reconstructed pass through to an electron identification ste
 \label{fig:eEffEt}
 \end{figure}
 
-Electrons are required to pass the tight identification working point to minimize non-prompt backgrounds. To further reduce the non-prompt contribution, the track of each electron is required to originate from the primary vertex; requirements are also imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|$).
+Electrons are required to pass the tight identification working point to minimize non-prompt backgrounds. To further reduce the non-prompt contribution, the track of each electron is required to originate from the primary vertex; requirements are also imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}<5$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|<0.5$ mm).
 
 Electron and muons are required to pass a non-prompt BDT selection developed by the main $t\bar{t}H$/$t\bar{t}W$ analysis, described in detail in \cite{ttH_paper}. Optimized working points and scale factors for this BDT are taken from that analysis. This BDT and the WPs used are summarized in Appendix \ref{sec:lepMVA},
 
 \subsection{Muons}
                    
-The reconstruction algorithm for Combined Muons is used, where muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer (MS) \cite{PERF-2014-05}. Only muons which fall within a range of $|\eta| < 2.5$ are considered. Similar to electrons, an outside-in approach is used, where muon tracks are first identified in the MS, which are then matched to tracks from the inner detector.
+The reconstruction algorithm for Combined Muons is used, where muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer (MS) \cite{PERF-2014-05}. Only muons which fall within a range of $|\eta| < 2.5$ are considered. Similar to electrons, an outside-in approach is used, where muon tracks are first identified in the MS, which are then matched to tracks from the inner detector. Muons which fall in the region $|\eta| < 0.1$, where muon spectrometer coverage is reduced, are matched to energy clusters in the calorimeter as well.
 
-%Muon candidate tracks are required to consist of at least one hit in the Pixel detector, five hits in the SCT $|\eta| < 2.5$.
-
-Muon identification is used to suppress non-prompt muons, and ensure robust momentum measurements. The Medium identification WP is used for muons. Medium ID cuts require at least one Pixel hit, five SCT hits, fewer than three Pixel or SCT holes, and that at least 10\% of the TRT hits originally assigned to the track are included. A hole is defined as an active sensor traversed by the track but containing no hits. A missing hit is considered a hole only when it falls between hits successfully assigned to a given track. Again, a tag-and-probe method is used in order to calculate the reconstruction efficiency of muons.
+Muon identification is used to suppress non-prompt muons, and ensure robust momentum measurements. The Medium identification WP is used for muons in this case. Medium ID cuts require at least one Pixel hit, five SCT hits, fewer than three Pixel or SCT holes, and that at least 10\% of the TRT hits originally assigned to the track are included. A hole is defined as an active sensor traversed by the track but containing no hits. A missing hit is considered a hole only when it falls between hits successfully assigned to a given track. Again, a tag-and-probe method is used in order to calculate the reconstruction efficiency of muons.
 
 \begin{figure}[H]
 \centering
@@ -45,6 +43,8 @@ Muon identification is used to suppress non-prompt muons, and ensure robust mome
 \caption{Muon reconstruction efficiency for Medium ID muons as a function of transverse energy for $Z\rightarrow \mu\mu$ and $J/\psi\rightarrow\mu\mu$ events \cite{PERF-2014-05}.}
 \label{fig:eEffEt}
 \end{figure}
+
+In addition to requiring muons pass the non-prompt BDT, requirements are imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}<3$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|<0.5$ mm).
  
 \subsection{Non-prompt lepton MVA}
 \label{sec:lepMVA}
@@ -54,23 +54,47 @@ Muon identification is used to suppress non-prompt muons, and ensure robust mome
 \label{subsec:jets}
 %UPDATE FOR PFLOW
 
-The nature of the strong force prevents quarks produced in collisions from being measured directly; instead, free quarks produce many quark-antiquark pairs, or hadrons. This process is called hadronization. The tight cone of particles produced from the hadronization of a quark or gluon is referred to as a jet. Jets, rather than quarks, are what is observed by the detector.
+The nature of the strong force prevents quarks produced in collisions from being measured directly; instead, free quarks produce many quark-antiquark pairs, or hadrons. This process is called hadronization. The tight cone of particles - consisting primarily of charged pions, charged kaons, photons from $\pi^0$ decays, and neutral hadrons - produced from the hadronization of a quark or gluon is referred to as a jet. Jets, rather than quarks, are what is observed by the detector.
 
-Jets are reconstructed from calibrated topological clusters built from energy deposits in the calorimeters \cite{ATL-PHYS-PUB-2015-015}, as well as information from the inner tracking detector, using the anti-$k_t$ algorithm with a radius parameter $R=0.4$. 
+Jet reconstruction algorithms are designed to group these particles together in order to measure information about the initial quark. Traditional jet reconstruction algorithms involve clustering energy deposits from the calorimeter systems, (Calorimeter-jets) \cite{PERF-2015-05}. Soft proton-proton collisions in an event aside from the primary collision, known as pileup, can create a background of particles that the calorimeter alone cannot differentiate, introducing a significant limitation to Calorimeter-jets. Instead, a jet clustering algorithm called ``Particle-Flow'', or PFlow, is used for this work \cite{PERF-2015-09}. PFlow jets use tracking information in addition to calorimeter information in order to more effectively filter out contributions from pileup.
 
-\subsection{B-tagging}
+For these analyses, jets are reconstructed from calibrated topological clusters built from energy deposits in the calorimeters \cite{ATL-PHYS-PUB-2015-015}, as well as information from the inner tracking detector, using the anti-$k_t$ algorithm with a radius parameter $R=0.4$. Jets with energy contributions likely arising from noise or detector effects are removed from consideration \cite{ATLAS-CONF-2015-029}, and only jets satisfying $p_T > 25$~GeV and $|\eta| < 2.5$ are used in this analysis.
+
+The predominant uncertainties in jet measurement fall into two categories: jet energy scale (JES) and jet energy resolution (JER). JES is a scaling constant between the strength of the output voltage of the detector and the energy of the jet in GeV \cite{atlascollaboration2020jet}. JES is calibrated using well measured objects such as leptons and $Z$ bosons in order to match expected energy output to the detector response. The JES uncertainty as a function of jet $p_T$ is shown in figure \ref{fig:jesUnc}.
+
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.65\linewidth]{figures/theory/jesUnc.JPG}
+\caption{Jet energy scale uncertainty as a function of jet $p_T$ \cite{atlascollaboration2020jet}}
+\label{fig:jesUnc}
+\end{figure}
+
+Jet energy resolution is the uncertainty on individual jet energy measurements from fluctuations in jet composition, detector resolution, and uncertainty in jet reconstruction algorithms. The JER uncertainty as a function of jet $p_T$ is shown in figure \ref{fig:jerUnc}.
+
+\begin{figure}[H]
+\centering
+   \includegraphics[width=0.65\linewidth]{figures/theory/jerUnc.JPG}
+\caption{Jet energy resolution uncertainty as a function of jet $p_T$ \cite{atlascollaboration2020jet}}
+\label{fig:jerUnc}
+\end{figure}
+
+\subsection{$b$-tagging}
 \label{subsec:bjets}
 
-he DL1r b-tagging algorithm is used to distinguish heavy flavor jets from lighter ones. The DL1r algorithm \cite{btag_cal} uses jet kinematics, particularly jet vertex information, as input for a neural network which assigns each jet a score designed to reflect how likely that jet is to have originated from a b-quark. 
+$b$-tagging is the process of distinguishing jets that originate from $b$-quarks from jets that originate from lighter flavor quarks. $b$-hadrons formed from $b$-quarks have a relatively long lifetime compared to other hadrons, which, in addition to Lorentz boosting, means they travel several millimeters in the detector before decaying to other hadrons. Therefore $b$-jets will originate from an additional vertex several millimeters from the primary interaction point. Identifying this secondary vertex is a key component of $b$-tagging.
+
+The $b$-tagging algorithm consists of a two-step approach, with the first designed to reconstruct the characteristic properties of $b$-jets, using track information to reconstruct displaced veritces \cite{Heer:2017kbn} and other key $b$-tagging information. The output of this first step is combined with additional jet information as inputs to a high level tagger.
+
+In this case, the DL1r $b$-tagging algorithm is used. The DL1r algorithm \cite{btag_cal} uses jet kinematics, particularly jet vertex information, as input for a neural network which assigns each jet a score designed to reflect how likely that jet is to have originated from a b-quark. 
 
 \begin{figure}[H] 
     \centering
     \includegraphics[width=0.54\linewidth]{DL1_output.pdf} 
-    \caption{Output distribution of the DL1r algorithm for pure samples of b-jets, charm jets, and light jets, with each normalized to unity \cite{btag_cal}}
+    \caption{Output distribution of the DL1r algorithm for pure samples of $b$-jets, charm jets, and light jets, with each normalized to unity \cite{btag_cal}}
     \label{fig:DL1r}
 \end{figure}
 
-From the output of the BDT, working points (WPs) are developed based on the efficiency of truth b-jets at particular values of the DL1r algorithm. These WPs are taken from the March 2020 CDI file, 2020-21-13TeV-MC16-CDI-2020-03-11\_v2.root. The working points used in this analysis are summarized in Table \ref{tab:btag_WPs}. 
+From the output of the BDT, working points (WPs) are developed based on the efficiency of truth b-jets at particular values of the DL1r algorithm. The working points used in this analysis are summarized in Table \ref{tab:btag_WPs}. 
 
 \begin{table}[H] 
 \begin{center}
@@ -92,12 +116,14 @@ From the output of the BDT, working points (WPs) are developed based on the effi
 \end{table}
 
 As shown in table \ref{tab:btag_WPs}, a tighter WP will accept fewer b-jets, but reject a higher fraction of charm and light\
- jets. Generally, analyses that include b-jets will use a fixed working point, for example, requiring that a jet pass the 70\% threshold. By instead treating these working points as bins, e.g. events with jets that fall between the 85\% and 77\% WPs fall into one bin, while events with jets passing the 60\% WP fall into another, additional information can be gained. This analysis uses each of these working points to form orthogonal regions in order to provide separation between WZ + $b$, WZ + $c$, and WZ + light.
+ jets. Generally, analyses that include b-jets will use a fixed working point, for example, requiring that a jet pass the 70\% threshold. By instead treating these working points as bins, e.g. events with jets that fall between the 85\% and 77\% WPs fall into one bin, while events with jets passing the 60\% WP fall into another, additional information can be gained. This approach is known as continuous $b$-tagging. This work employs both the fixed WP and the continuous $b$-tagging approach at various points.
 
 \subsection{Missing transverse energy}
 \label{subsec:met}
 
-Missing transverse momentum ($E_T^{miss}$) is used as part of the event selection. The missing transverse momentum vector is defined as the negative of the vector sum of the transverse momenta of all reconstructed physics objects as well as remaining unclustered energy, the latter of which is estimated from low-$p_T$ tracks associated with the primary vertex but not assigned to a hard object, with object definitions taken from \cite{met_2018}. Light leptons considered in the $E_T^{miss}$ reconstruction are required to have $p_T$>10 GeV, while jets are required to have $p_T$>20 GeV.
+In each collision, momentum conservation implies the vector sum of the momentum of all physics objects is expected to be zero in the transverse direction. Any imbalance is considered missing transverse energy, $E_T^{miss}$, and is generally attributed to neutrinos, which do not interact with the detector.  
+
+Missing transverse momentum ($E_T^{miss}$) is used as part of the event selection in both analyses. The missing transverse momentum vector is defined as the negative of the vector sum of the transverse momenta of all reconstructed physics objects as well as remaining unclustered energy, the latter of which is estimated from low-$p_T$ tracks associated with the primary vertex but not assigned to a hard object, with object definitions taken from \cite{met_2018}. Light leptons considered in the $E_T^{miss}$ reconstruction are required to have $p_T$>10 GeV, while jets are required to have $p_T$>20 GeV.
 
 \subsection{Overlap removal}
 \label{subsec:overlapremoval}
