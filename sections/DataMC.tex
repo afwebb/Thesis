@@ -3,6 +3,10 @@
 
 The study uses proton-proton collision data collected by the ATLAS detector from 2015 through 2018, which represents an integrated luminosity of 139 $fb^{-1}$ \cite{lumi} and an energy of $\sqrt{s} = 13$ TeV. All data used in this analysis was included in one of the Good Run Lists verified by Data Quality checks \cite{PERF-2010-01}.
 
+\subsection{Data Trigger}
+
+Data events are required to be selected by dilepton triggers. The $p_T$ thresholds of the dilepton trigger on two electrons were 12 GeV in 2015, 17 GeV in 2016, and 24 GeV in 2017 and 2018, while for the dimuon triggers the $p_T$ thresholds on the leading (sub-leading) muon were 18 GeV (8 GeV) in 2015, and 22 GeV (8 GeV) in 2016-2018. For the electron+muon triggers, the $p_T$ thresholds on the electron (muon) were 17 GeV (14 GeV) for all datasets.
+
 \subsection{Monte Carlo Samples}
 \label{sec:MCsamples}
 
@@ -40,9 +44,11 @@ $Z \to l^+l^-$ & \textsc{Sherpa} 2.2.1 & MEPS NLO  & \textsc{Sherpa} & NNPDF 3.0
 \end{center}
 \end{table}
 
-The signal sample ($t\bar{t}H$) is modelled at NLO with \textsc{Powheg-BOX} v2 using the NNPDF2.0 parton distribution function (PDF) \cite{ATL-PHYS-PUB-2015-011}. Parton showering and hadronisation were modelled with \textsc{Pythia} 8.2 \cite{ATL-PHYS-PUB-2011-009}. The $t\bar{t}H$ sample is normalized to a cross-section of $507^{+35}_{-50}$ fb based on NLO calculations. Uncertainties are based on varying the QCD factorisation and renormalisation scale, as well as uncertainties in the PDF and $\alpha_s$.
+The $t\bar{t}H$ sample is modelled at NLO with \textsc{Powheg-BOX} v2 using the NNPDF2.0 parton distribution function (PDF) \cite{ATL-PHYS-PUB-2015-011}. Parton showering and hadronisation were modelled with \textsc{Pythia} 8.2 \cite{ATL-PHYS-PUB-2011-009}. The $t\bar{t}H$ sample is normalized to a cross-section of $507^{+35}_{-50}$ fb based on NLO calculations. Uncertainties are based on varying the QCD factorisation and renormalisation scale, as well as uncertainties in the PDF and $\alpha_s$.
 
-The $t\bar{t}W$ background is simulated using Sherpa 2.2.1 with the NNPDF3.0 NLO PDF. The matrix element is calculated with up to one additional parton at NLO, and up to two at LO. As explained in detail in \cite{ttH_paper}, the $t\bar{t}W$ contribution predicted by MC is found disagree significantly with what is observed in data. While an effort is currently being undertaken to measure $t\bar{t}W$ more accurately, the approached used by the 79.8 $fb^{-1}$ $t\bar{t}H$ analysis is used here: A normalization factor of 1.68 is applied to the MC estimate of $t\bar{t}W$ and additional systematic uncertainties on $t\bar{t}W$ are included to account for this modelling descrepency, as outlined in Section \ref{sec:sys}.
+The WZ signal samples are simulated using Sherpa 2.2.2 \cite{sherpa}. Signal events are generated using NNPDF30NNLO PDF set with up to one parton at NLO and 2 to 3 partons at LO \cite{Ball:2014uwa}. The tZ background is simulated at NLO with \textsc{MadGraph5\_aMC@NLO}, with \textsc{Pythia8} used to perform parton showering and fragmentation. The NNPDF30NNLO PDF set is used.
+
+The $t\bar{t}W$ sample is simulated using Sherpa 2.2.1 with the NNPDF3.0 NLO PDF. The matrix element is calculated with up to one additional parton at NLO, and up to two at LO. As explained in detail in \cite{ttH_paper}, the $t\bar{t}W$ contribution predicted by MC is found disagree significantly with what is observed in data. While an effort is currently being undertaken to measure $t\bar{t}W$ more accurately, the approached used by the 79.8 $fb^{-1}$ $t\bar{t}H$ analysis is used here: A normalization factor of 1.68 is applied to the MC estimate of $t\bar{t}W$ and additional systematic uncertainties on $t\bar{t}W$ are included to account for this modelling descrepency, as outlined in Section \ref{sec:sys}.
 
 The $t\bar{t}(Z/\gamma^*)$ process is simulated with the \textsc{MadGraph5\_aMC@NLO} generator, using NNPDF3.0. Diboson processes are generated with \textsc{Sherpa} 2.2.2 at NLO precision for one extra parton, and at LO for up to three extra partons.
 
