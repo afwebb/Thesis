@@ -2,6 +2,7 @@
 This section decribes the reconstruction of the physics objects relevant to these analyses, as well as the selection applied to these objects. This selection and object definition is shared between both analyses presented. This includes the reconstruction and selection of light leptons and jets, the determination of missing energy in each event ($E_T^{miss}$), the algorithms used to identify jets originating from $b$-hadrons ($b$-tagging), and the procedure used to resolve ambiguities between physics objects, known as overlap removal.
 
 \subsection{Electrons}
+\label{obj:ele}
 
 Electron candidates are reconstructed from energy clusters in the electromagnetic (EM) calorimeter that are associated with charged particle tracks reconstructed in the inner detector~\cite{ATLAS-CONF-2016-024}. Electron candidates are required to fall within the pseudorapidity region $|\eta| < 2.5$, excluding the transition region between the barrel and end-cap of the EM calorimeter, $1.37 < |\eta_\textrm{cluster}| < 1.52$, where there is a large fraction of inactive material. 
 
@@ -32,6 +33,7 @@ Electrons are required to pass the tight identification working point to minimiz
 Electron and muons are required to pass a non-prompt BDT selection developed by the main $t\bar{t}H$/$t\bar{t}W$ analysis, described in detail in \cite{ttH_paper}. Optimized working points and scale factors for this BDT are taken from that analysis. This BDT and the WPs used are summarized in Appendix \ref{sec:lepMVA},
 
 \subsection{Muons}
+\label{obj:muon}
                    
 The reconstruction algorithm for Combined Muons is used, where muon candidates are reconstructed by combining inner detector tracks with track segments or full tracks in the muon spectrometer (MS) \cite{PERF-2014-05}. Only muons which fall within a range of $|\eta| < 2.5$ are considered. Similar to electrons, an outside-in approach is used, where muon tracks are first identified in the MS, which are then matched to tracks from the inner detector. Muons which fall in the region $|\eta| < 0.1$, where muon spectrometer coverage is reduced, are matched to energy clusters in the calorimeter as well.
 
@@ -51,8 +53,7 @@ In addition to requiring muons pass the non-prompt BDT, requirements are imposed
 \input{wz_sections/lepMVA}
 
 \subsection{Jets}
-\label{subsec:jets}
-%UPDATE FOR PFLOW
+\label{obj:jets}
 
 The nature of the strong force prevents quarks produced in collisions from being measured directly; instead, free quarks produce many quark-antiquark pairs, or hadrons. This process is called hadronization. The tight cone of particles - consisting primarily of charged pions, charged kaons, photons from $\pi^0$ decays, and neutral hadrons - produced from the hadronization of a quark or gluon is referred to as a jet. Jets, rather than quarks, are what is observed by the detector.
 
@@ -79,7 +80,7 @@ Jet energy resolution is the uncertainty on individual jet energy measurements f
 \end{figure}
 
 \subsection{$b$-tagging}
-\label{subsec:bjets}
+\label{obj:bjets}
 
 $b$-tagging is the process of distinguishing jets that originate from $b$-quarks from jets that originate from lighter flavor quarks. $b$-hadrons formed from $b$-quarks have a relatively long lifetime compared to other hadrons, which, in addition to Lorentz boosting, means they travel several millimeters in the detector before decaying to other hadrons. Therefore $b$-jets will originate from an additional vertex several millimeters from the primary interaction point. Identifying this secondary vertex is a key component of $b$-tagging.
 
