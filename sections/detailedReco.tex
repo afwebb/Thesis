@@ -23,14 +23,14 @@ Electrons which are reconstructed pass through to an electron identification ste
 
 \begin{figure}[H]
 \centering
-   \includegraphics[width=0.65\linewidth]{figures/theory/eEffEt.JPG}
+   \includegraphics[width=0.65\linewidth]{figures/theory/eleIDeff.JPG}
 \caption{Electron identification efficiency for Loose, Medium, and Tight WPs as a function of electron transverse energy for $Z\rightarrow e^+e^-$ events \cite{tagAndProbe}.}
 \label{fig:eEffEt}
 \end{figure}
 
 Electrons are required to pass the tight identification working point to minimize non-prompt backgrounds. To further reduce the non-prompt contribution, the track of each electron is required to originate from the primary vertex; requirements are also imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}<5$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|<0.5$ mm).
 
-Electron and muons are required to pass a non-prompt BDT selection developed by the main $t\bar{t}H$/$t\bar{t}W$ analysis, described in detail in \cite{ttH_paper}. Optimized working points and scale factors for this BDT are taken from that analysis. This BDT and the WPs used are summarized in Appendix \ref{sec:lepMVA},
+Electron and muons are required to pass a non-prompt BDT selection developed by the main $t\bar{t}H$/$t\bar{t}W$ analysis, described in detail in \cite{ttH_paper}. Optimized working points and scale factors for this BDT are taken from that analysis. This BDT and the WPs used are summarized in Section \ref{sec:lepMVA},
 
 \subsection{Muons}
 \label{obj:muon}
@@ -46,14 +46,15 @@ Muon identification is used to suppress non-prompt muons, and ensure robust mome
 \label{fig:eEffEt}
 \end{figure}
 
-In addition to requiring muons pass the non-prompt BDT, requirements are imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}<3$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|<0.5$ mm).
+In addition to requiring muons pass the same non-prompt BDT as electrons, requirements are imposed on the transverse impact parameter significance ($|d_0|/\sigma_{d_0}<3$) and the longitudinal impact parameter ($|\Delta z_0 \sin \theta_\ell|<0.5$ mm).
  
 \subsection{Non-prompt lepton MVA}
 \label{sec:lepMVA}
 \input{wz_sections/lepMVA}
 
 \subsection{Jets}
-\label{obj:jets}
+\label{subsec:jets}
+%UPDATE FOR PFLOW
 
 The nature of the strong force prevents quarks produced in collisions from being measured directly; instead, free quarks produce many quark-antiquark pairs, or hadrons. This process is called hadronization. The tight cone of particles - consisting primarily of charged pions, charged kaons, photons from $\pi^0$ decays, and neutral hadrons - produced from the hadronization of a quark or gluon is referred to as a jet. Jets, rather than quarks, are what is observed by the detector.
 
@@ -80,7 +81,7 @@ Jet energy resolution is the uncertainty on individual jet energy measurements f
 \end{figure}
 
 \subsection{$b$-tagging}
-\label{obj:bjets}
+\label{subsec:bjets}
 
 $b$-tagging is the process of distinguishing jets that originate from $b$-quarks from jets that originate from lighter flavor quarks. $b$-hadrons formed from $b$-quarks have a relatively long lifetime compared to other hadrons, which, in addition to Lorentz boosting, means they travel several millimeters in the detector before decaying to other hadrons. Therefore $b$-jets will originate from an additional vertex several millimeters from the primary interaction point. Identifying this secondary vertex is a key component of $b$-tagging.
 
