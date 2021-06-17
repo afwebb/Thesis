@@ -30,6 +30,8 @@ Once the network is trained, kinematic variables for all possible pairings of je
 
 An alternate approach is considered, where information about all jets in each event are used as the feature set, and the model is tasked with identifying which two originated from the top decay. While this approach is found to underperform the nominal approach, and therefore not used in the analysis, the results are documented in Appendix \ref{subsec:topRecoApx}.
 
+The modelling of the input features is validated by comparing the MC simulations to data. Plots for the complete list of features can found in Appendix \ref{apx:MVA}.
+
 %----------------------------------------------------------------------                                                  
 \subsubsection{2lSS Channel}
 \label{subsec:top2lSS}
@@ -74,19 +76,19 @@ The difference between the distributions for a few of these features for the "co
     \label{fig:features_top2lSS}                                                                                        
 \end{figure}
 
-The modeling of these inputs is validated against data, with Figure \ref{fig:model_top2lSS} showing good general agreement between data and MC. Plots for the complete list of features can found in Appendix \ref{apx:MVA}.
+%The modeling of these inputs is validated against data, with Figure \ref{fig:model_top2lSS} showing good general agreement between data and MC. Plots for the complete list of features can found in Appendix \ref{apx:MVA}.
 
-\begin{figure}[H]
-    \centering
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/jet_DL1r_0.png}}%                  
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/jet_Pt_0.png}}%                
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/dR_j0_j1.png}}\\
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/Ml1j1.png}}%                      
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/dR_l0_j0.png}}%                   
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/Ptj0j1l0l1met.png}}\\
-    \caption{Data/MC comparisons of input features for top2lSS training for 79.8 $fb^{-1}$ of data. (a) shows the DL1r working point of leading jet, (b) shows the $p_T$ of the leading jet, (c) shows the $\Delta R$ of the two jets, (d) the invariant mass of lepton 1 and jet 1, (e) the $\Delta R$ of lepton 0 and jet 0, and (f) the $p_T$ of both jets, both leptons, and the $E_T^{miss}$.}
-    \label{fig:model_top2lSS}
-\end{figure}
+%\begin{figure}[H]
+%    \centering
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/jet_DL1r_0.png}}%                  
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/jet_Pt_0.png}}%                
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/dR_j0_j1.png}}\\
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/Ml1j1.png}}%                      
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/dR_l0_j0.png}}%                   
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top2lSSfeatures/Plots/Ptj0j1l0l1met.png}}\\
+%    \caption{Data/MC comparisons of input features for top2lSS training for 79.8 $fb^{-1}$ of data. (a) shows the DL1r working point of leading jet, (b) shows the $p_T$ of the leading jet, (c) shows the $\Delta R$ of the two jets, (d) the invariant mass of lepton 1 and jet 1, (e) the $\Delta R$ of lepton 0 and jet 0, and (f) the $p_T$ of both jets, both leptons, and the $E_T^{miss}$.}
+%    \label{fig:model_top2lSS}
+%\end{figure}
 
 Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 40 nodes each. No regularizer or dropout is added to the network, as overfitting is found to not be an issue. The output score distribution as well as the ROC curve for the trained model are shown in Figure \ref{fig:top2lSSresults}. The model is found to identify the correct pairing of jets for 73\% of $2lSS$ signal events on test data.
 
@@ -166,20 +168,19 @@ A few of these features are shown in Figure \ref{fig:features_top3l}, comaring t
     \label{fig:features_top3l}
 \end{figure}
 
-The modeling of these inputs is validated against data, with Figure \ref{fig:model_top3l} showing good general agreement between data and MC. 
+%The modeling of these inputs is validated against data, with Figure \ref{fig:model_top3l} showing good general agreement between data and MC. 
 
-\begin{figure}[H]                                                                                                         
-    \centering
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/jet_DL1r_0.png}}%                  
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/jet_Pt_0.png}}%                     
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/dR_j0_j1.png}}\\
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/Ml1j1.png}}%                   
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j0.png}}%              
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j1.png}}\\
-    \caption{Data/MC comparisons of input features for top3l training for 79.8 $fb^{-1}$ of data. (a) show the DL1r WP of je\
-t 0, (b) the $p_T$ of jet 0, (c) $\Delta R$ between jet 0 and jet 1, (d) the invariant mass of lepton 1 and jet 1, (e) $\Delta R$ between lepton 0 and jet 0, and (f) $\Delta R$ between lepton 0 and jet 1}
-    \label{fig:model_top3l}
-\end{figure}
+%\begin{figure}[H]                                                                                                         
+%    \centering
+ %   \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/jet_DL1r_0.png}}%                  
+ %   \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/jet_Pt_0.png}}%                     
+ %   \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/dR_j0_j1.png}}\\
+ %   \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/Ml1j1.png}}%                   
+ %   \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j0.png}}%              
+ %   \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/top3lfeatures/Plots/dR_l0_j1.png}}\\
+ %   \caption{Data/MC comparisons of input features for top3l training for 79.8 $fb^{-1}$ of data. (a) show the DL1r WP of jet 0, (b) the $p_T$ of jet 0, (c) $\Delta R$ between jet 0 and jet 1, (d) the invariant mass of lepton 1 and jet 1, (e) $\Delta R$ between lepton 0 and jet 0, and (f) $\Delta R$ between lepton 0 and jet 1}
+ %   \label{fig:model_top3l}
+%\end{figure}
 
 Again, the dataset is downsized to reduce the ratio of correct and incorrect combination from 20:1, to 5:1. Around 7 million events are used for training, with 10\% set aside for testing. Based on the results of grid search evaluation, the optimal architecture is found to include 5 hidden layers with 60 nodes each. The output score distribution as well as the ROC curve for the trained model are shown in Figure \ref{fig:top3lresults}.
 
@@ -252,19 +253,19 @@ Here $j_0$ and $j_1$, and $l_H$ are the jet and lepton decay candidates, respect
     \label{fig:features_higgs2lSS}
 \end{figure}
 
-The modeling of these inputs is validated against data, with Figure \ref{fig:model_top2lSS} showing good general agreement between data and MC. Plots for the complete list of features can found in Section \ref{apx:MVA}.
+%The modeling of these inputs is validated against data, with Figure \ref{fig:model_top2lSS} showing good general agreement between data and MC. Plots for the complete list of features can found in Section \ref{apx:MVA}.
 
-\begin{figure}[H]
-    \centering
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/Mj0j1lH.png}}%        
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/MlHj0.png}}%            
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_j0_j1.png}}\\
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_j0j1_lH.png}}%                  
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_lT_t0.png}}%            
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/jet_Pt_0.png}}\\
-    \caption{Data/MC comparisons of input features for higgs2lSS training for 79.8 $fb^{-1}$ of data. (a) shows the invariant mass of the two jet candidates and the lepton candidate, (b) the invariant mass of jet 0 and the lepton candidate, (c) $\Delta R$ between the jet candidates, (d) $\Delta R$ between jet 0 + jet 1 and the lepton candidate, (e) $\Delta R$ between the lepton from the top and the leading b-jet, (f) the $p_T$ of jet 0.}
-    \label{fig:model_higgs2lSS}
-\end{figure}
+%\begin{figure}[H]
+%    \centering
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/Mj0j1lH.png}}%        
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/MlHj0.png}}%            
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_j0_j1.png}}\\
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_j0j1_lH.png}}%                  
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/dR_lT_t0.png}}%            
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs2lSSfeatures/Plots/jet_Pt_0.png}}\\
+%    \caption{Data/MC comparisons of input features for higgs2lSS training for 79.8 $fb^{-1}$ of data. (a) shows the invariant mass of the two jet candidates and the lepton candidate, (b) the invariant mass of jet 0 and the lepton candidate, (c) $\Delta R$ between the jet candidates, (d) $\Delta R$ between jet 0 + jet 1 and the lepton candidate, (e) $\Delta R$ between the lepton from the top and the leading b-jet, (f) the $p_T$ of jet 0.}
+%    \label{fig:model_higgs2lSS}
+%\end{figure}
 
 A neural network consisting of 7 hidden layers with 60 nodes each is trained on around 2 million events, with an additional 200,000 reserved for testing the model. In order to compensate for the large number of incorrect combinations, these have been downsampled such that the correct combinations represent over 10\% of the training set. The output of the NN is summarized in Figure \ref{fig:higgs2lSSresults}.
 
@@ -307,19 +308,19 @@ Here $j_0$ and $j_1$, and $l_H$ are the jet and lepton decay candidates, respect
     \label{fig:features_higgs3lS}
 \end{figure}
 
-The modeling of these inputs is validated against data, with Figure \ref{fig:model_higgs3lS} showing good general agreement between data and MC. Plots for the complete list of features can found in appendix \ref{subsec:recoApx}.
+%The modeling of these inputs is validated against data, with Figure \ref{fig:model_higgs3lS} showing good general agreement between data and MC. Plots for the complete list of features can found in appendix \ref{subsec:recoApx}.
 
-\begin{figure}[H]
-    \centering
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/Mj0j1lH.png}}%
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/Mj0j1t0.png}}%
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/jet_Pt_0.png}}\\
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/dR_j0j1_lH.png}}%
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/dR_j0_j1.png}}%
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/dPhi_j0j1lH_met.png}}\\
-    \caption{Data/MC comparisons of input features for higgs3lS training for 79.8 $fb^{-1}$ of data.}
-    \label{fig:model_higgs3lS}
-\end{figure} 
+%\begin{figure}[H]
+%    \centering
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/Mj0j1lH.png}}%
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/Mj0j1t0.png}}%
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/jet_Pt_0.png}}\\
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/dR_j0j1_lH.png}}%
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/dR_j0_j1.png}}%
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lSfeatures/Plots/dPhi_j0j1lH_met.png}}\\
+%    \caption{Data/MC comparisons of input features for higgs3lS training for 79.8 $fb^{-1}$ of data.}
+%    \label{fig:model_higgs3lS}
+%\end{figure} 
 
 A neural network of 7 hidden layers with 70 nodes each is trained on 1.8 million events. Once again, incorrect combinations are downsampled, such that the correct combinations are around 10\% of the training set. 10\% of the dataset is reserved for testing. The output of the NN is summarized in Figure \ref{fig:higgs3lSresults}.
 
@@ -362,19 +363,19 @@ Here $l_{H0}$ and $l_{H1}$ are the Higgs decay candidates. The other lepton in t
     \label{fig:features_higgs3lF}
 \end{figure}
 
-The modeling of these inputs is validated against data, with Figure \ref{fig:model_higgs3lF} showing good general agreement between data and MC. Plots for the complete list of features can found in Section \ref{apx:MVA}.
+%The modeling of these inputs is validated against data, with Figure \ref{fig:model_higgs3lF} showing good general agreement between data and MC. Plots for the complete list of features can found in Section \ref{apx:MVA}.
 
-\begin{figure}[H]
-    \centering
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/MlH0lH1.png}}%
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/MlH1lT.png}}%
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0lH1_t0.png}}\\
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0lH1_lT.png}}%
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/dPhi_lH1_met.png}}%
-    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0_lT.png}}\\
-    \caption{Data/MC comparisons of input features for higgs3lF training for 79.8 $fb^{-1}$ of data.}
-    \label{fig:model_higgs3lF}
-\end{figure} 
+%\begin{figure}[H]
+%    \centering
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/MlH0lH1.png}}%
+%%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/MlH1lT.png}}%
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0lH1_t0.png}}\\
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0lH1_lT.png}}%
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/dPhi_lH1_met.png}}%
+%    \subfigure[]{\includegraphics[width=.33\linewidth]{trexPlots/higgs3lFfeatures/Plots/dR_lH0_lT.png}}\\
+%    \caption{Data/MC comparisons of input features for higgs3lF training for 79.8 $fb^{-1}$ of data.}
+%    \label{fig:model_higgs3lF}
+%\end{figure} 
 
 A neural network consisting of 5 nodes and 60 hidden units is trained on 800,000 events, with 10\% of the dataset reserved for testing. The output of the model is summarized in Figure \ref{fig:higgs3lFresults}.
 
