@@ -1,4 +1,4 @@
-ATLAS (a not terribly natural acronym for ``A Toroidal LHC Apparatus'') is a general purpose detector designed to maximize the detection efficiency of all physics objects, including leptons, jets, and photons. This means it is capable of measuring all SM particles, with the exception of neutrinos, the presence of which can be inferred based on missing transverse momentum. The detector measures 44 m long, and 25 m tall. 
+ATLAS (a not terribly natural acronym for ``A Toroidal LHC Apparatus'') is a general purpose detector designed to maximize the detection efficiency of all physics objects, including leptons, jets, and photons. This means it is capable of measuring all (sufficiently long-lived) SM particles, with the exception of neutrinos, the presence of which can be inferred based on missing transverse momentum. The detector measures 44 m long, and 25 m tall. 
 
 The ATLAS detector consists of multiple concentric layers, each of which serves a different purpose in reconstructing collisions. At the very center of the detector is the interaction point where the proton beams of the LHC collide. 
 
@@ -8,6 +8,8 @@ The ATLAS detector consists of multiple concentric layers, each of which serves 
 \caption{Cutaway view of the ATLAS detector, with labels of its major components \cite{ATLAS_figure}.}
 \label{fig:ATLAS}
 \end{figure}
+
+A common coordinate system is used throughout the ATLAS experiment. The interaction point is defined as the origin, with the beam running along the z-axis. Perpindicular to the beam line in the x-y plane is considered the transverse plane, sometimes referred to generally as the transverse direction. Towards the center of the LHC ring is considered the positive x-axis, with up towards the surface of Earth considered the positive y-axis. The azimuthal angle, $\phi$, is measured from the x-axis around the beam. The polar angle is generally written in terms of pseudorapidity, defined as $\eta = -\ln\tan(\theta/2)$, where $\theta$ is the angle from the positive z-axis. The use of $\eta$ is motivated by the fact that differences is $\eta$ are Lorentz invariant. Distances between particles are generally measured as $\Delta R = \sqrt{\Delta\eta^2 + \Delta\phi^2}$.
 
 \subsection{Inner Detector}
 \label{sec:innerDetector}
@@ -21,7 +23,7 @@ Just surrounding the interaction point is the Inner Detector, designed to track 
 \label{fig:innerDect}
 \end{figure}
 
-The Inner Detector consists of four independent subdetectors - the Insertable B-Layer (IBL), the Pixel Detector, the Semi-Conductor Tracker (SCT), and the Transition Radiation Tracker (TRT). The first three of these detector layers are semiconductor detectors, using silicon as the active material. The last layer, the TRT, uses an ionizing gas consisting of $Xe$, $CO_2$, and $O_2$ as the active material.
+The Inner Detector consists of four independent subdetectors - the Insertable B-Layer (IBL), the Pixel Detector, the Semi-Conductor Tracker (SCT), and the Transition Radiation Tracker (TRT). The first three of these detector layers are semiconductor detectors, using silicon as the active material. The last layer, the TRT, uses a gas consisting of Xe, CO$_2$, and O$_2$ as the active material.
 
 The IBL is the innermost of these detectors, beginning just 3.3 cm from the beam axis \cite{larosa2016atlas}. It consists of 224 modules and a total of six million readout pixels. This layer was added in 2014 in order to provide more precise vertex measurements, a crucial aspect of identifying jets originating from $b$-quarks, as described in Section \ref{subsec:bjets}. 
 
@@ -29,12 +31,12 @@ The Pixel Detector is the next innermost layer, and consists of three silicon se
 
 The Semiconductor Tracker (SCT) is similar to the Pixel detector, but uses long strips of silicon rather than small pixels to cover a larger spatial area. It includes over 6 million readout strips, allowing the position of charged particles to be measured to an accuracey of 17 $\mu m$ \cite{IDET-2013-01}. Like the pixel detector, the SCT has a pseudo-rapidity range of $|\eta|$ < 2.5. The SCT includes four cylindrical barrel layers and 9 disks in each of the end caps.
 
-The outermost component of the inner detector, the TRT consists of around 300,000 straw tubes filled with ionizable gas, which produces current through a wire in the center of each tube when a charged particle passes through \cite{IDET-2015-01}. Between these staws are layers of material designed to produce transition radiation from ultrarelativistic particles as they pass through each material boundary, amplifying the signal. The position uncertainty in the TRT is higher than the other two, on the order of 200 $\mu m$, but covering a much larger area.
+The outermost component of the inner detector, the TRT consists of around 300,000 straw tubes filled with ionizable gas, which produces current through a wire in the center of each tube when a charged particle passes through \cite{IDET-2015-01}. Between these staws are layers of material designed to produce transition radiation from ultrarelativistic particles as they pass through each material boundary, amplifying the signal. The position uncertainty in the TRT is higher than the other two, on the order of 200 $\mu m$, but covering a much larger area. 
 
 \subsection{Calorimeters}
 \label{sec:calo}
 
-Situated outside the Innder Detector are two concentric calorimeters and a forward calorimeters, designed to measure the energy of particles passing through them. This includes electrons, photons, and hadrons, with muons generally passing through and depositing little of their energy. The full calorimeter system covers a pseudo-rapidity range of up to $|\eta|<4.9$, and is divided into both barrel and end-cap sections.
+Situated outside the Inner Detector are two concentric calorimeters and a forward calorimeters, designed to measure the energy of particles passing through them. This includes electrons, photons, and hadrons, with muons generally passing through and depositing little of their energy. The full calorimeter system covers a pseudo-rapidity range of up to $|\eta|<4.9$, and is divided into both barrel and end-cap sections.
 
 \begin{figure}[H]
 \centering
@@ -63,7 +65,7 @@ Because muons are heavier than electrons and photons, and do not interact via th
 
 The outermost components of the detector are designed specifically to measure the energy and momentum of muons produced in the LHC. The muon spectrometer consists of tracking and triggering systems. The largest of the subdetectors, it extends from the outside of the calormeter system, about a 4.25 m radius from the beam line, to a radius of 11 m \cite{MUON-2010-01}. This large detector system is necessary to accurately measure the momentum of muons, which is essential not only for measurements involving the muons themselves, but also to accurately estimate the missing energy in each event.
 
-Two large toroidal magnets within the muon system generate a large magnetic field which covers an area 26 m long with a radius of 10 m. Because the area covered by this magnet system is so large, a uniform magnetic field like the one produced in the Inner Detector is impractical. Instead, the magnetic field that exists in the muon spectrometer ranges between 2 T and 8 T, and is much less uniform. The path of the muons passing through the spectrometer is bent by this field, allowing their charge to be determined. 
+ toroidal magnets within the muon system generate a large magnetic field which covers an area 26 m long with a radius from around 5 m out to 10 m. Because the area covered by this magnet system is so large, a uniform magnetic field like the one produced in the Inner Detector is impractical. Instead, the magnetic field that exists in the muon spectrometer ranges between 2 T and 8 T, and is much less uniform. The path of the muons passing through the spectrometer is bent by this field, allowing their charge to be determined. 
 
 1200 tracking chambers are placed in the muon system in order to precisely measure the tracks of muons with high spatial resolution. The path of the muons are tracked by Monitored Drift Tubes, which are drift chambers formed by aluminum tubes and filled with ionizing gas. These tubes produce a multi-layer spatial resolution on the order of 50 $\mu m$.
 
