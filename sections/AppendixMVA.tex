@@ -35,11 +35,11 @@ Based on the performance of the model, as shown Figures \ref{fig:truth2lSSresult
 
 The nominal analysis reconstructs the b-jets by considering different combinations of jets, and asking a neural network to determine whether each combination consists of b-jets from top quark decays. An alternate approach would be to give the neural network about all of the jets in an event at once, and train it to select which two are most likely to be the b-jets from top decay. It was hypothesized that this could perform better than considering each combination independently, as the neural network could consider the event as a whole. While this is not found to be the case, these studies are documented here as a point of interest and comparison.
 
-For these studies, the kinematics of the 10 highest $p_T$ jets in each event are used for training. This includes the vast majority of truth b-jets. Specifically the $p_T$, $\eta$, $\phi$, $E$, and DL1r score of each jet are used. For events with fewer than 10 jets, these values are substituted with 0. The $p_T$, $\eta$, $\phi$, and $E$ of the leptons and $E_T^{miss}$ are included as well. Caterogical cross entropy is used as the loss function.
+For these studies, the kinematics of the 10 highest $p_T$ jets in each event are used for training. This includes the vast majority of truth b-jets. Specifically the $p_T$, $\eta$, $\phi$, $E$, and DL1r score of each jet are used. For events with fewer than 10 jets, these values are substituted with 0. The $p_T$, $\eta$, $\phi$, and $E$ of the leptons and $E_T^{miss}$ are included as well. Categorical cross entropy is used as the loss function.
 
 \begin{table}[H]
   \centering
-  \caption{Accuracey of the NN in identifying b-jets from tops in 2lSS events for the alternate categorical method compared to the nominal method.}
+  \caption{Accuracy of the NN in identifying b-jets from tops in 2lSS events for the alternate categorical method compared to the nominal method.}
   \begin{tabular}{l|c|c}                                                                                                     
   \hline\hline
   Channel & Categorical & Nominal \\                                                                              

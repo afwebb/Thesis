@@ -22,7 +22,7 @@ Leptons considered as possible Higgs and top decay candidates are required to pa
 \label{sec:bjetID}
 %------------------------------------------------------------------------ 
 
-Including the kinematics of the b-jets that originate from the top decay is found to improve the identification of the Higgs decay products, and improve the accuracey with which the Higgs momentum can be reconstructed. Because these b-jets are reconstructed by the detector with high efficiency (just over 90\% of the time), and can be identified relatively consistently, the first step in reconstructing the Higgs is selecting the b-jets from the top decay.
+Including the kinematics of the b-jets that originate from the top decay is found to improve the identification of the Higgs decay products, and improve the accuracy with which the Higgs momentum can be reconstructed. Because these b-jets are reconstructed by the detector with high efficiency (just over 90\% of the time), and can be identified relatively consistently, the first step in reconstructing the Higgs is selecting the b-jets from the top decay.
 
 Exactly two b-jets are expected in the final state of $t\bar{t}H-ML$ events. However, in both the $3l$  and $2lSS$ channels, only one or more b-tagged jets are required (where the 70\% DL1r b-tag working point is used). Therefore, for events which have exactly one, or more than two, b-tagged jets, deciding which combination of jets correspond to the top decay is non-trivial. Further, events with 1 b-tagged jet represent just over half of all $t\bar{t}H-ML$ events. Of those, both b-jets are reconstructed by the detector ~75\% of the time. Therefore, rather than adjusting the selection to require exactly 2 b-tagged jets, and losing more than half of the signal events, a neural network is used to predict which pair of jets is most likely to correspond to truth b-jets.
 
@@ -102,7 +102,7 @@ Based on the results of grid search evaluation, the optimal architecture is foun
 
 For point of comparison, a "naive" approach to identifying b-jets is used as well: The two jets which pass the highest DL1r b-tag working point are assumed to be the b-jets from the top decay. In the case that multiple jets meet the same b-tag working point, the jet with higher $p_T$ is used. This method identifies the correct jet pair 65\% of the time. 
 
-The accuracey of the model for different b-tagged jet multiplicities, compared to this naive approach, is shown in Table \ref{tab:topMatchAcc2lSS}.
+The accuracy of the model for different b-tagged jet multiplicities, compared to this naive approach, is shown in Table \ref{tab:topMatchAcc2lSS}.
 
 \begin{table}[H]
   \centering
@@ -117,7 +117,7 @@ The accuracey of the model for different b-tagged jet multiplicities, compared t
     Overall & 73.9\% & 67.2\% \\                                                                                  
     \hline                                                                                                 
   \end{tabular}
-  \caption{Accuracey of the NN in identifying b-jets from tops in $2lSS$ events, overall and split by the number of b-tagged jets in the event, compared to the accuracey of taking the two highest b-tagged jets.}     
+  \caption{Accuracy of the NN in identifying b-jets from tops in $2lSS$ events, overall and split by the number of b-tagged jets in the event, compared to the accuracy of taking the two highest b-tagged jets.}     
   \label{tab:topMatchAcc2lSS}                                                                                           
 \end{table}
 
@@ -154,7 +154,7 @@ The input features used in the $3l$  channel are listed in Table \ref{tab:top3lf
   \label{tab:top3lfeatures}
 \end{table}
 
-A few of these features are shown in Figure \ref{fig:features_top3l}, comaring the distributions for correct and incorrect combinations of jets.
+A few of these features are shown in Figure \ref{fig:features_top3l}, comparing the distributions for correct and incorrect combinations of jets.
 
 \begin{figure}[H]
     \centering
@@ -196,7 +196,7 @@ This procedure is found to identify the correct pairing of jets for nearly 80\% 
 
 \begin{table}[H]
 \centering
-\caption{Accuracey of the NN in identifying b-jets from tops, compared to the naive method of taking the highest b-tagged jets.}
+\caption{Accuracy of the NN in identifying b-jets from tops, compared to the naive method of taking the highest b-tagged jets.}
 \begin{tabular}{|l|c|c|}
 \hline\hline
 & NN & Naive \\
@@ -220,9 +220,9 @@ Overall & 79.8\% & 70.2\% \\
 
 Techniques similar to the b-jet identification algorithms are employed to select the decay products of the Higgs: kinematics of all possible combinations of reconstructed objects are fed into a neural network to determine which of those is most mostly to be the decay products of the Higgs.
 
-Again separate models are used for the $2lSS$ and $3l$  channels, while the $3l$  channel has now been split into two: $t\bar{t}H$ events with three leptons in the final state include both intances where the Higgs decays into a lepton (and a neutrino) and a pair of jets, and instances where the Higgs decays to two leptons (and two neutrinos which are not reconstructed).
+Again separate models are used for the $2lSS$ and $3l$  channels, while the $3l$  channel has now been split into two: $t\bar{t}H$ events with three leptons in the final state include both instances where the Higgs decays into a lepton (and a neutrino) and a pair of jets, and instances where the Higgs decays to two leptons (and two neutrinos which are not reconstructed).
 
-3l events are therefore categorized as either semi-leptonic (3lS) or fully-leptonic (3lF). In the semi-leptonic case the reconstructed decay products consist of two jets and a single lepton. For the fully-leptonic case, the decay products include 2 of the three leptons associated with the event. For training these models, events are separated into these two categories using truth level information. A separate MVA, described in Section \ref{sec:decay3l}, is used to make this distinction at recontructed level, and determine which model to use.
+3l events are therefore categorized as either semi-leptonic (3lS) or fully-leptonic (3lF). In the semi-leptonic case the reconstructed decay products consist of two jets and a single lepton. For the fully-leptonic case, the decay products include 2 of the three leptons associated with the event. For training these models, events are separated into these two categories using truth level information. A separate MVA, described in Section \ref{sec:decay3l}, is used to make this distinction at reconstructed level, and determine which model to use.
 
 For all channels, the models described in Section \ref{sec:bjetID} are used to identify b-jet candidates, whose kinematics are used as additional input features to help identify the Higgs decay products. These jets are not considered as possible candidates for the Higgs decay, justified by the fact that these models are found to misidentify jets from the Higgs decay as jets from the top decay less than 1\% of the time.
 
@@ -417,13 +417,13 @@ The input variables listed in Table \ref{tab:pt2lSSfeatures} are used to predict
 
 The optimal neural network architecture for this channel is found to consist of 7 hidden layers with 60 nodes each. The input data set includes 1.2 million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs. 
 
-To evaluate the performance of the model, the predicted $p_T$ spectrum is compared to the truth Higgs $p_T$ in Figure \ref{fig:pt2lSSresults}. In  order to visualize the model performance more clearly, in (a) of that figure, the color of each point is determined by Kernal Density Estimation (KDE). The color shown represents the logarithm of the output from KDE, to counteract the large number of low $p_T$ events. For that same reason, each column of the histogram shown in (b) of Figure \ref{fig:pt2lSSresults} is normalized to unity. This plot therefore demonstrates what the model predicts for each slice of truth $p_T$.
+To evaluate the performance of the model, the predicted $p_T$ spectrum is compared to the truth Higgs $p_T$ in Figure \ref{fig:pt2lSSresults}. In  order to visualize the model performance more clearly, in (a) of that figure, the color of each point is determined by Kernel Density Estimation (KDE). The color shown represents the logarithm of the output from KDE, to counteract the large number of low $p_T$ events. For that same reason, each column of the histogram shown in (b) of Figure \ref{fig:pt2lSSresults} is normalized to unity. This plot therefore demonstrates what the model predicts for each slice of truth $p_T$.
 
 \begin{figure}[H]
     \centering
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop2lSS/keras_test_pt_scatter.png}}%
     \subfigure[]{\includegraphics[width=.56\linewidth]{ptReco/higgsTop2lSS/keras_test_norm2Dhist.png}}\\
-    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for $2lSS$ $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernal Density Estimation, and (b) a histogram where each column  has been normalized to one.}
+    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for $2lSS$ $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernel Density Estimation, and (b) a histogram where each column  has been normalized to one.}
     \label{fig:pt2lSSresults}
 \end{figure}
 
@@ -456,13 +456,13 @@ Again, $j_0$ and $j_1$ are the two jets identified as Higgs decay products, orde
 
 The optimal neural network architecture for this channel is found to consist of 7 hidden layers with 80 nodes each. The inputdata set includes one million events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs.
 
-To evaluate the performance of the model, the predicted $p_T$ spectrum is compared to the truth Higgs $p_T$ in Figure \ref{fig:pt3lSresults}. Once again, (a) of \ref{fig:pt3lSresults} shows a scatterplots of predicted vs truth $p_T$, where the color of each point corresponds to the log of the relative KDE at that point. Each column of the the histogram in (b) is normalized to unity, to better demonstrate the output of the NN for each slice of truth $p_T$.
+To evaluate the performance of the model, the predicted $p_T$ spectrum is compared to the truth Higgs $p_T$ in Figure \ref{fig:pt3lSresults}. Once again, (a) of \ref{fig:pt3lSresults} shows a scatterplots of predicted vs truth $p_T$, where the color of each point corresponds to the log of the relative KDE at that point. Each column of the histogram in (b) is normalized to unity, to better demonstrate the output of the NN for each slice of truth $p_T$.
                                                                                                                              
 \begin{figure}[H]
     \centering
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lS_20/keras_test_pt_scatter.png}}%             
     \subfigure[]{\includegraphics[width=.56\linewidth]{ptReco/higgsTop3lS/keras_test_norm2Dhist.png}}\\                     
-    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for $3lS$ $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernal Density Estimation, and (b) a histogram where each column  has been normalized to one.}
+    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for $3lS$ $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernel Density Estimation, and (b) a histogram where each column  has been normalized to one.}
     \label{fig:pt3lSresults}
 \end{figure}
 
@@ -483,7 +483,7 @@ Figure \ref{fig:pt3lSroc} shows (a) the output of the NN for events with truth $
 \label{subsec:pt3lF}
 %------------------------------------------------------------------------ 
 
-The features listed in \ref{tab:pt3lFfeatures} are used to construct a model for predictin the Higgs $p_T$ for $3lF$ events.
+The features listed in \ref{tab:pt3lFfeatures} are used to construct a model for predicting the Higgs $p_T$ for $3lF$ events.
 
 \begin{table}[H]
 \include{sections/tables/tabNames_pt3lF}
@@ -491,7 +491,7 @@ The features listed in \ref{tab:pt3lFfeatures} are used to construct a model for
   \label{tab:pt3lFfeatures}
 \end{table}
 
-$l_{H0}$ and $l_{H1}$ respresent the two leptons identified by the Higgs reconstruction model as originating from the Higgs, while $l_T$ is the other lepton in the event. The Higgs Reco Score and b-jet Reco Score are the outputs of the Higgs reconstruction algorithm, and b-jet identification algorithm, respectively.
+$l_{H0}$ and $l_{H1}$ represent the two leptons identified by the Higgs reconstruction model as originating from the Higgs, while $l_T$ is the other lepton in the event. The Higgs Reco Score and b-jet Reco Score are the outputs of the Higgs reconstruction algorithm, and b-jet identification algorithm, respectively.
 
 The optimal neural network architecture for this channel is found to consist of 5 hidden layers with 40 nodes each. The inputdata set includes 400,000 events, 10\% of which is used for testing, the other 90\% for training. Training is found to converge after around 150 epochs.
 
@@ -501,7 +501,7 @@ The predicted transverse momentum, as a function of the truth $p_T$, is shown in
     \centering
     \subfigure[]{\includegraphics[width=.48\linewidth]{ptReco/higgsTop3lF/keras_test_pt_scatter.png}}%                      
     \subfigure[]{\includegraphics[width=.56\linewidth]{ptReco/higgsTop3lF/keras_test_norm2Dhist.png}}\\                     
-    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for $3lF$ $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernal Density Estimation, and (b) a histogram where each column  has been normalized to one.}
+    \caption{The regressed Higgs momentum spectrum as a function of the truth $p_T$ for $3lF$ $t\bar{t}H$ events in (a) a scatterplot, where the color of each point represents the log of the point density, based on Gaussian Kernel Density Estimation, and (b) a histogram where each column  has been normalized to one.}
     \label{fig:pt3lFresults}
 \end{figure}
 
